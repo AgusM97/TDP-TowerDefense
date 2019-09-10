@@ -1,19 +1,19 @@
 package juego;
 
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import graficos.MapaGrafico;
+
 public class Mapa {
-	protected JLabel img;
 	protected Entidad[][] matriz;
+	protected MapaGrafico grafico;
 	
 	public Mapa() {
-		img.setIcon(new ImageIcon());
-		img.setBounds(20, 20, 500, 300);
-		img.setVisible(true);
+		matriz = new Entidad[10][6];
+		grafico = new MapaGrafico();
 	}
 	
-	public JLabel getImg() {
-		return img;
+	public JLabel getGrafico() {
+		return grafico.getGrafico();
 	}
 }

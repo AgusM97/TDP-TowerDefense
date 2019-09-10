@@ -8,6 +8,6 @@ public class Juego {
 	
 	public Juego(JFrame gui) {
 		map = new Mapa();
-		gui.add(map.getImg());
+		gui.add(map.getGrafico());
 	}
 }
