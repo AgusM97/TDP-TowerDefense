@@ -40,9 +40,5 @@ public class GUI {
 		frame.setBounds(100, 100, 790, 634);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
-		JLabel MapLabel = new JLabel("");
-		MapLabel.setBounds(10, 11, 46, 14);
-		frame.getContentPane().add(MapLabel);
 	}
 }
