@@ -8,7 +8,9 @@ public class Mapa {
 	protected Entidad[][] matriz;
 	
 	public Mapa() {
-		img.setIcon(new ImageIcon(this.getClass().getResource("/img/forest_bkg.png")));
+		img.setIcon(new ImageIcon(this.getClass().getResource("resources/forest_bkg.png")));
+		img.setBounds(20, 20, 500, 300);
+		img.setVisible(true);
 	}
 	
 	public JLabel getImg() {

@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import juego.Juego;
+
 public class GUI {
 
 	private JFrame frame;
@@ -40,5 +42,7 @@ public class GUI {
 		frame.setBounds(100, 100, 790, 634);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		
+		Juego j= new Juego(frame);
 	}
 }
