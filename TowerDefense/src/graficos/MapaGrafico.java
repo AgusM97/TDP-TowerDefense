@@ -11,6 +11,7 @@ public class MapaGrafico {
 	public MapaGrafico() {
 		grafico = new JLabel(new ImageIcon(this.getClass().getResource("/img/forest_bkg.png")));
 		grafico.setVisible(true);
+		grafico.setBounds(0, 0, width, height);
 	}
 	
 	public JLabel getGrafico() {
