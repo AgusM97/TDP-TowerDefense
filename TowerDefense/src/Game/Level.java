@@ -1,6 +1,6 @@
-package juego;
+package Game;
 
-public class Nivel {
+public class Level {
 	protected float modificador;
 	protected int oleada;
 

@@ -1,4 +1,4 @@
-package juego;
+package Game;
 
 public class Pair {
 	//Atributos de instancia.

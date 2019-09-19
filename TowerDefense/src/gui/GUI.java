@@ -5,7 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import juego.Juego;
+import Game.Game;
 
 public class GUI {
 
@@ -44,6 +44,6 @@ public class GUI {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		Juego j= new Juego(frame);
+		Game j= new Game(frame);
 	}
 }

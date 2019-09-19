@@ -1,6 +1,6 @@
-package juego;
+package Game;
 
-public abstract class Proyectil {
+public abstract class Proyectile {
 	protected Pair posActual;
 	protected float daño;
 	protected String orientacion;
