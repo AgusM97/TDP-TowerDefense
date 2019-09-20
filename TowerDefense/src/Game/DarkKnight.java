@@ -2,9 +2,9 @@ package Game;
 
 import graficos.CaballeroGrafico;
 
-public class Knight extends Tower{
+public class DarkKnight extends Tower{
 
-	public Knight() {
+	public DarkKnight() {
 		grafico = new CaballeroGrafico();
 	}
 }

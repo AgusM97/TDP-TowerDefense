@@ -8,7 +8,7 @@ public class Game {
 	
 	public Game(JFrame gui) {
 		map = new Map();
-		Tower guerrero = new Knight();
+		Tower guerrero = new DarkKnight();
 		gui.add(guerrero.getGrafico());
 		gui.add(map.getGrafico());
 	}
