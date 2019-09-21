@@ -23,3 +23,5 @@
 hs_err_pid*
 /.metadata/
 TowerDefense/.classpath
+.recommenders/caches/identified-project-coordinates.json
+/.recommenders/

@@ -2,11 +2,15 @@ package Game;
 
 import javax.swing.JLabel;
 
-import graficos.TorreGrafico;
+import graphics.TowerGraphic;
 
 public abstract class Tower extends Unit {
 
-	protected TorreGrafico grafico;
+	protected TowerGraphic grafico;
+
+	public Tower(int x, int y) {
+		super(x, y);
+	}
 	
 	public JLabel getGrafico() {
 		return grafico.getGrafico();
