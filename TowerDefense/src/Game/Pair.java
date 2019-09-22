@@ -5,6 +5,9 @@ public class Pair {
 	private int X;
 	private int Y;
 	
+	public Pair() {
+		
+	}
 	//Getters and setters
 	public int getX() {
 		return X;
