@@ -42,6 +42,8 @@ public class GUI {
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 1280, 750);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+		frame.setUndecorated(true);
 		frame.getContentPane().setLayout(null);
 		
 		Game j= new Game(frame);
