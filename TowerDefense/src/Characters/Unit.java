@@ -1,4 +1,6 @@
-package Game;
+package Characters;
+
+import Game.Entity;
 
 public abstract class Unit extends Entity {
 	
@@ -6,12 +8,13 @@ public abstract class Unit extends Entity {
 	protected int range;
 	protected float life;
 	
-	//medidas de una unidad en px
-	protected final static int width = 80;
-	protected final static int height = 80;
+	protected int width;
+	protected int height;
 
 	public Unit(int x, int y) {
-		super(x, y, width, height);
+		super(x, y, 80, 80);
+		width = 80;
+		width = 80;
 	}
 	
 }

@@ -1,6 +1,5 @@
 package Characters;
 
-import Game.Tower;
 import graphics.DarkKnightGraphic;
 
 public class DarkKnight extends Tower{

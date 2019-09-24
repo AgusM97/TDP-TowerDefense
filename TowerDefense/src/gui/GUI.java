@@ -3,13 +3,14 @@ package gui;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 
 import Game.Game;
 
 public class GUI {
 
 	private JFrame frame;
+	private JLayeredPane pane;
 
 	/**
 	 * Launch the application.
@@ -42,10 +43,16 @@ public class GUI {
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 1280, 750);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-		frame.setUndecorated(true);
+		//frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+		//frame.setUndecorated(true);
 		frame.getContentPane().setLayout(null);
 		
-		Game j= new Game(frame);
+		//panel con capas
+		pane = new JLayeredPane();
+		pane.setVisible(true);
+		pane.setBounds(0, 0, 1280, 750);
+		frame.getContentPane().add(pane);
+		
+		Game j= new Game(pane);
 	}
 }

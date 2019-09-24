@@ -1,4 +1,4 @@
-package Game;
+package Characters;
 
 import javax.swing.JLabel;
 
