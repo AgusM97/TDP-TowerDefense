@@ -8,6 +8,7 @@ import Characters.DarkKnight;
 import Characters.Enemy;
 import Characters.Orc;
 import Characters.Tower;
+import gui.GUI;
 
 
 public class Game {
@@ -16,23 +17,27 @@ public class Game {
 	protected LinkedList<Enemy> enemyList;
 	protected LinkedList<Tower> towerList;
 	protected Level level;
-	protected JLayeredPane gui;
+	protected GUI gui;
 	
-	public Game(JLayeredPane pane) {
+	public Game(GUI g) {
 		enemyList = new LinkedList<>();
 		towerList = new LinkedList<>();
 		points=0;
 		map = new Map();
-		gui = pane;
+		gui = g;
 		gui.add(map.getGrafico(), new Integer(0));
 		
 		//test
-		addEnemy(new Orc(1, 0));
-		addEnemy(new Orc(2, 5));
+		addEnemy(new Orc(1));
+		addEnemy(new Orc(2));
+		addEnemy(new Orc(6));
 		addTower(new DarkKnight(6, 4));
 		
-		Thread thread = new ThreadOne(this);
-		thread.start();
+		Thread updater = new UpdaterThread(this);
+		updater.start();
+		
+		Thread movement = new MovementThread(enemyList);
+		movement.start();
 	}
 	
 	public void addEnemy(Enemy e) {
@@ -55,6 +60,6 @@ public class Game {
 				toRemove.add(e);
 			}
 		enemyList.removeAll(toRemove);
-		gui.repaint();
+		gui.update(points);
 	}
 }
