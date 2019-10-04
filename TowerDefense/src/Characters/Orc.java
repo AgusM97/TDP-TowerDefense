@@ -9,7 +9,7 @@ public class Orc extends Enemy{
 		graphic = new OrcGraphic(this, hitbox);
 		points = 100;
 		life = 100;
-		speed = 20;
+		speed = 2;
 	}
 
 }

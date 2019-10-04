@@ -27,17 +27,15 @@ public class Game {
 		gui = g;
 		gui.add(map.getGrafico(), new Integer(0));
 		
-		//test
-		addEnemy(new Orc(1));
-		addEnemy(new Orc(2));
-		addEnemy(new Orc(6));
-		addTower(new DarkKnight(6, 4));
+			//test
+			addEnemy(new Orc(1));
+			addEnemy(new Orc(2));
+			addEnemy(new Orc(6));
+			addTower(new DarkKnight(6, 4));
+			addTower(new DarkKnight(8, 6));
 		
 		Thread updater = new UpdaterThread(this);
 		updater.start();
-		
-		Thread movement = new MovementThread(enemyList);
-		movement.start();
 	}
 	
 	public void addEnemy(Enemy e) {
@@ -51,14 +49,16 @@ public class Game {
 	}
 
 	public void update() {
-		//System.out.println(points);
 		LinkedList<Enemy> toRemove = new LinkedList<>();
-		for(Enemy e: enemyList)
+		for(Enemy e: enemyList) {
 			if(e.isDead()) {
 				points += e.getPoints();
 				gui.remove(e.getGrafico());
 				toRemove.add(e);
 			}
+			else
+				e.move();
+		}
 		enemyList.removeAll(toRemove);
 		gui.update(points);
 	}

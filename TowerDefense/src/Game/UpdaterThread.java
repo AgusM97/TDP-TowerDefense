@@ -11,10 +11,9 @@ public class UpdaterThread extends Thread {
 	
 	public void run() {
 		while(true) {
-			/*try {
-				Thread.sleep(500);
-				System.out.println("running");
-			} catch (InterruptedException e) {e.printStackTrace();	}*/
+			try {
+				Thread.sleep(32); //30fps
+			} catch (InterruptedException e) {e.printStackTrace();	}
 			game.update();
 		}
 	}
