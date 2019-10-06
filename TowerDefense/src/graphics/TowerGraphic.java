@@ -18,7 +18,7 @@ public abstract class TowerGraphic {
 				(new ImageIcon(this.getClass().getResource(idle)).getImage().getScaledInstance((int) hb.getWidth(), (int) hb.getHeight(), Image.SCALE_DEFAULT))
 				);
 		grafico.setVisible(true);
-		grafico.setBounds( (int) hb.getX() * 80, (int)  hb.getY() * 80, (int) hb.getWidth(), (int) hb.getHeight());
+		grafico.setBounds( hb.x,  hb.y, (int) hb.getWidth(), (int) hb.getHeight());
 	}
 
 	public JLabel getGrafico() {

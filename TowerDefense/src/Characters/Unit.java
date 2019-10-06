@@ -11,8 +11,15 @@ public abstract class Unit extends Entity {
 	
 	protected Proyectile proyectile;
 
+	public abstract boolean isInRange(Unit u);
+	
 	public Unit(int x, int y) {
 		super(x, y, 80, 80);
+	}
+
+	
+	public boolean isDead() {
+		return life <= 0;
 	}
 	
 }

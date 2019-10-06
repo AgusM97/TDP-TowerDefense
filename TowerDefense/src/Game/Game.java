@@ -50,14 +50,28 @@ public class Game {
 
 	public void update() {
 		LinkedList<Enemy> toRemove = new LinkedList<>();
+		
 		for(Enemy e: enemyList) {
+			
 			if(e.isDead()) {
 				points += e.getPoints();
 				gui.remove(e.getGrafico());
 				toRemove.add(e);
 			}
-			else
-				e.move();
+			
+			else {
+				for(Tower t: towerList) {
+					System.out.println("recorriendo lista torres " + e.getX() + e.getY());
+					if((e.getY() == t.getY()) && e.isInRange(t)) {
+						e.startAttacking();
+						break;
+					}
+				}
+				if(!e.isAttacking())
+					e.move();
+							
+						
+			}
 		}
 		enemyList.removeAll(toRemove);
 		gui.update(points);

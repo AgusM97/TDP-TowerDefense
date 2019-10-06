@@ -1,6 +1,7 @@
 package Game;
 
 import javax.swing.JLabel;
+
 import Characters.Enemy;
 import Characters.Tower;
 import graphics.MapGraphic;

@@ -28,7 +28,7 @@ public class EnemyGraphic {
 				(new ImageIcon(this.getClass().getResource(idle)).getImage().getScaledInstance((int) hb.getWidth(), (int) hb.getHeight(), Image.SCALE_DEFAULT))
 				);
 		graphic.setVisible(true);
-		graphic.setBounds( hb.x * 80,  hb.y * 80, (int) hb.getWidth(), (int) hb.getHeight());
+		graphic.setBounds( hb.x,  hb.y, (int) hb.getWidth(), (int) hb.getHeight());
 		
 		//eliminar enemigo en clic (sprint 3)
 		graphic.addMouseListener(new MouseAdapter() {
