@@ -33,6 +33,7 @@ public class Game {
 			addEnemy(new Orc(6));
 			addTower(new DarkKnight(6, 4));
 			addTower(new DarkKnight(8, 6));
+			addTower(new DarkKnight(9, 1));
 		
 		Thread updater = new UpdaterThread(this);
 		updater.start();
@@ -51,23 +52,26 @@ public class Game {
 	public void update() {
 		LinkedList<Enemy> toRemove = new LinkedList<>();
 		
-		for(Enemy e: enemyList) {
+		for(Enemy e: enemyList) { //recorro todos los enemigos
 			
-			if(e.isDead()) {
+			if(e.isDead()) { //si el enemigo no tiene mas vida lo elimina
 				points += e.getPoints();
 				gui.remove(e.getGrafico());
 				toRemove.add(e);
 			}
 			
-			else {
+			else { //sino recorro la lista de torres
 				for(Tower t: towerList) {
-					System.out.println("recorriendo lista torres " + e.getX() + e.getY());
-					if((e.getY() == t.getY()) && e.isInRange(t)) {
+					/*
+					 * si la torre esta dentro del rango
+					 * del enemigo, este pasa a "modo ataque"
+					 */
+					if(e.isInRange(t)) {
 						e.startAttacking();
 						break;
 					}
 				}
-				if(!e.isAttacking())
+				if(!e.isAttacking()) //si no esta atacando se mueve
 					e.move();
 							
 						
