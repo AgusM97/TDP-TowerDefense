@@ -4,10 +4,7 @@ import java.util.LinkedList;
 
 import javax.swing.JLayeredPane;
 
-import Characters.DarkKnight;
-import Characters.Enemy;
-import Characters.Orc;
-import Characters.Tower;
+import Characters.*;
 import gui.GUI;
 
 
@@ -18,7 +15,7 @@ public class Game {
 	protected LinkedList<Tower> towerList;
 	protected Level level;
 	protected GUI gui;
-	
+
 	public Game(GUI g) {
 		enemyList = new LinkedList<>();
 		towerList = new LinkedList<>();
@@ -26,14 +23,6 @@ public class Game {
 		map = new Map();
 		gui = g;
 		gui.add(map.getGrafico(), new Integer(0));
-		
-			//test
-			addEnemy(new Orc(1));
-			addEnemy(new Orc(2));
-			addEnemy(new Orc(6));
-			addTower(new DarkKnight(6, 4));
-			addTower(new DarkKnight(8, 6));
-			addTower(new DarkKnight(9, 1));
 		
 		Thread updater = new UpdaterThread(this);
 		updater.start();
@@ -43,7 +32,7 @@ public class Game {
 		enemyList.add(e);
 		gui.add(e.getGrafico(), new Integer(1));
 	}
-	
+
 	public void addTower(Tower t) {
 		towerList.add(t);
 		gui.add(t.getGrafico(), new Integer(1));
@@ -54,8 +43,8 @@ public class Game {
 		
 		for(Enemy e: enemyList) { //recorro todos los enemigos
 			
-			if(e.isDead()) { //si el enemigo no tiene mas vida lo elimina
-				points += e.getPoints();
+			if(e.isDead() || e.getX() >= 880) { //si el enemigo no tiene mas vida o llego al final lo elimina
+				if(e.isDead()) points += e.getPoints();
 				gui.remove(e.getGrafico());
 				toRemove.add(e);
 			}
