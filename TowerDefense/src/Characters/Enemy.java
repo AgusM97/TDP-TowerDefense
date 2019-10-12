@@ -33,6 +33,7 @@ public abstract class Enemy extends Unit{
 	
 	public void startAttacking() {
 		attacking = true;
+		graphic.startAttacking();
 	}
 	
 	public void stopAttacking() {

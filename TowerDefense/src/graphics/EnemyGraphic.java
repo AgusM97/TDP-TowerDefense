@@ -12,21 +12,22 @@ import Characters.Enemy;
 
 public class EnemyGraphic {
 	protected JLabel graphic;
-	protected String idle;
-	protected String move;
-	protected String attack;
+	protected ImageIcon idle;
+	protected ImageIcon move;
+	protected ImageIcon attack;
+	protected Rectangle hitbox;
 	
 	protected Enemy enemy;
 	
-	
 
-	public EnemyGraphic(Enemy e, Rectangle hb, String idle) {
+	public EnemyGraphic(Enemy e, Rectangle hb, String moveS, String attackS) {
 		enemy = e;
+		hitbox = hb;
 
+		move = new ImageIcon (new ImageIcon(this.getClass().getResource(moveS)).getImage().getScaledInstance((int) hitbox.getWidth(), (int) hitbox.getHeight(), Image.SCALE_DEFAULT));
+		attack = new ImageIcon (new ImageIcon(this.getClass().getResource(attackS)).getImage().getScaledInstance((int) hitbox.getWidth(), (int) hitbox.getHeight(), Image.SCALE_DEFAULT));
 		
-		graphic = new JLabel(new ImageIcon
-				(new ImageIcon(this.getClass().getResource(idle)).getImage().getScaledInstance((int) hb.getWidth(), (int) hb.getHeight(), Image.SCALE_DEFAULT))
-				);
+		graphic = new JLabel();
 		graphic.setVisible(true);
 		graphic.setBounds( hb.x,  hb.y, (int) hb.getWidth(), (int) hb.getHeight());
 		
@@ -40,6 +41,14 @@ public class EnemyGraphic {
 	
 	public JLabel getGrafico() {
 		return graphic;
+	}
+
+	public void startWalking() {
+		graphic.setIcon(move);
+	}
+	
+	public void startAttacking() {
+		graphic.setIcon(attack);
 	}
 
 }
