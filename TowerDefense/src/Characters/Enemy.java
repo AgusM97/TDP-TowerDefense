@@ -48,7 +48,7 @@ public abstract class Enemy extends Unit{
 	}
 
 	public boolean isInRange(Unit u) {
-		return (getY() == u.getY()) && (getX() + range >= u.getX()); //misma fila y dentro del rango
+		return (getY() == u.getY()) && (getX() + range >= u.getX()) && (getX() < u.getX()); //misma fila y dentro del rango
 	}
 	
 	public void move() {
