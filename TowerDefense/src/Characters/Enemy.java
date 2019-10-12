@@ -14,7 +14,7 @@ public abstract class Enemy extends Unit{
 	protected int points, coins, speed;
 	
 	public Enemy(int y) {
-		super(0, y);
+		super(-80, y);
 		visitor = new EnemyVisitor(this);
 		attacking = false;
 	}

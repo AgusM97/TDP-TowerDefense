@@ -43,7 +43,7 @@ public class Game {
 		
 		for(Enemy e: enemyList) { //recorro todos los enemigos
 			
-			if(e.isDead() || e.getX() >= 880) { //si el enemigo no tiene mas vida o llego al final lo elimina
+			if(e.isDead() || e.getX() >= 960) { //si el enemigo no tiene mas vida o llego al final lo elimina
 				if(e.isDead()) points += e.getPoints();
 				gui.remove(e.getGrafico());
 				toRemove.add(e);
