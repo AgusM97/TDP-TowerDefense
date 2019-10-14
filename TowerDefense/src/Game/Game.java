@@ -2,6 +2,7 @@ package Game;
 
 import java.util.LinkedList;
 import Characters.*;
+import Proyectile.Proyectile;
 import gui.GUI;
 
 
@@ -10,12 +11,14 @@ public class Game {
 	protected int points;
 	protected LinkedList<Enemy> enemyList;
 	protected LinkedList<Tower> towerList;
+	protected LinkedList<Proyectile> proyectileList;
 	protected Level level;
 	protected GUI gui;
 
 	public Game(GUI g) {
 		enemyList = new LinkedList<>();
 		towerList = new LinkedList<>();
+		proyectileList = new LinkedList<>();
 		points=0;
 		map = new Map();
 		gui = g;
