@@ -1,7 +1,7 @@
 package Characters;
 
 import Game.Entity;
-import Game.Proyectile;
+import Proyectile.Proyectile;
 
 public abstract class Unit extends Entity {
 	
