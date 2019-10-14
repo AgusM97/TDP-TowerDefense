@@ -1,11 +1,11 @@
 package graphics;
 
-import java.awt.Rectangle;
+import Characters.Archer;
 
 public class ArcherGraphic extends TowerGraphic{
 	
-	public ArcherGraphic(Rectangle hb) {
-		super(hb, "/gif/ArcherIdle.gif");
+	public ArcherGraphic(Archer t) {
+		super(t, "/gif/Archer_idle.gif", "/gif/Archer_attack.gif");
 	}
 
 }

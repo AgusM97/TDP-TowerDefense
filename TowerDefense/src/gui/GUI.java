@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import Characters.*;
@@ -20,10 +21,10 @@ import java.awt.event.ActionEvent;
 public class GUI {
 
 	private JFrame frame;
-	private JLayeredPane pane;
+	private JLayeredPane mapPane;
+	private JPanel menuPane;
 	private JTextField pointsText;
 	private Game game;
-	private JButton btnAddArcher;
 
 	/**
 	 * Launch the application.
@@ -61,58 +62,66 @@ public class GUI {
 		frame.getContentPane().setLayout(null);
 		
 		//panel con capas
-		pane = new JLayeredPane();
-		pane.setVisible(true);
-		pane.setBounds(0, 0, 1280, 750);
-		frame.getContentPane().add(pane);
+		mapPane = new JLayeredPane();
+		mapPane.setVisible(true);
+		mapPane.setBounds(0, 0, 960, 720);
+		frame.getContentPane().add(mapPane);
+		
+		menuPane = new JPanel();
+		menuPane.setVisible(true);
+		menuPane.setBounds(961, 0, 320, 720);
+		frame.getContentPane().add(menuPane);
+		menuPane.setLayout(null);
+		
+		
 		
 		pointsText=new JTextField();
 		pointsText.setText("Points: 0");
-		pointsText.setBounds(1100, 50, 100, 20);
+		pointsText.setBounds(77, 60, 166, 20);
 		pointsText.setEditable(false);
 		pointsText.setColumns(20);
-		pane.add(pointsText);
+		menuPane.add(pointsText);
 		
 		JButton btnAddOrc = new JButton("Add Orc");
+		btnAddOrc.setBounds(77, 501, 144, 50);
+		menuPane.add(btnAddOrc);
 		btnAddOrc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Random r = new Random();
 				game.addEnemy(new Orc(r.nextInt(7) + 1));
 			}
 		});
-		btnAddOrc.setBounds(1065, 486, 144, 50);
-		pane.add(btnAddOrc);
 		
-		btnAddArcher = new JButton("Add Archer");
+		JButton btnAddArcher = new JButton("Add Archer");
+		btnAddArcher.setBounds(77, 562, 144, 50);
+		menuPane.add(btnAddArcher);
 		btnAddArcher.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnAddArcher.setEnabled(false);
-				pane.addMouseListener( new MouseAdapter() {
+				mapPane.addMouseListener( new MouseAdapter() {
 				    public void mousePressed(MouseEvent e) {
 				        game.addTower(new Archer(e.getX() / 80, e.getY() / 80));
 						btnAddArcher.setEnabled(true);
-				        pane.removeMouseListener(this);
+				        mapPane.removeMouseListener(this);
 				    }
 				});
 			}
 		});
-		btnAddArcher.setBounds(1065, 547, 144, 50);
-		pane.add(btnAddArcher);
 		
 		game= new Game(this);
 	}
 	
 	public void add(Component c, Integer i) {
-		pane.add(c, i);
+		mapPane.add(c, i);
 	}
 	
 	public void remove(Component c) {
-		pane.remove(c);
+		mapPane.remove(c);
 	}
 	
 	public void update(int points) {
 		pointsText.setText("Points: "+points);
-		pane.revalidate();
-		pane.repaint();
+		mapPane.revalidate();
+		mapPane.repaint();
 	}
 }

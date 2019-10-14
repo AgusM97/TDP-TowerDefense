@@ -1,13 +1,10 @@
 package graphics;
 
-import java.awt.Rectangle;
-
-import Characters.Enemy;
+import Characters.Orc;
 
 public class OrcGraphic extends EnemyGraphic {
 	
-	public OrcGraphic(Enemy e, Rectangle hb) {
-		super(e, hb, "/gif/OrcMovement.gif", "/gif/OrcAttack.gif");
-		startWalking();
+	public OrcGraphic(Orc e) {
+		super(e, "/gif/Orc_movement.gif", "/gif/Orc_attack.gif");
 	}
 }

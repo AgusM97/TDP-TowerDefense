@@ -1,9 +1,6 @@
 package Game;
 
 import java.util.LinkedList;
-
-import javax.swing.JLayeredPane;
-
 import Characters.*;
 import gui.GUI;
 
@@ -39,8 +36,10 @@ public class Game {
 	}
 
 	public void update() {
-		LinkedList<Enemy> toRemove = new LinkedList<>();
 		
+		LinkedList<Enemy> toRemove = new LinkedList<>();
+
+		boolean towerInRange;
 		for(Enemy e: enemyList) { //recorro todos los enemigos
 			
 			if(e.isDead() || e.getX() >= 960) { //si el enemigo no tiene mas vida o llego al final lo elimina
@@ -50,23 +49,46 @@ public class Game {
 			}
 			
 			else { //sino recorro la lista de torres
+				towerInRange = false;
 				for(Tower t: towerList) {
-					/*
-					 * si la torre esta dentro del rango
-					 * del enemigo, este pasa a "modo ataque"
-					 */
+					
+					 // si la torre esta dentro del rango
+					 // del enemigo, este pasa a "modo ataque"
+					 
 					if(e.isInRange(t)) {
 						e.startAttacking();
+						towerInRange = true;
 						break;
 					}
 				}
-				if(!e.isAttacking()) //si no esta atacando se mueve
+				if(!e.isAttacking())//si no esta atacando se mueve
 					e.move();
-							
-						
+				else if(!towerInRange) {
+					e.stopAttacking();
+					e.move();
+				}
+			}
+			
+		}
+		
+		enemyList.removeAll(toRemove);
+
+		boolean enemyInRange;
+		for(Tower t:towerList) {
+			enemyInRange = false;
+			for(Enemy e: enemyList)
+				if(t.isInRange(e)) {
+					t.startAttacking();
+					enemyInRange = true;
+					break;
+				}
+			if(!enemyInRange && t.isAttacking()) {
+				t.stopAttacking();
 			}
 		}
-		enemyList.removeAll(toRemove);
+		
 		gui.update(points);
+		
+		
 	}
 }

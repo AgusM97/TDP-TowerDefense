@@ -1,10 +1,10 @@
 package graphics;
 
-import java.awt.Rectangle;
+import Characters.Tower;
 
 public class DarkKnightGraphic extends TowerGraphic{
 
-	public DarkKnightGraphic(Rectangle hb) {
-		super(hb, "/gif/Dark-Knight-gif-idle-front.gif");
+	public DarkKnightGraphic(Tower t) {
+		super(t, "/gif/DarkKnight_idle.gif", "/gif/DarkKnight_idle.gif");
 	}
 }

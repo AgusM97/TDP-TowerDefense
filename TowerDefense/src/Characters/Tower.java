@@ -8,20 +8,36 @@ import visitor.Visitor;
 
 public abstract class Tower extends Unit {
 
-	protected TowerGraphic grafico;
+	protected TowerGraphic graphic;
 	protected TowerVisitor visitor;
+	protected boolean attacking;
 
 	public Tower(int x, int y) {
 		super(x, y);
 		visitor = new TowerVisitor(this);
+		attacking = false;
 	}
 	
 	public JLabel getGrafico() {
-		return grafico.getGrafico();
+		return graphic.getGrafico();
 	}
-
+	
+	public boolean isAttacking() {
+		return attacking;
+	}
+	
+	public void startAttacking() {
+		attacking = true;
+		graphic.startAttacking();
+	}
+	
+	public void stopAttacking() {
+		attacking = false;
+		graphic.stopAttacking();
+	}
+	
 	public boolean isInRange(Unit u) {
-		return (getY() - range >= u.getY());
+		return (getY() == u.getY()) && (getX() - range <= u.getX()) && (getX() > u.getX());
 	}
 	
 	public void accept(Visitor v) {

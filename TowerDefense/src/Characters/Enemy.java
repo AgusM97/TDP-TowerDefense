@@ -38,6 +38,7 @@ public abstract class Enemy extends Unit{
 	
 	public void stopAttacking() {
 		attacking = false;
+		graphic.startWalking();
 	}
 
 	public void accept(Visitor v) {

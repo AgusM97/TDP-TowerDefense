@@ -6,11 +6,11 @@ public class Orc extends Enemy{
 
 	public Orc(int y) {
 		super(y * 80);
-		graphic = new OrcGraphic(this, hitbox);
+		graphic = new OrcGraphic(this);
 		points = 100;
 		life = 100;
 		speed = 2;
-		range = 80;
+		range = 81;
 	}
 
 }
