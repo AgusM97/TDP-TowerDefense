@@ -21,4 +21,6 @@ public abstract class Unit extends Entity {
 		return life <= 0;
 	}
 	
+	
+	
 }
