@@ -12,7 +12,6 @@ public abstract class Entity {
 		hitbox = new Rectangle(x, y, width, height);
 	}
 
-	public abstract void accept(Visitor v);
 	
 
 	public int getY() {

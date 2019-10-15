@@ -20,7 +20,11 @@ public abstract class Enemy extends Unit{
 	}
 	
 	public JLabel getGrafico() {
-		return graphic.getGrafico();
+		return graphic.getJLabel();
+	}
+	
+	public Visitor getVisitor() {
+		return visitor;
 	}
 
 	public int getPoints() {
@@ -55,6 +59,6 @@ public abstract class Enemy extends Unit{
 	
 	public void move() {
 		hitbox.setLocation(hitbox.x + speed, hitbox.y);
-		graphic.getGrafico().setLocation(graphic.getGrafico().getX() + speed, graphic.getGrafico().getY());
+		graphic.getJLabel().setLocation(graphic.getJLabel().getX() + speed, graphic.getJLabel().getY());
 	}
 }

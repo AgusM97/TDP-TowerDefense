@@ -19,7 +19,11 @@ public abstract class Tower extends Unit {
 	}
 	
 	public JLabel getGrafico() {
-		return graphic.getGrafico();
+		return graphic.getJLabel();
+	}
+	
+	public Visitor getVisitor() {
+		return visitor;
 	}
 	
 	public boolean isAttacking() {

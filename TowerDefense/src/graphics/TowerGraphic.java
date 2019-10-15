@@ -5,7 +5,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import Characters.Tower;
 
-public abstract class TowerGraphic {
+public class TowerGraphic {
 	protected JLabel graphic;
 	protected ImageIcon idle;
 	protected ImageIcon attack;
@@ -24,7 +24,7 @@ public abstract class TowerGraphic {
 		this.stopAttacking();
 	}
 
-	public JLabel getGrafico() {
+	public JLabel getJLabel() {
 		return graphic;
 	}
 	

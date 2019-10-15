@@ -1,12 +1,12 @@
 package Characters;
 
-import graphics.DarkKnightGraphic;
+import graphics.TowerGraphic;
 
 public class DarkKnight extends Tower{
 
 	public DarkKnight(int x, int y) {
 		super(x * 80, y * 80);
-		graphic = new DarkKnightGraphic(this);
+		graphic = new TowerGraphic(this, "/gif/DarkKnight_idle.gif", "/gif/DarkKnight_idle.gif");
 	}
 
 }

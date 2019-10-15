@@ -2,6 +2,7 @@ package Characters;
 
 import Game.Entity;
 import Proyectile.Proyectile;
+import visitor.Visitor;
 
 public abstract class Unit extends Entity {
 	
@@ -14,6 +15,8 @@ public abstract class Unit extends Entity {
 		super(x, y, 80, 80);
 	}
 
+	public abstract void accept(Visitor v);
+	public abstract Visitor getVisitor();
 
 	public abstract boolean isInRange(Unit u);
 	

@@ -35,7 +35,7 @@ public class EnemyGraphic {
 		});
 	}
 	
-	public JLabel getGrafico() {
+	public JLabel getJLabel() {
 		return graphic;
 	}
 
