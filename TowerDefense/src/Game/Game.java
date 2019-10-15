@@ -12,6 +12,7 @@ public class Game {
 	protected int points;
 	protected LinkedList<Enemy> enemyList;
 	protected LinkedList<Tower> towerList;
+	protected LinkedList<Unit> unitList;
 	protected LinkedList<Proyectile> proyectileList;
 	protected Level level;
 	protected GUI gui;
@@ -21,6 +22,7 @@ public class Game {
 	private Game(GUI g) {
 		enemyList = new LinkedList<>();
 		towerList = new LinkedList<>();
+		unitList = new LinkedList<>();
 		proyectileList = new LinkedList<>();
 		points=0;
 		map = new Map();
@@ -41,12 +43,23 @@ public class Game {
 	
 	public void addEnemy(Enemy e) {
 		enemyList.add(e);
+		unitList.add(e);
 		gui.add(e.getGraphic(), new Integer(1));
 	}
 
 	public void addTower(Tower t) {
-		towerList.add(t);
-		gui.add(t.getGraphic(), new Integer(1));
+		boolean posAvailable=true;
+		for(Unit u:unitList) {
+			if(u.intersects(t)) {
+				posAvailable = false;
+				break;
+			}
+		}
+		if(posAvailable) {
+			towerList.add(t);
+			unitList.add(t);
+			gui.add(t.getGraphic(), new Integer(1));
+		}
 	}
 
 	public void addProyectile(Proyectile p) {
@@ -118,9 +131,9 @@ public class Game {
 		for(Proyectile p:proyectileList) {
 			p.move();
 			
-			for(Enemy e:enemyList) {
-				if(p.intersects(e))
-					e.accept(p.getVisitor());
+			for(Unit u:enemyList) {
+				if(p.intersects(u))
+					u.accept(p.getVisitor());
 			}
 			
 			if(p.isSpent() || p.maxRange()) {
