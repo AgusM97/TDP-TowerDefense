@@ -7,6 +7,7 @@ import gui.GUI;
 
 
 public class Game {
+	protected static Game instance = null;
 	protected Map map;
 	protected int points;
 	protected LinkedList<Enemy> enemyList;
@@ -15,7 +16,9 @@ public class Game {
 	protected Level level;
 	protected GUI gui;
 
-	public Game(GUI g) {
+	
+	//SINGLETON
+	private Game(GUI g) {
 		enemyList = new LinkedList<>();
 		towerList = new LinkedList<>();
 		proyectileList = new LinkedList<>();
@@ -24,30 +27,42 @@ public class Game {
 		gui = g;
 		gui.add(map.getGrafico(), new Integer(0));
 		
-		Thread updater = new UpdaterThread(this);
+		Thread updater = new UpdaterThread();
 		updater.start();
+	}
+	
+	public static void startNewGame(GUI g) {
+		instance = new Game(g);
+	}
+	
+	public static Game getInstance() {
+		return instance;
 	}
 	
 	public void addEnemy(Enemy e) {
 		enemyList.add(e);
-		gui.add(e.getGrafico(), new Integer(1));
+		gui.add(e.getGraphic(), new Integer(1));
 	}
 
 	public void addTower(Tower t) {
 		towerList.add(t);
-		gui.add(t.getGrafico(), new Integer(1));
+		gui.add(t.getGraphic(), new Integer(1));
+	}
+
+	public void addProyectile(Proyectile p) {
+		proyectileList.add(p);
+		gui.add(p.getGraphic(), new Integer(2));
 	}
 
 	public void update() {
 		
 		LinkedList<Enemy> toRemove = new LinkedList<>();
-
 		boolean towerInRange;
 		for(Enemy e: enemyList) { //recorro todos los enemigos
 			
 			if(e.isDead() || e.getX() >= 960) { //si el enemigo no tiene mas vida o llego al final lo elimina
 				if(e.isDead()) points += e.getPoints();
-				gui.remove(e.getGrafico());
+				gui.remove(e.getGraphic());
 				toRemove.add(e);
 			}
 			
@@ -71,17 +86,18 @@ public class Game {
 					e.move();
 				}
 			}
-			
 		}
-		
 		enemyList.removeAll(toRemove);
 
+		
+		
 		boolean enemyInRange;
 		for(Tower t:towerList) {
 			enemyInRange = false;
 			for(Enemy e: enemyList)
 				if(t.isInRange(e)) {
-					t.startAttacking();
+					if(!t.isAttacking())
+						t.startAttacking();
 					enemyInRange = true;
 					break;
 				}
@@ -91,7 +107,29 @@ public class Game {
 		}
 		
 		gui.update(points);
-		
-		
 	}
+
+	
+	
+	public void proyectileUpdate() {
+		
+		LinkedList<Proyectile> toRemove = new LinkedList<>();
+		
+		for(Proyectile p:proyectileList) {
+			p.move();
+			
+			for(Enemy e:enemyList) {
+				if(p.intersects(e))
+					e.accept(p.getVisitor());
+			}
+			
+			if(p.isSpent() || p.maxRange()) {
+				gui.remove(p.getGraphic());
+				toRemove.add(p);
+			}
+		}
+		
+		proyectileList.removeAll(toRemove);
+	}
+
 }

@@ -108,7 +108,8 @@ public class GUI {
 			}
 		});
 		
-		game= new Game(this);
+		Game.startNewGame(this);
+		game = Game.getInstance();
 	}
 	
 	public void add(Component c, Integer i) {

@@ -2,6 +2,7 @@ package Characters;
 
 import javax.swing.JLabel;
 
+import Proyectile.Proyectile;
 import graphics.EnemyGraphic;
 import visitor.EnemyVisitor;
 import visitor.Visitor;
@@ -19,7 +20,7 @@ public abstract class Enemy extends Unit{
 		attacking = false;
 	}
 	
-	public JLabel getGrafico() {
+	public JLabel getGraphic() {
 		return graphic.getJLabel();
 	}
 	
@@ -60,5 +61,13 @@ public abstract class Enemy extends Unit{
 	public void move() {
 		hitbox.setLocation(hitbox.x + speed, hitbox.y);
 		graphic.getJLabel().setLocation(graphic.getJLabel().getX() + speed, graphic.getJLabel().getY());
+	}
+	
+	
+	
+	
+	//AUX CAMBIAR
+	public Proyectile attack() {
+		return null;
 	}
 }

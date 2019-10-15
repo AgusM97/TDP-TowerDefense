@@ -18,7 +18,7 @@ public abstract class Tower extends Unit {
 		attacking = false;
 	}
 	
-	public JLabel getGrafico() {
+	public JLabel getGraphic() {
 		return graphic.getJLabel();
 	}
 	
@@ -33,6 +33,8 @@ public abstract class Tower extends Unit {
 	public void startAttacking() {
 		attacking = true;
 		graphic.startAttacking();
+		timer = new TimerThread(this);
+		timer.start(); 
 	}
 	
 	public void stopAttacking() {

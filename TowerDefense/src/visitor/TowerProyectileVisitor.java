@@ -2,21 +2,22 @@ package visitor;
 
 import Characters.Enemy;
 import Characters.Tower;
-import Proyectile.Proyectile;
+import Proyectile.TowerProyectile;
 
 public class TowerProyectileVisitor extends Visitor {
-
-
-	@Override
-	public void visit(Tower t) {
-		// TODO Auto-generated method stub
-		
+	protected TowerProyectile p;
+	
+	public TowerProyectileVisitor(TowerProyectile p) {
+		this.p = p;
 	}
 
-	@Override
-	public void visit(Enemy t) {
-		// TODO Auto-generated method stub
-		
+	public void visit(Tower t) {
+		//no hace nada
+	}
+
+	public void visit(Enemy e) {
+		e.receiveDamage(p.getDamage());
+		p.setSpent();
 	}
 
 }

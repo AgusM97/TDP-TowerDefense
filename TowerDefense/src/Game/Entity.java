@@ -2,8 +2,6 @@ package Game;
 
 import java.awt.*;
 
-import visitor.Visitor;
-
 public abstract class Entity {
 	
 	protected Rectangle hitbox; //rectangulo tiene pos. actual y dimensiones
@@ -28,5 +26,9 @@ public abstract class Entity {
 	
 	public int getHeight() {
 		return hitbox.height;
+	}
+	
+	public boolean intersects(Entity e) {
+		return hitbox.intersects(e.getX(), e.getY(), e.getWidth(), e.getHeight());
 	}
 }
