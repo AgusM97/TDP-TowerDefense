@@ -4,14 +4,13 @@ import java.util.LinkedList;
 import Characters.*;
 import Proyectile.Proyectile;
 import gui.GUI;
+import gui.MapPanel;
 
 
 public class Game {
 	protected static Game instance = null;
 	protected Map map;
 	protected int points;
-	protected LinkedList<Enemy> enemyList;
-	protected LinkedList<Tower> towerList;
 	protected LinkedList<Unit> unitList;
 	protected LinkedList<Proyectile> proyectileList;
 	protected Level level;
@@ -20,8 +19,6 @@ public class Game {
 	
 	//SINGLETON
 	private Game(GUI g) {
-		enemyList = new LinkedList<>();
-		towerList = new LinkedList<>();
 		unitList = new LinkedList<>();
 		proyectileList = new LinkedList<>();
 		points=0;
@@ -41,8 +38,11 @@ public class Game {
 		return instance;
 	}
 	
+	public void addPoints(int p) {
+		points += p;
+	}
+	
 	public void addEnemy(Enemy e) {
-		enemyList.add(e);
 		unitList.add(e);
 		gui.add(e.getGraphic(), new Integer(1));
 	}
@@ -56,7 +56,6 @@ public class Game {
 			}
 		}
 		if(posAvailable) {
-			towerList.add(t);
 			unitList.add(t);
 			gui.add(t.getGraphic(), new Integer(1));
 		}
@@ -67,58 +66,39 @@ public class Game {
 		gui.add(p.getGraphic(), new Integer(2));
 	}
 
+	
+	
 	public void update() {
 		
-		LinkedList<Enemy> toRemove = new LinkedList<>();
-		boolean towerInRange;
-		for(Enemy e: enemyList) { //recorro todos los enemigos
-			
-			if(e.isDead() || e.getX() >= 960) { //si el enemigo no tiene mas vida o llego al final lo elimina
-				if(e.isDead()) points += e.getPoints();
-				gui.remove(e.getGraphic());
-				toRemove.add(e);
+		LinkedList<Unit> toRemove = new LinkedList<>();
+		
+		for(Unit u1:unitList) {
+			if(u1.getLife() <= 0) { //unidad esta muerta y se debe remover
+				u1.die();
+				MapPanel.getInstance().remove(u1.getGraphic());
+				toRemove.add(u1);
 			}
 			
-			else { //sino recorro la lista de torres
-				towerInRange = false;
-				for(Tower t: towerList) {
-					
-					 // si la torre esta dentro del rango
-					 // del enemigo, este pasa a "modo ataque"
-					 
-					if(e.isInRange(t)) {
-						e.startAttacking();
-						towerInRange = true;
-						break;
+			else {
+				for(Unit u2:unitList) {
+					if(u1.isInRange(u2)) {
+						u2.accept(u1.getVisitor());
+						if(u1.hasOpponentInRange())
+							break;
 					}
 				}
-				if(!e.isAttacking())//si no esta atacando se mueve
-					e.move();
-				else if(!towerInRange) {
-					e.stopAttacking();
-					e.move();
-				}
-			}
-		}
-		enemyList.removeAll(toRemove);
+				
+				if(!u1.hasOpponentInRange() && u1.isAttacking())
+					u1.stopAttacking();
+				
+				if(!u1.isAttacking())
+					u1.move();
 
-		
-		
-		boolean enemyInRange;
-		for(Tower t:towerList) {
-			enemyInRange = false;
-			for(Enemy e: enemyList)
-				if(t.isInRange(e)) {
-					if(!t.isAttacking())
-						t.startAttacking();
-					enemyInRange = true;
-					break;
-				}
-			if(!enemyInRange && t.isAttacking()) {
-				t.stopAttacking();
+				u1.setOpponentInRange(false); //resetea el valor para el prox recorrido
 			}
 		}
 		
+		unitList.removeAll(toRemove);
 		gui.update(points);
 	}
 
@@ -131,7 +111,7 @@ public class Game {
 		for(Proyectile p:proyectileList) {
 			p.move();
 			
-			for(Unit u:enemyList) {
+			for(Unit u:unitList) {
 				if(p.intersects(u))
 					u.accept(p.getVisitor());
 			}

@@ -11,16 +11,12 @@ public class TowerVisitor extends Visitor {
 		this.tower = tower;
 	}
 
-	@Override
-	public void visit(Tower t) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void visit(Tower t) {}
 
-	@Override
-	public void visit(Enemy t) {
-		// TODO Auto-generated method stub
-		
+	public void visit(Enemy e) {
+		if(!tower.isAttacking())
+			tower.startAttacking();
+		tower.setOpponentInRange(true);
 	}
 
 

@@ -11,9 +11,10 @@ public abstract class Tower extends Unit {
 	protected TowerGraphic graphic;
 	protected TowerVisitor visitor;
 	protected boolean attacking;
+	protected int cost;
 
-	public Tower(int x, int y) {
-		super(x, y);
+	public Tower(int x, int y, int damage, int range, int life, int cost) {
+		super(x, y, damage, range, life);
 		visitor = new TowerVisitor(this);
 		attacking = false;
 	}
@@ -50,4 +51,9 @@ public abstract class Tower extends Unit {
 		v.visit(this);
 	}
 
+	public void die() {
+		attacking = false;
+	}
+	
+	public void move() {}
 }

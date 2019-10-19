@@ -6,6 +6,7 @@ import Proyectile.Proyectile;
 import graphics.EnemyGraphic;
 import visitor.EnemyVisitor;
 import visitor.Visitor;
+import Game.Game;
 
 public abstract class Enemy extends Unit{
 
@@ -14,8 +15,11 @@ public abstract class Enemy extends Unit{
 	protected boolean attacking;
 	protected int points, coins, speed;
 	
-	public Enemy(int y) {
-		super(-80, y);
+	public Enemy(int y, int damage, int range, int life, int points, int coins, int speed) {
+		super(-100, y, damage, range, life);
+		this.points = points;
+		this.coins = coins;
+		this.speed = speed;
 		visitor = new EnemyVisitor(this);
 		attacking = false;
 	}
@@ -51,11 +55,12 @@ public abstract class Enemy extends Unit{
 	}
 	
 	public void die() {
-		life = 0;
+		attacking = false;
+		Game.getInstance().addPoints(this.points);
 	}
 
 	public boolean isInRange(Unit u) {
-		return (getY() == u.getY()) && (getX() + range >= u.getX()) && (getX() < u.getX()); //misma fila y dentro del rango
+		return (getY() == u.getY()) && (getX() + getWidth() + range >= u.getX()) && (getX() < u.getX()); //misma fila y dentro del rango
 	}
 	
 	public void move() {
