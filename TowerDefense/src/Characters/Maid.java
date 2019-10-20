@@ -1,5 +1,6 @@
 package Characters;
 
+import Proyectile.MeleeProyectile;
 import Proyectile.Proyectile;
 import graphics.TowerGraphic;
 
@@ -12,8 +13,7 @@ public class Maid extends Tower{
 
 	@Override
 	public Proyectile attack() {
-		// TODO Auto-generated method stub
-		return null;
+		return new MeleeProyectile(getX(), getY(), damage, range);
 	}
 	
 	
