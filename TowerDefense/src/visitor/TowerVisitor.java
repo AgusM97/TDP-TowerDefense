@@ -5,7 +5,7 @@ import Characters.Tower;
 
 public class TowerVisitor extends Visitor {
 
-	Tower tower;
+	protected Tower tower;
 	
 	public TowerVisitor(Tower tower) {
 		this.tower = tower;

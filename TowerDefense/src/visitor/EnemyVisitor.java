@@ -5,7 +5,7 @@ import Characters.Tower;
 
 public class EnemyVisitor extends Visitor {
 	
-	Enemy enemy;
+	protected Enemy enemy;
 
 	public EnemyVisitor(Enemy enemy) {
 		this.enemy = enemy;
