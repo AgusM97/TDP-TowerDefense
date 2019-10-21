@@ -2,6 +2,7 @@ package visitor;
 
 import Characters.Enemy;
 import Characters.Tower;
+import DropItems.DropBarricade;
 
 public class EnemyVisitor extends Visitor {
 	
@@ -18,6 +19,12 @@ public class EnemyVisitor extends Visitor {
 	}
 
 	public void visit(Enemy t) {}
+	
+	public void visit(DropBarricade bar) {
+		if(!enemy.isAttacking()) 
+			enemy.startAttacking();
+		enemy.setOpponentInRange(true);
+	}
 
 
 }
