@@ -22,18 +22,9 @@ public class TowerVisitor extends Visitor {
 		tower.setOpponentInRange(true);
 	}
 	
-	public void visit(DropAttackPowerUp buff){
-		tower.buffAtackPower();
-		
-	}
 	
-	public void visit(DropAttackSpeedUp buff) {
-		tower.buffAttackSpeed();
-	}
 	
-	public void visit(DropBomb bomba) {
-		tower.bombed();
-	}
+	
 
 
 }

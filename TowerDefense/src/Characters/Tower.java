@@ -2,6 +2,8 @@ package Characters;
 
 import javax.swing.JLabel;
 
+import DropItems.DropAttackPowerUp;
+import DropItems.DropAttackSpeedUp;
 import graphics.TimerThread;
 import graphics.TowerGraphic;
 import visitor.TowerVisitor;
@@ -58,9 +60,9 @@ public abstract class Tower extends Unit {
 	
 	public void move() {}
 	
-	public void buffAtackPower() {}
+	public void buff(DropAttackPowerUp item) {}
 	
-	public void buffAttackSpeed() {}
+	public void buff(DropAttackSpeedUp item) {}
 	
-	public void bombed() {}
+	
 }
