@@ -1,7 +1,8 @@
 package Characters;
 
-import Proyectile.EnemyMeleeProyectile;
+
 import Proyectile.Proyectile;
+import Proyectile.TwinDragonProyectile;
 import graphics.EnemyGraphic;
 
 public class TwinDragon extends Enemy{
@@ -23,7 +24,7 @@ public class TwinDragon extends Enemy{
 
 
 	public Proyectile attack() {
-		return new EnemyMeleeProyectile(getX() + getWidth(), getY(), damage, range);
+		return new TwinDragonProyectile(getX(), getY(),getWidth(),getHeight() ,damage, range,speed);
 	}
 
 }

@@ -1,6 +1,7 @@
 package Characters;
 
 import Proyectile.Proyectile;
+import Proyectile.SuccubusProyectile;
 import graphics.EnemyGraphic;
 
 public class Succubus extends Enemy{
@@ -22,8 +23,8 @@ public class Succubus extends Enemy{
 
 	@Override
 	public Proyectile attack() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return new SuccubusProyectile(getX(), getY(),getWidth(),getHeight() ,damage, range,speed);
 	}
 
 }

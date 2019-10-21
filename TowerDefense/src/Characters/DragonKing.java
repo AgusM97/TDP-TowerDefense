@@ -1,6 +1,6 @@
 package Characters;
 
-import Proyectile.EnemyMeleeProyectile;
+import Proyectile.DragonKingProyectile;
 import Proyectile.Proyectile;
 import graphics.EnemyGraphic;
 
@@ -22,7 +22,7 @@ public class DragonKing extends Enemy{
 	}
 
 	public Proyectile attack() {
-		return new EnemyMeleeProyectile(getX() + getWidth(), getY(), damage, range);
+		return new DragonKingProyectile(getX(), getY(),getWidth(),getHeight() ,damage, range,speed);
 	}
 
 }
