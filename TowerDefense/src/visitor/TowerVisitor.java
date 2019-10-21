@@ -2,9 +2,9 @@ package visitor;
 
 import Characters.Enemy;
 import Characters.Tower;
-import DropItems.Drop;
 import DropItems.DropAttackPowerUp;
 import DropItems.DropAttackSpeedUp;
+import DropItems.DropBomb;
 
 public class TowerVisitor extends Visitor {
 
@@ -24,16 +24,13 @@ public class TowerVisitor extends Visitor {
 	
 	public void visit(DropAttackPowerUp buff){
 		tower.buffAtackPower();
-		
 	}
 	
 	public void visit(DropAttackSpeedUp buff) {
 		tower.buffAttackSpeed();
 	}
 	
-	public void visit(DropBomb bomba) {
-		tower.bombed();
-	}
+	public void visit(DropBomb bomba) {}
 
 
 }
