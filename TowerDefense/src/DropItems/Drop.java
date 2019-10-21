@@ -8,7 +8,7 @@ import graphics.TowerGraphic;
 import visitor.DropItemVisitor;
 import visitor.Visitor;
 
-public class Drop extends Entity{
+public abstract class Drop extends Entity{
 	protected DropItemGraphic graphic;
 	protected DropItemVisitor visitor;
 	

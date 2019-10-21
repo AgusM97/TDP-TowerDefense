@@ -16,7 +16,9 @@ public class DropItemVisitor extends Visitor{
 
 	//Dependiendo del item deberia darle algun efecto.
 	public void visit(Tower t) {
+		
 		t.buff(item);
+		
 		
 	}
 	
