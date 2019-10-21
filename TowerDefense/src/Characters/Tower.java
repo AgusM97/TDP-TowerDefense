@@ -61,4 +61,6 @@ public abstract class Tower extends Unit {
 	public void buffAtackPower() {}
 	
 	public void buffAttackSpeed() {}
+	
+	public void bombed() {}
 }
