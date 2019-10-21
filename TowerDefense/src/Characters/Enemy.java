@@ -2,8 +2,8 @@ package Characters;
 
 import javax.swing.JLabel;
 
-import Proyectile.Proyectile;
 import graphics.EnemyGraphic;
+import graphics.TimerThread;
 import visitor.EnemyVisitor;
 import visitor.Visitor;
 import Game.Game;
@@ -43,6 +43,8 @@ public abstract class Enemy extends Unit{
 	public void startAttacking() {
 		attacking = true;
 		graphic.startAttacking();
+		timer = new TimerThread(this);
+		timer.start(); 
 	}
 	
 	public void stopAttacking() {
@@ -68,11 +70,5 @@ public abstract class Enemy extends Unit{
 		graphic.getJLabel().setLocation(graphic.getJLabel().getX() + speed, graphic.getJLabel().getY());
 	}
 	
-	
-	
-	
-	//AUX CAMBIAR
-	public Proyectile attack() {
-		return null;
-	}
+
 }

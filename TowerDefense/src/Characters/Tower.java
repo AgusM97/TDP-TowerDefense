@@ -2,6 +2,7 @@ package Characters;
 
 import javax.swing.JLabel;
 
+import graphics.TimerThread;
 import graphics.TowerGraphic;
 import visitor.TowerVisitor;
 import visitor.Visitor;

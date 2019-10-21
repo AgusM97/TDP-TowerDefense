@@ -1,24 +1,25 @@
 package Proyectile;
 
+import visitor.EnemyProyectileVisitor;
 import visitor.Visitor;
 
-public class EnemyProyectile extends Proyectile{
-
-	public EnemyProyectile(int x, int y, int width, int height, int damage, int range) {
-		super(x, y, width, height, damage, range);
-		// TODO Auto-generated constructor stub
+public class EnemyProyectile extends Proyectile {
+	public EnemyProyectileVisitor visitor;
+	
+	
+	public EnemyProyectile(int x, int y, int width, int height, int damage, int range, int speed) {
+		super(x, y, width, height, damage, range, speed);
+		visitor = new EnemyProyectileVisitor(this);
 	}
 
-	@Override
 	public Visitor getVisitor() {
-		// TODO Auto-generated method stub
-		return null;
+		return visitor;
 	}
 
-	@Override
 	public void move() {
-		// TODO Auto-generated method stub
-		
+		hitbox.setLocation(hitbox.x + speed, hitbox.y);
+		graphic.getJLabel().setLocation(graphic.getJLabel().getX() + speed, graphic.getJLabel().getY());
+		range -= speed;
 	}
 
 }

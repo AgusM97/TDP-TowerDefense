@@ -12,7 +12,7 @@ public class EnemyVisitor extends Visitor {
 	}
 
 	public void visit(Tower t) {
-		if(enemy.isInRange(t)) 
+		if(!enemy.isAttacking()) 
 			enemy.startAttacking();
 		enemy.setOpponentInRange(true);
 	}

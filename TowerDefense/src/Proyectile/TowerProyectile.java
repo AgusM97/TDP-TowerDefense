@@ -6,9 +6,8 @@ import visitor.Visitor;
 public class TowerProyectile extends Proyectile {
 	protected TowerProyectileVisitor visitor;
 
-	public TowerProyectile(int x, int y, int width, int height, int damage, int range) {
-		super(x, y, width, height, damage, range);
-		this.speed = 5;
+	public TowerProyectile(int x, int y, int width, int height, int damage, int range, int speed) {
+		super(x, y, width, height, damage, range, speed);
 		visitor = new TowerProyectileVisitor(this);
 	}
 

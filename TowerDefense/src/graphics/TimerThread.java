@@ -1,5 +1,6 @@
-package Characters;
+package graphics;
 
+import Characters.Unit;
 import Game.Game;
 
 public class TimerThread extends Thread {

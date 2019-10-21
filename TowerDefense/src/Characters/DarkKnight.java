@@ -1,7 +1,7 @@
 package Characters;
 
-import Proyectile.MeleeProyectile;
 import Proyectile.Proyectile;
+import Proyectile.TowerMeleeProyectile;
 import graphics.TowerGraphic;
 
 public class DarkKnight extends Tower{
@@ -21,7 +21,7 @@ public class DarkKnight extends Tower{
 
 	//CAMBIAR
 	public Proyectile attack() {
-		return new MeleeProyectile(getX(), getY(), damage, range);
+		return new TowerMeleeProyectile(getX(), getY(), damage, range);
 	}
 
 }

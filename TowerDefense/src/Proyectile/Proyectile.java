@@ -14,10 +14,11 @@ public abstract class Proyectile extends Entity{
 	protected boolean spent;
 	protected ProyectileGraphic graphic;
 	
-	public Proyectile(int x, int y, int width, int height,int damage,int range) {
+	public Proyectile(int x, int y, int width, int height,int damage,int range, int speed) {
 		super(x, y, width, height);
 		dmg = damage;
 		this.range = range;
+		this.speed = speed;
 		spent = false;
 	}
 	
