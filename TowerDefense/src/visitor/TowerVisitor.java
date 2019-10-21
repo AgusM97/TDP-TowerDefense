@@ -3,6 +3,7 @@ package visitor;
 import Characters.Enemy;
 import Characters.Tower;
 import DropItems.Drop;
+import DropItems.DropAttackPowerUp;
 
 public class TowerVisitor extends Visitor {
 
@@ -20,8 +21,13 @@ public class TowerVisitor extends Visitor {
 		tower.setOpponentInRange(true);
 	}
 	
-	public void visit(Drop Drop){
+	public void visit(DropAttackPowerUp buff){
+		tower.buffAtackPower();
 		
+	}
+	
+	public void visit(DropAttackSpeedUp buff) {
+		tower.buffAttackSpeed();
 	}
 
 

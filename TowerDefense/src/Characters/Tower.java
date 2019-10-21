@@ -57,4 +57,8 @@ public abstract class Tower extends Unit {
 	}
 	
 	public void move() {}
+	
+	public void buffAtackPower() {}
+	
+	public void buffAttackSpeed() {}
 }
