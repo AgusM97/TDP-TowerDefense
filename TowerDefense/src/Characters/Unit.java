@@ -5,8 +5,8 @@ import java.awt.Component;
 import javax.swing.JLabel;
 
 import Game.Entity;
+import Game.TimerThread;
 import Proyectile.Proyectile;
-import graphics.TimerThread;
 import visitor.Visitor;
 
 public abstract class Unit extends Entity {

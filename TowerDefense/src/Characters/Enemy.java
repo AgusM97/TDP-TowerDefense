@@ -3,10 +3,10 @@ package Characters;
 import javax.swing.JLabel;
 
 import graphics.EnemyGraphic;
-import graphics.TimerThread;
 import visitor.EnemyVisitor;
 import visitor.Visitor;
 import Game.Game;
+import Game.TimerThread;
 
 public abstract class Enemy extends Unit{
 

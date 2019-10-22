@@ -4,7 +4,8 @@ import javax.swing.JLabel;
 
 import DropItems.DropAttackPowerUp;
 import DropItems.DropAttackSpeedUp;
-import graphics.TimerThread;
+import DropItems.DropProtection;
+import Game.TimerThread;
 import graphics.TowerGraphic;
 import visitor.TowerVisitor;
 import visitor.Visitor;
@@ -15,11 +16,13 @@ public abstract class Tower extends Unit {
 	protected TowerVisitor visitor;
 	protected boolean attacking;
 	protected int cost;
+	protected int attackSpeed;
 
-	public Tower(int x, int y, int damage, int range, int life, int cost) {
+	public Tower(int x, int y, int damage, int range, int life, int cost, int attackSpeed) {
 		super(x, y, damage, range, life);
 		visitor = new TowerVisitor(this);
 		attacking = false;
+		this.attackSpeed = attackSpeed;
 	}
 	
 	public JLabel getGraphic() {
@@ -63,6 +66,8 @@ public abstract class Tower extends Unit {
 	public void buff(DropAttackPowerUp item) {}
 	
 	public void buff(DropAttackSpeedUp item) {}
+	
+	public void buff(DropProtection item) {}
 	
 	
 }
