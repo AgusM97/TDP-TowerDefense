@@ -16,10 +16,9 @@ public abstract class Tower extends Unit {
 	protected TowerVisitor visitor;
 	protected boolean attacking;
 	protected int cost;
-	protected int attackSpeed;
 
 	public Tower(int x, int y, int damage, int range, int life, int cost, int attackSpeed) {
-		super(x, y, damage, range, life);
+		super(x, y, damage, range, life, attackSpeed);
 		visitor = new TowerVisitor(this);
 		attacking = false;
 		this.attackSpeed = attackSpeed;
@@ -40,7 +39,7 @@ public abstract class Tower extends Unit {
 	public void startAttacking() {
 		attacking = true;
 		graphic.startAttacking();
-		timer = new TimerThread(this);
+		timer = new TimerThread(this, attackSpeed);
 		timer.start(); 
 	}
 	

@@ -14,7 +14,6 @@ public abstract class Drop extends Entity{
 	
 	public Drop(int x, int y, int width, int height) {
 		super(x,y,width,height);
-		visitor=new DropAttackPowerUpVisitor(this);
 	}
 	
 	public JLabel getGraphic() {

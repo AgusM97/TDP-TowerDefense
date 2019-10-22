@@ -14,11 +14,12 @@ public class Prinny extends Enemy{
 	 * points = 100
 	 * coins = 2
 	 * speed = 2
+	 * attack speed = 1500ms
 	 * 
 	 */
 	
 	public Prinny(int row) {
-		super(row * 80, 15, 1, 100, 100, 2, 2);
+		super(row * 80, 15, 1, 100, 100, 2, 2, 1500);
 		Random r = new Random();
 		if(r.nextInt(5) % 4 == 0)
 			graphic = new EnemyGraphic(this, "/gif/Prinny_Movement1.gif", "/gif/Prinny_Attack.gif");
