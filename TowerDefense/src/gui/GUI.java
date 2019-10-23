@@ -86,4 +86,10 @@ public class GUI {
 		mapPane.revalidate();
 		mapPane.repaint();
 	}
+	
+	public void actualizar() {
+		mapPane.revalidate();
+		mapPane.repaint();
+	}
+	
 }
