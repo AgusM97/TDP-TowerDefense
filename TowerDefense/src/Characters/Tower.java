@@ -50,7 +50,7 @@ public abstract class Tower extends Unit {
 	}
 	
 	public boolean isInRange(Unit u) {
-		return (getY() == u.getY()) && (getX() - range <= u.getX()) && (getX() > u.getX());
+		return (getY() == u.getY()) && (getX() - range <= u.getX() + u.getWidth()) && (getX() > u.getX());
 	}
 	
 	public void accept(Visitor v) {

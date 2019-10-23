@@ -8,7 +8,7 @@ public class Archer extends Tower{
 	
 	/*
 	 * damage = 15
-	 * range = 500
+	 * range = 600
 	 * life = 100
 	 * cost = 10
 	 * attack speed = 1500ms
