@@ -1,22 +1,27 @@
-package graphics;
+package Game;
 
 import Characters.Unit;
-import Game.Game;
 
 public class TimerThread extends Thread {
 	protected Unit u;
+	protected int speed;
 
-	public TimerThread(Unit unit) {
+	public TimerThread(Unit unit, int speed) {
 		u = unit;
+		this.speed = speed;
 	}
 	
 	public void run() {
 		while(u.isAttacking()) {
 			Game.getInstance().addProyectile(u.attack());
 			try {
-				Thread.sleep(1500);
+				Thread.sleep(speed);
 			} catch (InterruptedException e) {e.printStackTrace();	}
 		}
+	}
+	
+	public void changeSpeed(int newsSpeed) {
+		speed = newsSpeed;
 	}
 
 }

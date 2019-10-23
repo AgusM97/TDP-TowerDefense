@@ -14,11 +14,12 @@ public class TwinDragon extends Enemy{
 	 * points = 100
 	 * coins = 2
 	 * speed = 2
+	 * attack speed = 1500ms
 	 * 
 	 */
 	
 	public TwinDragon(int row) {
-		super(row * 80, 15, 1, 100, 100, 2, 2);
+		super(row * 80, 15, 1, 100, 100, 2, 2, 1500);
 		graphic = new EnemyGraphic(this, "/gif/TwinDragon_Movement.gif", "/gif/TwinDragon_Attack.gif");
 	}
 

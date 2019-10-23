@@ -7,15 +7,16 @@ import graphics.TowerGraphic;
 public class Pirate extends Tower{
 	
 	/*
-	 * damage = 15
-	 * range = 500
+	 * damage = 40
+	 * range = 300
 	 * life = 100
 	 * cost = 10
+	 * attack speed = 2000ms
 	 * 
 	 */
 	
 	public Pirate(int x, int y) {
-		super(x * 80, y * 80, 15, 500, 100, 10);
+		super(x * 80, y * 80, 40, 300, 100, 10, 2000);
 		graphic = new TowerGraphic(this, "/gif/Pirate_Idle.gif", "/gif/Pirate_Attack.gif");
 	}
 	

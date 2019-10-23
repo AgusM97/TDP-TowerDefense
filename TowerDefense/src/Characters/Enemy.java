@@ -3,10 +3,10 @@ package Characters;
 import javax.swing.JLabel;
 
 import graphics.EnemyGraphic;
-import graphics.TimerThread;
 import visitor.EnemyVisitor;
 import visitor.Visitor;
 import Game.Game;
+import Game.TimerThread;
 
 public abstract class Enemy extends Unit{
 
@@ -15,8 +15,8 @@ public abstract class Enemy extends Unit{
 	protected boolean attacking;
 	protected int points, coins, speed;
 	
-	public Enemy(int y, int damage, int range, int life, int points, int coins, int speed) {
-		super(-100, y, damage, range, life);
+	public Enemy(int y, int damage, int range, int life, int points, int coins, int speed, int attackSpeed) {
+		super(-100, y, damage, range, life, attackSpeed);
 		this.points = points;
 		this.coins = coins;
 		this.speed = speed;
@@ -43,7 +43,7 @@ public abstract class Enemy extends Unit{
 	public void startAttacking() {
 		attacking = true;
 		graphic.startAttacking();
-		timer = new TimerThread(this);
+		timer = new TimerThread(this, attackSpeed);
 		timer.start(); 
 	}
 	

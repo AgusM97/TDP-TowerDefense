@@ -10,8 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import Characters.Archer;
-import Characters.Orc;
+import Characters.*;
 import Game.Game;
 
 public class MenuPanel extends JPanel {
@@ -35,7 +34,7 @@ public class MenuPanel extends JPanel {
 
 		
 		JButton btnAddOrc = new JButton("Add Orc");
-		btnAddOrc.setBounds(77, 501, 144, 50);
+		btnAddOrc.setBounds(70, 200, 130, 50);
 		this.add(btnAddOrc);
 		btnAddOrc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -45,7 +44,7 @@ public class MenuPanel extends JPanel {
 		});
 		
 		JButton btnAddArcher = new JButton("Add Archer");
-		btnAddArcher.setBounds(77, 562, 144, 50);
+		btnAddArcher.setBounds(70, 350, 130, 40);
 		this.add(btnAddArcher);
 		btnAddArcher.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -54,6 +53,70 @@ public class MenuPanel extends JPanel {
 				    public void mousePressed(MouseEvent e) {
 				        Game.getInstance().addTower(new Archer(e.getX() / 80, e.getY() / 80));
 						btnAddArcher.setEnabled(true);
+						MapPanel.getInstance().removeMouseListener(this);
+				    }
+				});
+			}
+		});
+		
+		JButton btnAddKnight = new JButton("Add Dark Knight");
+		btnAddKnight.setBounds(70, 400, 130, 40);
+		this.add(btnAddKnight);
+		btnAddKnight.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btnAddKnight.setEnabled(false);
+				MapPanel.getInstance().addMouseListener( new MouseAdapter() {
+				    public void mousePressed(MouseEvent e) {
+				        Game.getInstance().addTower(new DarkKnight(e.getX() / 80, e.getY() / 80));
+				        btnAddKnight.setEnabled(true);
+						MapPanel.getInstance().removeMouseListener(this);
+				    }
+				});
+			}
+		});
+		
+		JButton btnAddPirate = new JButton("Add Pirate");
+		btnAddPirate.setBounds(70, 450, 130, 40);
+		this.add(btnAddPirate);
+		btnAddPirate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btnAddPirate.setEnabled(false);
+				MapPanel.getInstance().addMouseListener( new MouseAdapter() {
+				    public void mousePressed(MouseEvent e) {
+				        Game.getInstance().addTower(new Pirate(e.getX() / 80, e.getY() / 80));
+				        btnAddPirate.setEnabled(true);
+						MapPanel.getInstance().removeMouseListener(this);
+				    }
+				});
+			}
+		});
+		
+		JButton btnAddSorcerer = new JButton("Add Sorcerer");
+		btnAddSorcerer.setBounds(70, 500, 130, 40);
+		this.add(btnAddSorcerer);
+		btnAddSorcerer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btnAddSorcerer.setEnabled(false);
+				MapPanel.getInstance().addMouseListener( new MouseAdapter() {
+				    public void mousePressed(MouseEvent e) {
+				        Game.getInstance().addTower(new Sorcerer(e.getX() / 80, e.getY() / 80));
+				        btnAddSorcerer.setEnabled(true);
+						MapPanel.getInstance().removeMouseListener(this);
+				    }
+				});
+			}
+		});
+		
+		JButton btnAddMaid = new JButton("Add Maid");
+		btnAddMaid.setBounds(70, 550, 130, 40);
+		this.add(btnAddMaid);
+		btnAddMaid.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btnAddMaid.setEnabled(false);
+				MapPanel.getInstance().addMouseListener( new MouseAdapter() {
+				    public void mousePressed(MouseEvent e) {
+				        Game.getInstance().addTower(new Maid(e.getX() / 80, e.getY() / 80));
+				        btnAddMaid.setEnabled(true);
 						MapPanel.getInstance().removeMouseListener(this);
 				    }
 				});

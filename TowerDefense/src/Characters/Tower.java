@@ -4,7 +4,8 @@ import javax.swing.JLabel;
 
 import DropItems.DropAttackPowerUp;
 import DropItems.DropAttackSpeedUp;
-import graphics.TimerThread;
+import DropItems.DropProtection;
+import Game.TimerThread;
 import graphics.TowerGraphic;
 import visitor.TowerVisitor;
 import visitor.Visitor;
@@ -16,12 +17,14 @@ public abstract class Tower extends Unit {
 	protected boolean attacking;
 	protected int cost;
 
-	public Tower(int x, int y, int damage, int range, int life, int cost) {
-		super(x, y, damage, range, life);
+	public Tower(int x, int y, int damage, int range, int life, int cost, int attackSpeed) {
+		super(x, y, damage, range, life, attackSpeed);
 		visitor = new TowerVisitor(this);
 		attacking = false;
+		this.attackSpeed = attackSpeed;
 	}
 	
+
 	public JLabel getGraphic() {
 		return graphic.getJLabel();
 	}
@@ -37,7 +40,7 @@ public abstract class Tower extends Unit {
 	public void startAttacking() {
 		attacking = true;
 		graphic.startAttacking();
-		timer = new TimerThread(this);
+		timer = new TimerThread(this, attackSpeed);
 		timer.start(); 
 	}
 	
@@ -47,7 +50,7 @@ public abstract class Tower extends Unit {
 	}
 	
 	public boolean isInRange(Unit u) {
-		return (getY() == u.getY()) && (getX() - range <= u.getX()) && (getX() > u.getX());
+		return (getY() == u.getY()) && (getX() - range <= u.getX() + u.getWidth()) && (getX() > u.getX());
 	}
 	
 	public void accept(Visitor v) {
@@ -64,5 +67,6 @@ public abstract class Tower extends Unit {
 	
 	public void buff(DropAttackSpeedUp item) {}
 	
-	
+	public void buff(DropProtection item) {}
+			
 }

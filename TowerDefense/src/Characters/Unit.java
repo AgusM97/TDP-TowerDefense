@@ -5,24 +5,23 @@ import java.awt.Component;
 import javax.swing.JLabel;
 
 import Game.Entity;
+import Game.TimerThread;
 import Proyectile.Proyectile;
-import graphics.TimerThread;
 import visitor.Visitor;
 
 public abstract class Unit extends Entity {
 	
-	protected int damage;
-	protected int range;
-	protected int life;
+	protected int damage, range, life, attackSpeed;
 	protected boolean opponentInRange;
 	protected TimerThread timer;
 	
 	
-	public Unit(int x, int y, int damage, int range, int life) {
+	public Unit(int x, int y, int damage, int range, int life, int attackSpeed) {
 		super(x, y, 80, 80);
 		this.damage = damage;
 		this.range = range;
 		this.life = life;
+		this.attackSpeed = attackSpeed;
 		opponentInRange = false;
 	}
 

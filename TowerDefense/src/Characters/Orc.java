@@ -13,11 +13,12 @@ public class Orc extends Enemy{
 	 * points = 100
 	 * coins = 2
 	 * speed = 2
+	 * attack speed = 1500ms
 	 * 
 	 */
 	
 	public Orc(int row) {
-		super(row * 80, 30, 1, 100, 100, 2, 2);
+		super(row * 80, 30, 1, 100, 100, 2, 2, 1500);
 		graphic = new EnemyGraphic(this, "/gif/Orc_movement.gif", "/gif/Orc_attack.gif");
 	}
 
