@@ -10,5 +10,11 @@ public class MapItemSpikeTrap extends MapItem {
 		super(x,y,width,height);
 		graphic = new MapItemGraphic(this, "/img/Empty.png");//Cambiar imagen por una tile con pinchos.
 	}
+	
+public int getDamage() {
+		
+		return damage;
+	}
+
 
 }

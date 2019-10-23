@@ -18,6 +18,8 @@ public abstract class MapItem extends Entity {
 	public JLabel getGraphic() {
 		return graphic.getJLabel();
 	}
+
+	public abstract int getDamage();
 	
 	
 }

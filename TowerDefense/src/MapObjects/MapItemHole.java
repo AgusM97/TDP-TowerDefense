@@ -14,7 +14,7 @@ public class MapItemHole extends MapItem{
 
 	public int getDamage() {
 		
-		return 0;
+		return damage;
 	}
 
 }
