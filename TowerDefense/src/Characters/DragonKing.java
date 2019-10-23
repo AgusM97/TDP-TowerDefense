@@ -23,7 +23,7 @@ public class DragonKing extends Enemy{
 	}
 
 	public Proyectile attack() {
-		return new DragonKingProyectile(getX(), getY(),getWidth(),getHeight() ,damage, range,speed);
+		return new DragonKingProyectile(getX() + getWidth(), getY(), damage, range, 4);
 	}
 
 }

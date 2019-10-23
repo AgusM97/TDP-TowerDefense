@@ -7,7 +7,7 @@ import graphics.TowerGraphic;
 public class Sorcerer extends Tower{
 	
 	/*
-	 * damage = 15
+	 * damage = 20
 	 * range = 500
 	 * life = 100
 	 * cost = 10
@@ -16,7 +16,7 @@ public class Sorcerer extends Tower{
 	 */
 	
 	public Sorcerer(int x, int y) {
-		super(x * 80, y * 80, 15, 500, 100, 10, 1500);
+		super(x * 80, y * 80, 20, 500, 100, 10, 1500);
 		graphic = new TowerGraphic(this, "/gif/Sorcerer_Idle.gif", "/gif/Sorcerer_Attack.gif");
 	}
 
