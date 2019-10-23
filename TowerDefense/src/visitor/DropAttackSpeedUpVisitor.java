@@ -6,7 +6,7 @@ import DropItems.DropAttackSpeedUp;
 
 public class DropAttackSpeedUpVisitor {
 	
-	DropAttackSpeedUp item;
+	protected DropAttackSpeedUp item;
 	
 	public DropAttackSpeedUpVisitor(DropAttackSpeedUp drop) {
 		this.item=drop;
