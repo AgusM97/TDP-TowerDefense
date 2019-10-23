@@ -10,7 +10,7 @@ import visitor.Visitor;
 
 public abstract class Drop extends Entity{
 	protected DropItemGraphic graphic;
-	protected DropAttackPowerUpVisitor visitor;
+	
 	
 	public Drop(int x, int y, int width, int height) {
 		super(x,y,width,height);
@@ -20,8 +20,6 @@ public abstract class Drop extends Entity{
 		return graphic.getJLabel();
 	}
 	
-	public Visitor getVisitor() {
-		return visitor;
-	}
+	
 
 }

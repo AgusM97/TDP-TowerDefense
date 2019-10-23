@@ -24,6 +24,7 @@ public abstract class Tower extends Unit {
 		this.attackSpeed = attackSpeed;
 	}
 	
+
 	public JLabel getGraphic() {
 		return graphic.getJLabel();
 	}
@@ -67,6 +68,5 @@ public abstract class Tower extends Unit {
 	public void buff(DropAttackSpeedUp item) {}
 	
 	public void buff(DropProtection item) {}
-	
-	
+			
 }

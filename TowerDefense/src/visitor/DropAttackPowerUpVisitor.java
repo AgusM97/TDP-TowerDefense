@@ -8,7 +8,7 @@ import DropItems.DropAttackSpeedUp;
 
 public class DropAttackPowerUpVisitor extends Visitor{
 	
-	DropAttackPowerUp item;
+	protected DropAttackPowerUp item;
 	
 	public DropAttackPowerUpVisitor(DropAttackPowerUp drop) {
 		this.item=drop;

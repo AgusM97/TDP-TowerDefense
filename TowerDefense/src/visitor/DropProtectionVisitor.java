@@ -6,7 +6,7 @@ import DropItems.DropProtection;
 
 public class DropProtectionVisitor {
 	
-DropProtection item;
+	protected DropProtection item;
 	
 	public DropProtectionVisitor(DropProtection drop) {
 		this.item=drop;
