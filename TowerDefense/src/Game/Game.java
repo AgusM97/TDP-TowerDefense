@@ -91,7 +91,7 @@ public class Game {
 			Game.getInstance().addEnemy(new DragonKing(posicion.nextInt(7)+1));
 			break;
 		case 1:
-			Game.getInstance().addEnemy(new FloraBeast(posicion.nextInt(7)+1));
+			//Game.getInstance().addEnemy(new FloraBeast(posicion.nextInt(7)+1));
 			break;
 		case 2:
 			Game.getInstance().addEnemy(new Orc(posicion.nextInt(7)+1));
@@ -110,10 +110,7 @@ public class Game {
 			break;
 		}
 		
-		gui.actualizar();
-		
-		
-		}
+	}
 		
 	
 

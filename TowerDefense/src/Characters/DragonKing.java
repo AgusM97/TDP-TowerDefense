@@ -7,18 +7,18 @@ import graphics.EnemyGraphic;
 public class DragonKing extends Enemy{
 	
 	/*
-	 * damage = 15
-	 * range = 1
-	 * life = 100
+	 * damage = 30
+	 * range = 300
+	 * life = 150
 	 * points = 100
 	 * coins = 2
 	 * speed = 2
-	 * attack speed = 1500ms
+	 * attack speed = 1000ms
 	 * 
 	 */
 	
 	public DragonKing(int row) {
-		super(row * 80, 15, 1, 100, 100, 2, 2, 1500);
+		super(row * 80, 30, 300, 150, 100, 2, 2, 1000);
 		graphic = new EnemyGraphic(this, "/gif/DragonKing_Movement.gif", "/gif/DragonKing_attack.gif");
 	}
 

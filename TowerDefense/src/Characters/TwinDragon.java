@@ -9,7 +9,7 @@ public class TwinDragon extends Enemy{
 	
 	/*
 	 * damage = 15
-	 * range = 1
+	 * range = 200
 	 * life = 100
 	 * points = 100
 	 * coins = 2
@@ -19,13 +19,13 @@ public class TwinDragon extends Enemy{
 	 */
 	
 	public TwinDragon(int row) {
-		super(row * 80, 15, 1, 100, 100, 2, 2, 1500);
+		super(row * 80, 15, 200, 100, 100, 2, 2, 1500);
 		graphic = new EnemyGraphic(this, "/gif/TwinDragon_Movement.gif", "/gif/TwinDragon_Attack.gif");
 	}
 
 
 	public Proyectile attack() {
-		return new TwinDragonProyectile(getX(), getY(),getWidth(),getHeight() ,damage, range,speed);
+		return new TwinDragonProyectile(getX(), getY(), damage, range, 5);
 	}
 
 }

@@ -4,26 +4,13 @@ import java.awt.Component;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-
-import Characters.*;
 import Game.Game;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.Random;
-import java.awt.event.ActionEvent;
 
 public class GUI {
 
 	private JFrame frame;
 	private MapPanel mapPane;
 	private MenuPanel menuPane;
-	private Game game;
 
 	/**
 	 * Launch the application.
@@ -70,7 +57,6 @@ public class GUI {
 		
 		
 		Game.startNewGame(this);
-		game = Game.getInstance();
 	}
 	
 	public void add(Component c, Integer i) {

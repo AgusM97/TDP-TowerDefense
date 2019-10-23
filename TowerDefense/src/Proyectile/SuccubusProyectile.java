@@ -1,14 +1,12 @@
 package Proyectile;
 
 import graphics.ProyectileGraphic;
-import visitor.EnemyProyectileVisitor;
-import visitor.Visitor;
 
 public class SuccubusProyectile extends EnemyProyectile{
 	
-	public SuccubusProyectile(int x, int y, int width, int height, int damage, int range, int speed) {
-		super(x, y, width, height, damage, range, speed);
-		graphic = new ProyectileGraphic(this, "/img/Proyectile_Succubus.png");
+	public SuccubusProyectile(int x, int y, int damage, int range, int speed) {
+		super(x+20, y+20, 50, 50, damage, range, speed);
+		graphic = new ProyectileGraphic(this, "/gif/Proyectile_Succubus.gif");
 	}
 
 }

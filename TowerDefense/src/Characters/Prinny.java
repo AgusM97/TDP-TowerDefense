@@ -2,6 +2,7 @@ package Characters;
 
 import java.util.Random;
 
+import Proyectile.EnemyMeleeProyectile;
 import Proyectile.Proyectile;
 import graphics.EnemyGraphic;
 
@@ -27,10 +28,8 @@ public class Prinny extends Enemy{
 			graphic = new EnemyGraphic(this, "/gif/Prinny_Movement2.gif", "/gif/Prinny_Attack.gif");
 	}
 
-	@Override
 	public Proyectile attack() {
-		// TODO Auto-generated method stub
-		return null;
+		return new EnemyMeleeProyectile(getX() + getWidth(), getY(), damage, range);
 	}
 
 }
