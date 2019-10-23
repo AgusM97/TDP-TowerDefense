@@ -1,6 +1,8 @@
 package Game;
 
 import java.util.LinkedList;
+import java.util.Random;
+
 import Characters.*;
 import Proyectile.Proyectile;
 import gui.GUI;
@@ -32,6 +34,9 @@ public class Game {
 		
 		Thread updater = new UpdaterThread();
 		updater.start();
+		Thread hiloEnemigo = new EnemyThread();
+		hiloEnemigo.start();
+		
 	}
 	
 	public static void startNewGame(GUI g) {
@@ -69,6 +74,48 @@ public class Game {
 		auxProyectileList.add(p);
 		gui.add(p.getGraphic(), new Integer(2));
 	}
+	
+	public GUI gui() {
+		
+		return this.gui;
+	}
+	
+	public void generarEnemigo() {
+		
+		Random tipoEnemigo = new Random();
+		Random posicion = new Random();
+		 
+		switch (tipoEnemigo.nextInt(6)) {
+		
+		case 0:
+			Game.getInstance().addEnemy(new DragonKing(posicion.nextInt(7)+1));
+			break;
+		case 1:
+			Game.getInstance().addEnemy(new FloraBeast(posicion.nextInt(7)+1));
+			break;
+		case 2:
+			Game.getInstance().addEnemy(new Orc(posicion.nextInt(7)+1));
+			break;
+		case 3:
+			Game.getInstance().addEnemy(new Prinny(posicion.nextInt(7)+1));
+			break;
+		case 4:
+			Game.getInstance().addEnemy(new Succubus(posicion.nextInt(7)+1));
+			break;
+		case 5:
+			Game.getInstance().addEnemy(new TwinDragon(posicion.nextInt(7)+1));
+			break;
+		case 6:
+			Game.getInstance().addEnemy(new WingedWarrior(posicion.nextInt(7)+1));
+			break;
+		}
+		
+		gui.actualizar();
+		
+		
+		}
+		
+	
 
 	
 	
