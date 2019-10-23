@@ -106,6 +106,7 @@ public class Game {
 		}
 		
 		unitList.removeAll(toRemove);
+		toRemove.clear();
 		gui.update(points);
 	}
 
@@ -119,6 +120,9 @@ public class Game {
 		LinkedList<Proyectile> toRemove = new LinkedList<>();
 		
 		for(Proyectile p:proyectileList) {
+			if(p == null)
+				continue;
+			
 			p.move();
 			
 			for(Unit u:unitList) {
@@ -133,6 +137,7 @@ public class Game {
 		}
 		
 		proyectileList.removeAll(toRemove);
+		toRemove.clear();
 	}
 
 }

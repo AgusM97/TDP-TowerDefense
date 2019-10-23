@@ -20,7 +20,6 @@ public class Sorcerer extends Tower{
 		graphic = new TowerGraphic(this, "/gif/Sorcerer_Idle.gif", "/gif/Sorcerer_Attack.gif");
 	}
 
-	@Override
 	public Proyectile attack() {
 		return new SorcererProyectile(getX(), getY(), damage, range);
 	}
