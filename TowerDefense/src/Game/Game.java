@@ -12,7 +12,9 @@ public class Game {
 	protected Map map;
 	protected int points;
 	protected LinkedList<Unit> unitList;
+	protected LinkedList<Unit> auxUnitList;
 	protected LinkedList<Proyectile> proyectileList;
+	protected LinkedList<Proyectile> auxProyectileList;
 	protected Level level;
 	protected GUI gui;
 
@@ -21,6 +23,8 @@ public class Game {
 	private Game(GUI g) {
 		unitList = new LinkedList<>();
 		proyectileList = new LinkedList<>();
+		auxUnitList = new LinkedList<>();
+		auxProyectileList = new LinkedList<>();
 		points=0;
 		map = new Map();
 		gui = g;
@@ -43,7 +47,7 @@ public class Game {
 	}
 	
 	public void addEnemy(Enemy e) {
-		unitList.add(e);
+		auxUnitList.add(e);
 		gui.add(e.getGraphic(), new Integer(1));
 	}
 
@@ -56,19 +60,22 @@ public class Game {
 			}
 		}
 		if(posAvailable) {
-			unitList.add(t);
+			auxUnitList.add(t);
 			gui.add(t.getGraphic(), new Integer(1));
 		}
 	}
 
 	public void addProyectile(Proyectile p) {
-		proyectileList.add(p);
+		auxProyectileList.add(p);
 		gui.add(p.getGraphic(), new Integer(2));
 	}
 
 	
 	
 	public void update() {
+		
+		unitList.addAll(auxUnitList);
+		auxUnitList.clear();
 		
 		LinkedList<Unit> toRemove = new LinkedList<>();
 		
@@ -105,6 +112,9 @@ public class Game {
 	
 	
 	public void proyectileUpdate() {
+		
+		proyectileList.addAll(auxProyectileList);
+		auxProyectileList.clear();
 		
 		LinkedList<Proyectile> toRemove = new LinkedList<>();
 		
