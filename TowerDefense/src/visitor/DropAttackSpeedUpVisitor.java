@@ -4,11 +4,11 @@ import Characters.Enemy;
 import Characters.Tower;
 import DropItems.DropAttackSpeedUp;
 
-public class DropAtackSpeedUp {
+public class DropAttackSpeedUpVisitor {
 	
-DropAttackSpeedUp item;
+	DropAttackSpeedUp item;
 	
-	public DropAtackSpeedUp(DropAttackSpeedUp drop) {
+	public DropAttackSpeedUpVisitor(DropAttackSpeedUp drop) {
 		this.item=drop;
 	}
 
