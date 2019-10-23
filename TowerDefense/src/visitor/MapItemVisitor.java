@@ -2,11 +2,12 @@ package visitor;
 
 import Characters.Enemy;
 import Characters.Tower;
-import MapObjects.MapItemHole;
+import MapObjects.MapItem;
+
 
 public class MapItemVisitor extends Visitor{
 	
-	protected MapItemHole trap;
+	protected MapItem trap;
 
 	@Override
 	public void visit(Tower t) {
