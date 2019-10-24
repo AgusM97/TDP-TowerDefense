@@ -8,7 +8,7 @@ public class DragonKing extends Enemy{
 	
 	/*
 	 * damage = 30
-	 * range = 300
+	 * range = 100
 	 * life = 150
 	 * points = 100
 	 * coins = 2
@@ -18,7 +18,7 @@ public class DragonKing extends Enemy{
 	 */
 	
 	public DragonKing(int row) {
-		super(row * 80, 30, 300, 150, 100, 2, 2, 1000);
+		super(row * 80, 30, 100, 150, 100, 2, 2, 1000);
 		graphic = new EnemyGraphic(this, "/gif/DragonKing_Movement.gif", "/gif/DragonKing_attack.gif");
 	}
 

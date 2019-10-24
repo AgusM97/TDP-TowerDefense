@@ -3,6 +3,8 @@ package Game;
 import java.util.LinkedList;
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 import Characters.*;
 import Proyectile.Proyectile;
 import gui.GUI;
@@ -12,7 +14,8 @@ import gui.MapPanel;
 public class Game {
 	protected static Game instance = null;
 	protected Map map;
-	protected int points;
+	protected int points, coins, cantEnemy;
+	protected boolean gameOver, gameEnd;
 	protected LinkedList<Unit> unitList;
 	protected LinkedList<Unit> auxUnitList;
 	protected LinkedList<Proyectile> proyectileList;
@@ -21,6 +24,8 @@ public class Game {
 	protected GUI gui;
 
 	
+	
+	
 	//SINGLETON
 	private Game(GUI g) {
 		unitList = new LinkedList<>();
@@ -28,24 +33,34 @@ public class Game {
 		auxUnitList = new LinkedList<>();
 		auxProyectileList = new LinkedList<>();
 		points=0;
+		coins=0;
+		cantEnemy=0;
+		gameOver = false;
+		gameEnd = false;
 		map = new Map();
 		gui = g;
 		gui.add(map.getGrafico(), new Integer(0));
-		
-		Thread updater = new UpdaterThread();
-		updater.start();
-		Thread hiloEnemigo = new EnemyThread();
-		hiloEnemigo.start();
 		
 	}
 	
 	public static void startNewGame(GUI g) {
 		instance = new Game(g);
+		
+		Thread updater = new UpdaterThread();
+		updater.start();
+		
+		Thread hiloEnemigo = new EnemyThread();
+		hiloEnemigo.start();
 	}
 	
 	public static Game getInstance() {
 		return instance;
 	}
+	
+	
+	
+	
+	//METODOS
 	
 	public void addPoints(int p) {
 		points += p;
@@ -53,6 +68,7 @@ public class Game {
 	
 	public void addEnemy(Enemy e) {
 		auxUnitList.add(e);
+		cantEnemy++;
 		gui.add(e.getGraphic(), new Integer(1));
 	}
 
@@ -75,10 +91,27 @@ public class Game {
 		gui.add(p.getGraphic(), new Integer(2));
 	}
 	
-	public GUI gui() {
-		
-		return this.gui;
+	public void enemyDied() {
+		cantEnemy--;
 	}
+	
+	public boolean isGameOver() {
+		return gameOver;
+	}
+
+	public void noMoreLevels() {
+		gameEnd = true;
+	}
+	
+	public void finishGame(boolean win) {
+		gameOver = true;
+		if(win)
+			JOptionPane.showMessageDialog(null, "YOU WIN!");
+		else
+			JOptionPane.showMessageDialog(null, "YOU LOSE!");
+	}
+	
+	
 	
 	public void generarEnemigo() {
 		
@@ -92,6 +125,7 @@ public class Game {
 			break;
 		case 1:
 			//Game.getInstance().addEnemy(new FloraBeast(posicion.nextInt(7)+1));
+			Game.getInstance().addEnemy(new Prinny(posicion.nextInt(7)+1));
 			break;
 		case 2:
 			Game.getInstance().addEnemy(new Orc(posicion.nextInt(7)+1));
@@ -103,7 +137,7 @@ public class Game {
 			Game.getInstance().addEnemy(new Succubus(posicion.nextInt(7)+1));
 			break;
 		case 5:
-			Game.getInstance().addEnemy(new TwinDragon(posicion.nextInt(7)+1));
+			Game.getInstance().addEnemy(new TwinDragon(posicion.nextInt(6)+1));
 			break;
 		case 6:
 			Game.getInstance().addEnemy(new WingedWarrior(posicion.nextInt(7)+1));
@@ -111,10 +145,12 @@ public class Game {
 		}
 		
 	}
-		
-	
 
 	
+	
+	
+
+	//UPDATERS
 	
 	public void update() {
 		
@@ -124,7 +160,12 @@ public class Game {
 		LinkedList<Unit> toRemove = new LinkedList<>();
 		
 		for(Unit u1:unitList) {
-			if(u1.getLife() <= 0) { //unidad esta muerta y se debe remover
+			if(u1.getX() > 960) { //enemigo llego a la base
+				Game.getInstance().finishGame(false);
+				break;
+			}
+			
+			else if(u1.getLife() <= 0) { //unidad esta muerta y se debe remover
 				u1.die();
 				MapPanel.getInstance().remove(u1.getGraphic());
 				toRemove.add(u1);
@@ -149,13 +190,15 @@ public class Game {
 			}
 		}
 		
+		
 		unitList.removeAll(toRemove);
 		toRemove.clear();
 		gui.update(points);
+		
+		if(cantEnemy == 0 && gameEnd)
+			finishGame(true);
 	}
 
-	
-	
 	public void proyectileUpdate() {
 		
 		proyectileList.addAll(auxProyectileList);
@@ -183,5 +226,6 @@ public class Game {
 		proyectileList.removeAll(toRemove);
 		toRemove.clear();
 	}
+
 
 }

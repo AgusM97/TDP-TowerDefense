@@ -73,9 +73,4 @@ public class GUI {
 		mapPane.repaint();
 	}
 	
-	public void actualizar() {
-		mapPane.revalidate();
-		mapPane.repaint();
-	}
-	
 }

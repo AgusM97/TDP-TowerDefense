@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 import Characters.*;
 import Game.Game;
 
+@SuppressWarnings("serial")
 public class MenuPanel extends JPanel {
 
 	private static MenuPanel instance = null;

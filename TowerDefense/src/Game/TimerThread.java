@@ -12,7 +12,7 @@ public class TimerThread extends Thread {
 	}
 	
 	public void run() {
-		while(u.isAttacking()) {
+		while(u.isAttacking() && !Game.getInstance().isGameOver()) {
 			Game.getInstance().addProyectile(u.attack());
 			try {
 				Thread.sleep(speed);
@@ -20,8 +20,8 @@ public class TimerThread extends Thread {
 		}
 	}
 	
-	public void changeSpeed(int newsSpeed) {
-		speed = newsSpeed;
+	public void changeSpeed(int newSpeed) {
+		speed = newSpeed;
 	}
 
 }

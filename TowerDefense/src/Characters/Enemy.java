@@ -59,6 +59,7 @@ public abstract class Enemy extends Unit{
 	public void die() {
 		attacking = false;
 		Game.getInstance().addPoints(this.points);
+		Game.getInstance().enemyDied();
 	}
 
 	public boolean isInRange(Unit u) {

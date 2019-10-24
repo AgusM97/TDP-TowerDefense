@@ -2,9 +2,7 @@ package visitor;
 
 import Characters.Enemy;
 import Characters.Tower;
-import DropItems.Drop;
 import DropItems.DropAttackPowerUp;
-import DropItems.DropAttackSpeedUp;
 
 public class DropAttackPowerUpVisitor extends Visitor{
 	
