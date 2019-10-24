@@ -10,10 +10,10 @@ public class EnemyThread extends Thread {
 		try {
 			
 		for(int level = 0; level<1 && !Game.getInstance().isGameOver(); level++) {
-			Thread.sleep(15000);
+			Thread.sleep(10000);
 			
 			for(int wave=0; wave<1; wave++) {
-				Thread.sleep(10000);
+				Thread.sleep(5000);
 				
 				for(int i=0; i<15; i++) {
 					Game.getInstance().generarEnemigo();

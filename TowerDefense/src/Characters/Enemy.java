@@ -1,12 +1,16 @@
 package Characters;
 
+import java.util.Random;
+
 import javax.swing.JLabel;
 
 import graphics.EnemyGraphic;
+import gui.MapPanel;
 import visitor.EnemyVisitor;
 import visitor.Visitor;
 import Game.Game;
 import Game.TimerThread;
+import factories.DropFactory;
 
 public abstract class Enemy extends Unit{
 
@@ -58,6 +62,8 @@ public abstract class Enemy extends Unit{
 	
 	public void die() {
 		attacking = false;
+		if((new Random()).nextInt(2) % 2 == 0)
+			MapPanel.getInstance().add(DropFactory.getDrop(getX(), getY()), new Integer(5));
 		Game.getInstance().addPoints(this.points);
 		Game.getInstance().enemyDied();
 	}

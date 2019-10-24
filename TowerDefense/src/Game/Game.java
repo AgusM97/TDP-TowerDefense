@@ -118,7 +118,7 @@ public class Game {
 		Random tipoEnemigo = new Random();
 		Random posicion = new Random();
 		 
-		switch (tipoEnemigo.nextInt(6)) {
+		switch (tipoEnemigo.nextInt(7)) {
 		
 		case 0:
 			Game.getInstance().addEnemy(new DragonKing(posicion.nextInt(7)+1));
