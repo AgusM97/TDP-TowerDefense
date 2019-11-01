@@ -4,13 +4,13 @@ import java.util.Random;
 
 import javax.swing.JLabel;
 
+import Game.Game;
+import Game.TimerThread;
+import factories.DropFactory;
 import graphics.EnemyGraphic;
 import gui.MapPanel;
 import visitor.EnemyVisitor;
 import visitor.Visitor;
-import Game.Game;
-import Game.TimerThread;
-import factories.DropFactory;
 
 public abstract class Enemy extends Unit{
 

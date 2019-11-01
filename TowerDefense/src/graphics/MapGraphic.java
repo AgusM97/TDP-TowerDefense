@@ -9,7 +9,7 @@ public class MapGraphic {
 	protected final int height = 720;
 	
 	public MapGraphic() {
-		grafico = new JLabel(new ImageIcon(this.getClass().getResource("/img/MapFirstLayer.png")));
+		grafico = new JLabel(new ImageIcon(this.getClass().getResource("/img/MapFirstLayer2.png")));
 		grafico.setVisible(true);
 		grafico.setBounds(0, 0, width, height);
 	}
