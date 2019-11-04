@@ -5,7 +5,7 @@ import javax.swing.JLabel;
 import DropItems.DropAttackPowerUp;
 import DropItems.DropAttackSpeedUp;
 import DropItems.DropProtection;
-import Game.TimerThread;
+import Game.AttackThread;
 import graphics.TowerGraphic;
 import visitor.TowerVisitor;
 import visitor.Visitor;
@@ -40,7 +40,7 @@ public abstract class Tower extends Unit {
 	public void startAttacking() {
 		attacking = true;
 		graphic.startAttacking();
-		timer = new TimerThread(this, attackSpeed);
+		timer = new AttackThread(this, attackSpeed);
 		timer.start(); 
 	}
 	
@@ -50,7 +50,7 @@ public abstract class Tower extends Unit {
 	}
 	
 	public boolean isInRange(Unit u) {
-		return (getY() == u.getY()) && (getX() - range <= u.getX() + u.getWidth()) && (getX() > u.getX());
+		return (u.intersects(getX() - range, getY(), range, getHeight()));
 	}
 	
 	public void accept(Visitor v) {

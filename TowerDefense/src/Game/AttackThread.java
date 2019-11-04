@@ -2,11 +2,11 @@ package Game;
 
 import Characters.Unit;
 
-public class TimerThread extends Thread {
+public class AttackThread extends Thread {
 	protected Unit u;
 	protected int speed;
 
-	public TimerThread(Unit unit, int speed) {
+	public AttackThread(Unit unit, int speed) {
 		u = unit;
 		this.speed = speed;
 	}

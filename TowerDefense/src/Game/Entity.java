@@ -31,4 +31,8 @@ public abstract class Entity {
 	public boolean intersects(Entity e) {
 		return hitbox.intersects(e.getX(), e.getY(), e.getWidth(), e.getHeight());
 	}
+	
+	public boolean intersects(int x, int y, int width, int height) {
+		return hitbox.intersects(x, y, width, height);
+	}
 }

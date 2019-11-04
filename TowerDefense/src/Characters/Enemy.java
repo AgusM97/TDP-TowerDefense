@@ -5,7 +5,7 @@ import java.util.Random;
 import javax.swing.JLabel;
 
 import Game.Game;
-import Game.TimerThread;
+import Game.AttackThread;
 import factories.DropFactory;
 import graphics.EnemyGraphic;
 import gui.MapPanel;
@@ -47,7 +47,7 @@ public abstract class Enemy extends Unit{
 	public void startAttacking() {
 		attacking = true;
 		graphic.startAttacking();
-		timer = new TimerThread(this, attackSpeed);
+		timer = new AttackThread(this, attackSpeed);
 		timer.start(); 
 	}
 	
@@ -69,7 +69,7 @@ public abstract class Enemy extends Unit{
 	}
 
 	public boolean isInRange(Unit u) {
-		return (getY() == u.getY()) && (getX() + getWidth() + range >= u.getX()) && (getX() < u.getX()); //misma fila y dentro del rango
+		return (u.intersects(getX() + getWidth(), getY(), range, getHeight()));
 	}
 	
 	public void move() {

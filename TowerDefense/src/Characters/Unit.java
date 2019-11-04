@@ -1,11 +1,9 @@
 package Characters;
 
-import java.awt.Component;
-
 import javax.swing.JLabel;
 
 import Game.Entity;
-import Game.TimerThread;
+import Game.AttackThread;
 import Proyectile.Proyectile;
 import visitor.Visitor;
 
@@ -13,7 +11,7 @@ public abstract class Unit extends Entity {
 	
 	protected int damage, range, life, attackSpeed;
 	protected boolean opponentInRange;
-	protected TimerThread timer;
+	protected AttackThread timer;
 	
 	
 	public Unit(int x, int y, int damage, int range, int life, int attackSpeed) {
