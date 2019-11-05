@@ -1,8 +1,8 @@
 package visitor;
 
-import Characters.Enemy;
-import Characters.Tower;
 import Proyectile.EnemyProyectile;
+import enemies.Enemy;
+import towers.Tower;
 
 public class EnemyProyectileVisitor extends Visitor{
 	protected EnemyProyectile p;

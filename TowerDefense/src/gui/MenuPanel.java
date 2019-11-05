@@ -12,6 +12,12 @@ import javax.swing.JTextField;
 
 import Characters.*;
 import Game.Game;
+import enemies.Orc;
+import towers.Archer;
+import towers.DarkKnight;
+import towers.Maid;
+import towers.Pirate;
+import towers.Sorcerer;
 
 @SuppressWarnings("serial")
 public class MenuPanel extends JPanel {

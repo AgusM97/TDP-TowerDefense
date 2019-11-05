@@ -7,7 +7,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import Characters.Enemy;
+import enemies.Enemy;
 
 public class EnemyGraphic {
 	protected JLabel graphic;

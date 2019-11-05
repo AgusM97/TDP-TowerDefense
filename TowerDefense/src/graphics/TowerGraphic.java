@@ -3,7 +3,8 @@ package graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import Characters.Tower;
+
+import towers.Tower;
 
 public class TowerGraphic {
 	protected JLabel graphic;

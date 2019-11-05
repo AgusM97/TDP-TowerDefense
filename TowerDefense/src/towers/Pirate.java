@@ -1,4 +1,4 @@
-package Characters;
+package towers;
 
 import Proyectile.PirateProyectile;
 import Proyectile.Proyectile;

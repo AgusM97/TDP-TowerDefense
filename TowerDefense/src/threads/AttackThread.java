@@ -1,6 +1,7 @@
-package Game;
+package threads;
 
-import Characters.Unit;
+import Game.Game;
+import Game.Unit;
 
 public class AttackThread extends Thread {
 	protected Unit u;

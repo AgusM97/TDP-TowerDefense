@@ -1,4 +1,4 @@
-package Characters;
+package towers;
 
 import Proyectile.ArcherProyectile;
 import Proyectile.Proyectile;

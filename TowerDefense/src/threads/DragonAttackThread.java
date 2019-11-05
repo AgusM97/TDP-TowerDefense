@@ -1,6 +1,7 @@
-package Game;
+package threads;
 
-import Characters.TwinDragon;
+import Game.Game;
+import enemies.TwinDragon;
 
 public class DragonAttackThread extends AttackThread{
 

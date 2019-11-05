@@ -1,4 +1,4 @@
-package Characters;
+package enemies;
 
 import Proyectile.DragonKingProyectile;
 import Proyectile.Proyectile;

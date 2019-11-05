@@ -1,8 +1,8 @@
 package visitor;
 
-import Characters.Enemy;
-import Characters.Tower;
 import DropItems.DropAttackPowerUp;
+import enemies.Enemy;
+import towers.Tower;
 
 public class DropAttackPowerUpVisitor extends Visitor{
 	

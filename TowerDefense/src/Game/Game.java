@@ -1,14 +1,16 @@
 package Game;
 
 import java.util.LinkedList;
-import java.util.Random;
-
 import javax.swing.JOptionPane;
 
 import Characters.*;
 import Proyectile.Proyectile;
+import enemies.Enemy;
 import gui.GUI;
 import gui.MapPanel;
+import threads.EnemyThread;
+import threads.UpdaterThread;
+import towers.Tower;
 
 
 public class Game {
@@ -20,7 +22,6 @@ public class Game {
 	protected LinkedList<Unit> auxUnitList;
 	protected LinkedList<Proyectile> proyectileList;
 	protected LinkedList<Proyectile> auxProyectileList;
-	protected Level level;
 	protected GUI gui;
 
 	
@@ -113,38 +114,7 @@ public class Game {
 	
 	
 	
-	public void generarEnemigo() {
-		
-		Random tipoEnemigo = new Random();
-		Random posicion = new Random();
-		 
-		switch (tipoEnemigo.nextInt(7)) {
-		
-		case 0:
-			Game.getInstance().addEnemy(new DragonKing(posicion.nextInt(7)+1));
-			break;
-		case 1:
-			//Game.getInstance().addEnemy(new FloraBeast(posicion.nextInt(7)+1));
-			Game.getInstance().addEnemy(new Prinny(posicion.nextInt(7)+1));
-			break;
-		case 2:
-			Game.getInstance().addEnemy(new Orc(posicion.nextInt(7)+1));
-			break;
-		case 3:
-			Game.getInstance().addEnemy(new Prinny(posicion.nextInt(7)+1));
-			break;
-		case 4:
-			Game.getInstance().addEnemy(new Succubus(posicion.nextInt(7)+1));
-			break;
-		case 5:
-			Game.getInstance().addEnemy(new TwinDragon(posicion.nextInt(6)+1));
-			break;
-		case 6:
-			Game.getInstance().addEnemy(new WingedWarrior(posicion.nextInt(7)+1));
-			break;
-		}
-		
-	}
+	
 
 	
 	

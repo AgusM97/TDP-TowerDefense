@@ -1,8 +1,8 @@
 package visitor;
 
-import Characters.Enemy;
-import Characters.Tower;
 import ShopObjects.ShopItemHealer;
+import enemies.Enemy;
+import towers.Tower;
 
 public class ShopItemHealerVisitor extends Visitor{
 	protected ShopItemHealer healer;

@@ -1,10 +1,10 @@
-package Characters;
+package enemies;
 
 
-import Game.DragonAttackThread;
 import Proyectile.Proyectile;
 import Proyectile.TwinDragonProyectile;
 import graphics.EnemyGraphic;
+import threads.DragonAttackThread;
 
 public class TwinDragon extends Enemy{
 	

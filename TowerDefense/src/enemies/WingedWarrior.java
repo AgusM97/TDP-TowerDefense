@@ -1,12 +1,10 @@
-package Characters;
-
-import java.util.Random;
+package enemies;
 
 import Proyectile.EnemyMeleeProyectile;
 import Proyectile.Proyectile;
 import graphics.EnemyGraphic;
 
-public class Prinny extends Enemy{
+public class WingedWarrior extends Enemy{
 	
 	/*
 	 * damage = 15
@@ -19,13 +17,9 @@ public class Prinny extends Enemy{
 	 * 
 	 */
 	
-	public Prinny(int row) {
+		public WingedWarrior(int row) {
 		super(row * 80, 15, 1, 100, 100, 2, 2, 1500);
-		Random r = new Random();
-		if(r.nextInt(5) % 4 == 0)
-			graphic = new EnemyGraphic(this, "/gif/Prinny_Movement1.gif", "/gif/Prinny_Attack.gif");
-		else
-			graphic = new EnemyGraphic(this, "/gif/Prinny_Movement2.gif", "/gif/Prinny_Attack.gif");
+		graphic = new EnemyGraphic(this, "/gif/WingedWarrior_Movement.gif", "/gif/WingedWarrior_Attack.gif");
 	}
 
 	public Proyectile attack() {

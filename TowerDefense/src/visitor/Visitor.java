@@ -1,7 +1,7 @@
 package visitor;
 
-import Characters.Enemy;
-import Characters.Tower;
+import enemies.Enemy;
+import towers.Tower;
 
 public abstract class Visitor {
 

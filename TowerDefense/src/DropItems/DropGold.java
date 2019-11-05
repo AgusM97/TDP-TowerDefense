@@ -1,7 +1,5 @@
 package DropItems;
 
-import graphics.DropItemGraphic;
-
 public class DropGold extends Drop{
 	
 	public DropGold(int x, int y) {

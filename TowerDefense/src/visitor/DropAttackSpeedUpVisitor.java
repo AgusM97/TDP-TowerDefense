@@ -1,8 +1,8 @@
 package visitor;
 
-import Characters.Enemy;
-import Characters.Tower;
 import DropItems.DropAttackSpeedUp;
+import enemies.Enemy;
+import towers.Tower;
 
 public class DropAttackSpeedUpVisitor {
 	
