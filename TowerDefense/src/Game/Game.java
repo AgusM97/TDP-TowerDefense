@@ -3,7 +3,6 @@ package Game;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
-import Characters.*;
 import Proyectile.Proyectile;
 import enemies.Enemy;
 import gui.GUI;
@@ -34,7 +33,7 @@ public class Game {
 		auxUnitList = new LinkedList<>();
 		auxProyectileList = new LinkedList<>();
 		points=0;
-		coins=0;
+		coins=1000;
 		cantEnemy=0;
 		gameOver = false;
 		gameEnd = false;
@@ -81,7 +80,8 @@ public class Game {
 				break;
 			}
 		}
-		if(posAvailable) {
+		if(posAvailable && t.getCost() <= coins) {
+			coins = coins - t.getCost();
 			auxUnitList.add(t);
 			gui.add(t.getGraphic(), new Integer(1));
 		}
@@ -163,7 +163,7 @@ public class Game {
 		
 		unitList.removeAll(toRemove);
 		toRemove.clear();
-		gui.update(points);
+		gui.update(points, coins);
 		
 		if(cantEnemy == 0 && gameEnd)
 			finishGame(true);

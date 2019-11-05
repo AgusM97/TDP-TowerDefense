@@ -4,15 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Random;
-
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import Characters.*;
 import Game.Game;
-import enemies.Orc;
 import towers.Archer;
 import towers.DarkKnight;
 import towers.Maid;
@@ -23,7 +19,7 @@ import towers.Sorcerer;
 public class MenuPanel extends JPanel {
 
 	private static MenuPanel instance = null;
-	private JTextField pointsText;
+	private JTextField pointsText, coinsText;
 	
 	private MenuPanel() {
 
@@ -38,17 +34,15 @@ public class MenuPanel extends JPanel {
 		pointsText.setEditable(false);
 		pointsText.setColumns(20);
 		this.add(pointsText);
-
 		
-		JButton btnAddOrc = new JButton("Add Orc");
-		btnAddOrc.setBounds(70, 200, 130, 50);
-		this.add(btnAddOrc);
-		btnAddOrc.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				Random r = new Random();
-				Game.getInstance().addEnemy(new Orc(r.nextInt(7) + 1));
-			}
-		});
+		
+		coinsText=new JTextField();
+		coinsText.setText("Coins: 0");
+		coinsText.setBounds(77, 100, 166, 20);
+		coinsText.setEditable(false);
+		coinsText.setColumns(20);
+		this.add(coinsText);
+
 		
 		JButton btnAddArcher = new JButton("Add Archer");
 		btnAddArcher.setBounds(70, 350, 130, 40);
@@ -139,6 +133,11 @@ public class MenuPanel extends JPanel {
 	
 	public void setPoints(int points) {
 		pointsText.setText("Points: "+ points);
+		
+	}
+
+	public void setCoins(int coins) {
+		coinsText.setText("Coins: "+ coins);
 		
 	}
 	

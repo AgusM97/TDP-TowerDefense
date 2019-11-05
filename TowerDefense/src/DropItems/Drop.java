@@ -27,6 +27,8 @@ public abstract class Drop extends JLabel{
 		});
 	}
 	
+	public abstract void performAction();
+	
 	
 
 }

@@ -67,8 +67,9 @@ public class GUI {
 		mapPane.remove(c);
 	}
 	
-	public void update(int points) {
+	public void update(int points, int coins) {
 		menuPane.setPoints(points);
+		menuPane.setCoins(coins);
 		mapPane.revalidate();
 		mapPane.repaint();
 	}
