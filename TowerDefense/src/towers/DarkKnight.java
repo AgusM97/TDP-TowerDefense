@@ -20,7 +20,7 @@ public class DarkKnight extends Tower{
 		graphic = new TowerGraphic(this, "/gif/DarkKnight_idle.gif", "/gif/DarkKnight_Attack.gif");
 	}
 
-	public Proyectile attack() {
+	public Proyectile generateProyectile() {
 		return new TowerMeleeProyectile(getX(), getY(), damage, range);
 	}
 

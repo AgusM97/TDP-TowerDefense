@@ -22,7 +22,7 @@ public class DragonKing extends Enemy{
 		graphic = new EnemyGraphic(this, "/gif/DragonKing_Movement.gif", "/gif/DragonKing_attack.gif");
 	}
 
-	public Proyectile attack() {
+	public Proyectile generateProyectile() {
 		return new DragonKingProyectile(getX() + getWidth(), getY(), damage, range, 4);
 	}
 

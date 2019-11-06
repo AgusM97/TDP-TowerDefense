@@ -20,7 +20,7 @@ public class Maid extends Tower{
 		graphic = new TowerGraphic(this, "/gif/Maid_Idle.gif", "/gif/Maid_Attack.gif");
 	}
 
-	public Proyectile attack() {
+	public Proyectile generateProyectile() {
 		return new TowerMeleeProyectile(getX(), getY(), damage, range);
 	}
 	

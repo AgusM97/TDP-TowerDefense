@@ -22,7 +22,7 @@ public class Orc extends Enemy{
 		graphic = new EnemyGraphic(this, "/gif/Orc_movement.gif", "/gif/Orc_attack.gif");
 	}
 
-	public Proyectile attack() {
+	public Proyectile generateProyectile() {
 		return new EnemyMeleeProyectile(getX() + getWidth(), getY(), damage, range);
 	}
 

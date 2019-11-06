@@ -22,7 +22,7 @@ public class FloraBeast extends Enemy{
 	}
 
 	@Override
-	public Proyectile attack() {
+	public Proyectile generateProyectile() {
 		// TODO Auto-generated method stub
 		return null;
 	}

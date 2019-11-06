@@ -32,7 +32,7 @@ public class TwinDragon extends Enemy{
 		timer.start(); 
 	}
 
-	public Proyectile attack() {
+	public Proyectile generateProyectile() {
 		return new TwinDragonProyectile(getX() + getWidth(), getY(), damage, range, 5);
 	}
 	

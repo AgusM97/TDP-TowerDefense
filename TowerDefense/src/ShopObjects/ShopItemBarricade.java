@@ -14,7 +14,7 @@ public class ShopItemBarricade extends Tower{
 	}
 
 	@Override
-	public Proyectile attack() {
+	public Proyectile generateProyectile() {
 		// TODO Auto-generated method stub
 		return null;
 	}
