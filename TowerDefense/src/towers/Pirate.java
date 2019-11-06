@@ -20,7 +20,7 @@ public class Pirate extends Tower{
 		graphic = new TowerGraphic(this, "/gif/Pirate_Idle.gif", "/gif/Pirate_Attack.gif");
 	}
 	
-	public Proyectile attack() {
+	public Proyectile generateProyectile() {
 		return new PirateProyectile(getX(), getY(), damage, range);
 	}
 

@@ -28,7 +28,7 @@ public class Prinny extends Enemy{
 			graphic = new EnemyGraphic(this, "/gif/Prinny_Movement2.gif", "/gif/Prinny_Attack.gif");
 	}
 
-	public Proyectile attack() {
+	public Proyectile generateProyectile() {
 		return new EnemyMeleeProyectile(getX() + getWidth(), getY(), damage, range);
 	}
 

@@ -14,7 +14,7 @@ public class DragonAttackThread extends AttackThread{
 	
 	public void run() {
 		while(u.isAttacking() && !Game.getInstance().isGameOver()) {
-			Game.getInstance().addProyectile(u.attack());
+			Game.getInstance().addProyectile(u.generateProyectile());
 			Game.getInstance().addProyectile(u.attack2());
 			try {
 				Thread.sleep(speed);

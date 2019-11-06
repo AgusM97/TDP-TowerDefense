@@ -23,7 +23,7 @@ public class Succubus extends Enemy{
 	}
 
 	@Override
-	public Proyectile attack() {
+	public Proyectile generateProyectile() {
 		
 		return new SuccubusProyectile(getX() + getWidth(), getY(), damage, range, 3);
 	}

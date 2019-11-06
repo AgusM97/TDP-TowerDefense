@@ -6,6 +6,7 @@ import DropItems.DropAttackPowerUp;
 import DropItems.DropAttackSpeedUp;
 import DropItems.DropProtection;
 import Game.Unit;
+import Proyectile.Proyectile;
 import graphics.TowerGraphic;
 import threads.AttackThread;
 import visitor.TowerVisitor;
@@ -16,7 +17,7 @@ public abstract class Tower extends Unit {
 	protected TowerGraphic graphic;
 	protected TowerVisitor visitor;
 	protected boolean attacking;
-	protected int cost;
+	protected int cost, powerUpCount, speedUpCount;
 
 	public Tower(int x, int y, int damage, int range, int life, int cost, int attackSpeed) {
 		super(x, y, damage, range, life, attackSpeed);
@@ -24,6 +25,8 @@ public abstract class Tower extends Unit {
 		attacking = false;
 		this.cost = cost;
 		this.attackSpeed = attackSpeed;
+		powerUpCount=0;
+		speedUpCount=0;
 	}
 
 	public int getCost() {
@@ -54,6 +57,8 @@ public abstract class Tower extends Unit {
 		graphic.stopAttacking();
 	}
 	
+	
+	
 	public boolean isInRange(Unit u) {
 		return (u.intersects(getX() - range, getY(), range, getHeight()));
 	}
@@ -65,12 +70,40 @@ public abstract class Tower extends Unit {
 	public void die() {
 		attacking = false;
 	}
+
+	public Proyectile attack() {
+		Proyectile toReturn = generateProyectile();
+		
+		if(powerUpCount > 0) {
+			powerUpCount--;
+			if(powerUpCount == 0)
+				damage = damage / 3;
+		}
+		
+		if(speedUpCount > 0) {
+			speedUpCount--;
+			if(speedUpCount == 0) {
+				attackSpeed = attackSpeed / 2;
+				timer.changeSpeed(attackSpeed);
+			}
+		}
+		
+		return toReturn;
+	}
 	
 	public void move() {}
 	
-	public void buff(DropAttackPowerUp item) {}
+	public void buff(DropAttackPowerUp item) {
+		damage += damage / 2;
+		powerUpCount=3;
+	}
 	
-	public void buff(DropAttackSpeedUp item) {}
+	public void buff(DropAttackSpeedUp item) {
+		attackSpeed += attackSpeed / 2;
+		if(isAttacking())
+			timer.changeSpeed(attackSpeed);
+		speedUpCount=5;
+	}
 	
 	public void buff(DropProtection item) {}
 

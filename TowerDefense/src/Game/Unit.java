@@ -28,7 +28,7 @@ public abstract class Unit extends Entity {
 	public abstract Visitor getVisitor();
 	public abstract boolean isAttacking();
 	public abstract boolean isInRange(Unit u);
-	public abstract Proyectile attack();
+	public abstract Proyectile generateProyectile();
 	public abstract void startAttacking();
 	public abstract void stopAttacking();
 	public abstract void move();
@@ -49,7 +49,9 @@ public abstract class Unit extends Entity {
 		opponentInRange = b;
 	}
 
-
+	public Proyectile attack() {
+		return generateProyectile();
+	}
 
 	
 	

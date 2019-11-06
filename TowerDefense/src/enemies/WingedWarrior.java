@@ -22,7 +22,7 @@ public class WingedWarrior extends Enemy{
 		graphic = new EnemyGraphic(this, "/gif/WingedWarrior_Movement.gif", "/gif/WingedWarrior_Attack.gif");
 	}
 
-	public Proyectile attack() {
+	public Proyectile generateProyectile() {
 		return new EnemyMeleeProyectile(getX() + getWidth(), getY(), damage, range);
 	}
 

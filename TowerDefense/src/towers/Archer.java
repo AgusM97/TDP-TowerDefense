@@ -20,7 +20,7 @@ public class Archer extends Tower{
 		graphic = new TowerGraphic(this, "/gif/Archer_idle.gif", "/gif/Archer_attack.gif");
 	}
 	
-	public Proyectile attack() {
+	public Proyectile generateProyectile() {
 		return new ArcherProyectile(getX(), getY(), damage, range);
 	}
 
