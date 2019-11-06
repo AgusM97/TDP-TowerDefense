@@ -1,5 +1,8 @@
 package DropItems;
 
+import Game.Game;
+import Proyectile.BombProyectile;
+
 @SuppressWarnings("serial")
 public class DropBomb extends Drop{
 	
@@ -7,9 +10,18 @@ public class DropBomb extends Drop{
 		super(x,y,60,60,"/img/Drop_Bomb.png");
 	}
 
-	@Override
 	public void performAction() {
-		// TODO Auto-generated method stub
+		Game.getInstance().addProyectile(new BombProyectile(getX() - 80, getY() - 80));
+		Game.getInstance().addProyectile(new BombProyectile(getX(), getY() - 80));
+		Game.getInstance().addProyectile(new BombProyectile(getX() + 80, getY() - 80));
+		
+		Game.getInstance().addProyectile(new BombProyectile(getX() - 80, getY()));
+		Game.getInstance().addProyectile(new BombProyectile(getX(), getY()));
+		Game.getInstance().addProyectile(new BombProyectile(getX() + 80, getY()));
+		
+		Game.getInstance().addProyectile(new BombProyectile(getX() - 80, getY() + 80));
+		Game.getInstance().addProyectile(new BombProyectile(getX(), getY() + 80));
+		Game.getInstance().addProyectile(new BombProyectile(getX() + 80, getY() + 80));
 		
 	}
 

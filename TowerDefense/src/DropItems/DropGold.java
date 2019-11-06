@@ -1,5 +1,7 @@
 package DropItems;
 
+import Game.Game;
+
 @SuppressWarnings("serial")
 public class DropGold extends Drop{
 	
@@ -7,10 +9,8 @@ public class DropGold extends Drop{
 		super(x,y,60,60,"/img/Drop_Gold.png");
 	}
 
-	@Override
 	public void performAction() {
-		// TODO Auto-generated method stub
-		
+		Game.getInstance().addCoins(100);
 	}
 
 }

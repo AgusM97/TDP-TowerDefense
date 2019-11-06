@@ -66,6 +66,7 @@ public abstract class Enemy extends Unit{
 		if((new Random()).nextInt(2) % 2 == 0)
 			MapPanel.getInstance().add(DropFactory.getDrop(getX(), getY()), new Integer(5));
 		Game.getInstance().addPoints(this.points);
+		Game.getInstance().addCoins(this.coins);
 		Game.getInstance().enemyDied();
 	}
 

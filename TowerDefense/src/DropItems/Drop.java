@@ -23,6 +23,7 @@ public abstract class Drop extends JLabel{
 		this.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				MapPanel.getInstance().remove(label);
+				performAction();
 			}
 		});
 	}

@@ -22,6 +22,7 @@ public abstract class Tower extends Unit {
 		super(x, y, damage, range, life, attackSpeed);
 		visitor = new TowerVisitor(this);
 		attacking = false;
+		this.cost = cost;
 		this.attackSpeed = attackSpeed;
 	}
 
