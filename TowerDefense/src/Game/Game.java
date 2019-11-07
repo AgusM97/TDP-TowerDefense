@@ -43,8 +43,8 @@ public class Game {
 		map = new Map();
 		gui = g;
 		gui.add(map.getGrafico(), new Integer(0));
-		niveles.add(0, new Nivel(1,1,1));
-		niveles.add(1,new Nivel(1,1,2));
+		niveles.add(0, new Nivel(1,2,2));
+		niveles.add(1,new Nivel(2,3,4));
 		nivelActual=0;
 		
 
