@@ -1,6 +1,8 @@
 package DropItems;
 
 import visitor.DropAttackPowerUpVisitor;
+import visitor.Visitor;
+import Game.Game;
 
 @SuppressWarnings("serial")
 public class DropAttackPowerUp extends Drop{
@@ -9,12 +11,15 @@ public class DropAttackPowerUp extends Drop{
 	
 	public DropAttackPowerUp(int x, int y) {
 		super(x,y+20,60,60,"/img/Drop_AttackPowerUp.png");
+		visitor = new DropAttackPowerUpVisitor(this);
 	}
 
-	@Override
 	public void performAction() {
-		// TODO Auto-generated method stub
-		
+		Game.getInstance().applyPowerUp(this);
+	}
+	
+	public Visitor getVisitor() {
+		return visitor;
 	}
 
 }

@@ -3,6 +3,8 @@ package Game;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
+import DropItems.DropAttackPowerUp;
+import DropItems.DropAttackSpeedUp;
 import Proyectile.Proyectile;
 import enemies.Enemy;
 import gui.GUI;
@@ -119,6 +121,18 @@ public class Game {
 		auxProyectileList.add(p);
 		gui.add(p.getGraphic(), new Integer(2));
 	}
+
+	public void applyPowerUp(DropAttackPowerUp powerUp) {
+		for(Unit u:unitList)
+			if(u.getY() / 80 == powerUp.getY() / 80)
+				u.accept(powerUp.getVisitor());
+	}
+
+	public void applyPowerUp(DropAttackSpeedUp powerUp) {
+		for(Unit u:unitList)
+			if(u.getY() / 80 == powerUp.getY() / 80)
+				u.accept(powerUp.getVisitor());
+	}
 	
 	public void enemyDied() {
 		cantEnemy--;
@@ -205,8 +219,10 @@ public class Game {
 		LinkedList<Proyectile> toRemove = new LinkedList<>();
 		
 		for(Proyectile p:proyectileList) {
-			if(p == null) //no se xq puede pasar
+			if(p == null) { //no se xq puede pasar
+				toRemove.add(p);
 				continue;
+			}
 			
 			p.move();
 			

@@ -11,7 +11,7 @@ public class DropFactory {
 		Random r = new Random();
 		Drop d = null;
 		
-		switch (r.nextInt(2)) {
+		switch (r.nextInt(4)) {
 		
 		case 0:
 			d = new DropGold(x, y);
@@ -20,10 +20,10 @@ public class DropFactory {
 			d = new DropBomb(x, y);
 			break;
 		case 2:
-			d = new DropAttackSpeedUp(x, y);//falta
+			d = new DropAttackSpeedUp(x, y);
 			break;
 		case 3:
-			d = new DropAttackPowerUp(x, y);//falta
+			d = new DropAttackPowerUp(x, y);
 			break;
 		case 4:
 			d = new DropProtection(x, y);//falta

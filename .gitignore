@@ -27,3 +27,4 @@ TowerDefense/.classpath
 /.recommenders/
 .recommenders/caches/identified-project-coordinates.json
 *.db
+.recommenders/caches/identified-project-coordinates.json

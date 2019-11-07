@@ -77,13 +77,13 @@ public abstract class Tower extends Unit {
 		if(powerUpCount > 0) {
 			powerUpCount--;
 			if(powerUpCount == 0)
-				damage = damage / 3;
+				damage -= damage / 3;
 		}
 		
 		if(speedUpCount > 0) {
 			speedUpCount--;
 			if(speedUpCount == 0) {
-				attackSpeed = attackSpeed / 2;
+				attackSpeed = attackSpeed * 2;
 				timer.changeSpeed(attackSpeed);
 			}
 		}
@@ -99,7 +99,7 @@ public abstract class Tower extends Unit {
 	}
 	
 	public void buff(DropAttackSpeedUp item) {
-		attackSpeed += attackSpeed / 2;
+		attackSpeed = attackSpeed / 2;
 		if(isAttacking())
 			timer.changeSpeed(attackSpeed);
 		speedUpCount=5;

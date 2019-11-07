@@ -4,7 +4,7 @@ import DropItems.DropAttackSpeedUp;
 import enemies.Enemy;
 import towers.Tower;
 
-public class DropAttackSpeedUpVisitor {
+public class DropAttackSpeedUpVisitor extends Visitor{
 	
 	protected DropAttackSpeedUp item;
 	

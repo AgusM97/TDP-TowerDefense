@@ -2,8 +2,6 @@ package threads;
 
 import java.util.Random;
 
-import javax.swing.JOptionPane;
-
 import Game.Game;
 import factories.EnemyFactory;
 
@@ -15,7 +13,7 @@ public class EnemyThread extends Thread {
 		try {
 			
 		for(int level = 0; level < Game.getInstance().niveles().size() && !Game.getInstance().isGameOver(); level++) {
-			Thread.sleep(10000);
+			Thread.sleep(5000);
 			
 			for(int wave=0; wave<Game.getInstance().niveles().get(level).Oleadas().size(); wave++) {
 				Thread.sleep(5000);

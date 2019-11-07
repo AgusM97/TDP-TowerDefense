@@ -1,6 +1,8 @@
 package DropItems;
 
+import Game.Game;
 import visitor.DropAttackSpeedUpVisitor;
+import visitor.Visitor;
 
 @SuppressWarnings("serial")
 public class DropAttackSpeedUp extends Drop{
@@ -8,13 +10,16 @@ public class DropAttackSpeedUp extends Drop{
 	protected DropAttackSpeedUpVisitor visitor;
 	
 	public DropAttackSpeedUp(int x, int y) {
-		super(x,y,60,60,"/img/Drop_AttackSpeedUp.png");
+		super(x,y+20,60,60,"/img/Drop_AttackSpeedUp.png");
+		visitor = new DropAttackSpeedUpVisitor(this);
 	}
 
-	@Override
 	public void performAction() {
-		// TODO Auto-generated method stub
-		
+		Game.getInstance().applyPowerUp(this);
+	}
+
+	public Visitor getVisitor() {
+		return visitor;
 	}
 
 }
