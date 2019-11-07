@@ -11,8 +11,7 @@ public class DropFactory {
 		Random r = new Random();
 		Drop d = null;
 		
-		//switch (r.nextInt(5)) {
-		switch (4) {
+		switch (r.nextInt(5)) {
 		
 		case 0:
 			d = new DropGold(x, y);
