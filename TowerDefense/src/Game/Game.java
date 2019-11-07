@@ -22,6 +22,8 @@ public class Game {
 	protected LinkedList<Proyectile> proyectileList;
 	protected LinkedList<Proyectile> auxProyectileList;
 	protected GUI gui;
+	protected LinkedList<Nivel> niveles;
+	protected int nivelActual;
 
 	
 	
@@ -32,6 +34,7 @@ public class Game {
 		proyectileList = new LinkedList<>();
 		auxUnitList = new LinkedList<>();
 		auxProyectileList = new LinkedList<>();
+		niveles = new LinkedList<Nivel>();
 		points=0;
 		coins=1000;
 		cantEnemy=0;
@@ -40,6 +43,12 @@ public class Game {
 		map = new Map();
 		gui = g;
 		gui.add(map.getGrafico(), new Integer(0));
+		niveles.add(0, new Nivel(1,1,1));
+		niveles.add(1,new Nivel(1,1,2));
+		nivelActual=0;
+		
+
+		
 		
 	}
 	
@@ -61,6 +70,21 @@ public class Game {
 	
 	
 	//METODOS
+	
+	public LinkedList<Nivel> niveles(){
+		
+		return niveles;
+	}
+	
+	public void incrementarNivel() {
+		
+		nivelActual=nivelActual+1;
+	}
+	
+	public int nivelActual() {
+		
+		return nivelActual;
+	}
 	
 	public void addPoints(int p) {
 		points += p;
@@ -169,7 +193,7 @@ public class Game {
 		toRemove.clear();
 		gui.update(points, coins);
 		
-		if(cantEnemy == 0 && gameEnd)
+		if(cantEnemy == 0 && gameEnd && this.nivelActual()+1==niveles.size())
 			finishGame(true);
 	}
 
