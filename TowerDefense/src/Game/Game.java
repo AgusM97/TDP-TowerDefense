@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 
 import DropItems.DropAttackPowerUp;
 import DropItems.DropAttackSpeedUp;
+import DropItems.DropProtection;
 import Proyectile.Proyectile;
 import enemies.Enemy;
 import gui.GUI;
@@ -129,6 +130,12 @@ public class Game {
 	}
 
 	public void applyPowerUp(DropAttackSpeedUp powerUp) {
+		for(Unit u:unitList)
+			if(u.getY() / 80 == powerUp.getY() / 80)
+				u.accept(powerUp.getVisitor());
+	}
+
+	public void applyPowerUp(DropProtection powerUp) {
 		for(Unit u:unitList)
 			if(u.getY() / 80 == powerUp.getY() / 80)
 				u.accept(powerUp.getVisitor());

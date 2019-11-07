@@ -17,7 +17,7 @@ public abstract class Tower extends Unit {
 	protected TowerGraphic graphic;
 	protected TowerVisitor visitor;
 	protected boolean attacking;
-	protected int cost, powerUpCount, speedUpCount;
+	protected int cost, powerUpCount, speedUpCount, shield;
 
 	public Tower(int x, int y, int damage, int range, int life, int cost, int attackSpeed) {
 		super(x, y, damage, range, life, attackSpeed);
@@ -25,8 +25,16 @@ public abstract class Tower extends Unit {
 		attacking = false;
 		this.cost = cost;
 		this.attackSpeed = attackSpeed;
-		powerUpCount=0;
-		speedUpCount=0;
+		powerUpCount=speedUpCount=shield= 0;
+		
+	}
+	
+	public void receiveDamage(int damage) {
+		if(shield > 0) {
+			shield--;
+			damage = 0;
+		}
+		life -= damage;
 	}
 
 	public int getCost() {
@@ -105,7 +113,9 @@ public abstract class Tower extends Unit {
 		speedUpCount=5;
 	}
 	
-	public void buff(DropProtection item) {}
+	public void buff(DropProtection item) {
+		shield += 3;
+	}
 
 
 			

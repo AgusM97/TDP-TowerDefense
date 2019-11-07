@@ -4,7 +4,7 @@ import DropItems.DropProtection;
 import enemies.Enemy;
 import towers.Tower;
 
-public class DropProtectionVisitor {
+public class DropProtectionVisitor extends Visitor{
 	
 	protected DropProtection item;
 	
@@ -12,7 +12,6 @@ public class DropProtectionVisitor {
 		this.item=drop;
 	}
 
-	//Dependiendo del item deberia darle algun efecto.
 	public void visit(Tower t) {
 		t.buff(item);
 	}
