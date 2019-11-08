@@ -38,16 +38,18 @@ public class TowerGraphic {
 
 	protected void sell() {
 		int n = JOptionPane.showOptionDialog(null,
-				"Desea vender la unidad?\n Ganancia: " + t.getCost()/2, "Vender",
+				"Desea vender la unidad?\n Ganancia: " + t.getCost()/2,
+				"Vender",
 				JOptionPane.YES_NO_OPTION,
 				JOptionPane.QUESTION_MESSAGE,
-				null,
-				null,
-				null);
+				null,null,null);
 
 		if(n == 0 && t.getLife() > 0) {
 			Game.getInstance().addCoins(t.getCost() / 2);
 			t.die();
+		}
+		else if(n == 0 && t.getLife() <= 0){
+			JOptionPane.showMessageDialog(null, "Unidad ya no existe.", "Demasiado tarde", JOptionPane.WARNING_MESSAGE);
 		}
 	}
 
