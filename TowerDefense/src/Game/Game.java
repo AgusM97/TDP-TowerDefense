@@ -157,7 +157,7 @@ public class Game {
 	 */
 	public void killAll() {
 		for(Unit u:unitList)
-			u.die();
+			u.receiveDamage(10000);
 	}
 	
 	

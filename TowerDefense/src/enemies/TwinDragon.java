@@ -1,10 +1,11 @@
 package enemies;
 
 
+import Game.Game;
 import Proyectile.Proyectile;
 import Proyectile.TwinDragonProyectile;
 import graphics.EnemyGraphic;
-import threads.DragonAttackThread;
+import threads.AttackThread;
 
 public class TwinDragon extends Enemy{
 	
@@ -28,16 +29,21 @@ public class TwinDragon extends Enemy{
 	public void startAttacking() {
 		attacking = true;
 		graphic.startAttacking();
-		timer = new DragonAttackThread(this, attackSpeed);
+		timer = new AttackThread(this, attackSpeed);
 		timer.start(); 
 	}
 
 	public Proyectile generateProyectile() {
 		return new TwinDragonProyectile(getX() + getWidth(), getY(), damage, range, 5);
 	}
-	
-	public Proyectile attack2() {
+
+	public Proyectile generateProyectile2() {
 		return new TwinDragonProyectile(getX() + getWidth(), getY() + 80, damage, range, 5);
+	}
+	
+	public void attack() {
+		Game.getInstance().addProyectile(generateProyectile());
+		Game.getInstance().addProyectile(generateProyectile2());
 	}
 
 }

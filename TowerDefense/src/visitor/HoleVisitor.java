@@ -18,12 +18,12 @@ public class HoleVisitor extends Visitor {
 
 	public void visit(Tower t) {
 		if(!t.isAerial())
-			t.die();
+			t.receiveDamage(10000);
 	}
 
 	public void visit(Enemy t) {
 		if(!t.isAerial())
-			t.die();
+			t.receiveDamage(10000);
 	}
 
 	public void visit(MapItemHole h) {}

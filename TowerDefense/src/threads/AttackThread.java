@@ -3,10 +3,19 @@ package threads;
 import Game.Game;
 import Game.Unit;
 
+/**
+ * Hilo de ataque correpondiente a un unidad
+ *
+ */
 public class AttackThread extends Thread {
 	protected Unit u;
 	protected int speed;
 
+	/**
+	 * 
+	 * @param unit Unidad atacante
+	 * @param speed Velocdidad de ataque (ms)
+	 */
 	public AttackThread(Unit unit, int speed) {
 		u = unit;
 		this.speed = speed;
@@ -21,6 +30,10 @@ public class AttackThread extends Thread {
 		}
 	}
 	
+	/**
+	 * Cambia la velocidad de atque
+	 * @param newSpeed
+	 */
 	public void changeSpeed(int newSpeed) {
 		speed = newSpeed;
 	}

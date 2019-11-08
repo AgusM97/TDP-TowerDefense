@@ -7,7 +7,6 @@ import DropItems.DropAttackSpeedUp;
 import DropItems.DropProtection;
 import Game.Game;
 import Game.Unit;
-import Proyectile.Proyectile;
 import graphics.TowerGraphic;
 import threads.AttackThread;
 import visitor.TowerVisitor;
