@@ -8,7 +8,7 @@ import javazoom.jl.player.advanced.AdvancedPlayer;
 
 public class MusicPlayer {
 	private AdvancedPlayer player;
-	private int pausedOnFrame = 0;
+	
 	
 	public MusicPlayer() {
 		
