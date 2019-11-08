@@ -1,5 +1,7 @@
 package visitor;
 
+import MapObjects.MapItemHole;
+import MapObjects.MapItemSpikeTrap;
 import Proyectile.EnemyProyectile;
 import enemies.Enemy;
 import towers.Tower;
@@ -16,8 +18,9 @@ public class EnemyProyectileVisitor extends Visitor{
 		p.setSpent();
 	}
 
-	public void visit(Enemy t) {
-		//no hace nada
-	}
+	public void visit(Enemy t) {}
 
+	public void visit(MapItemHole h) {}
+
+	public void visit(MapItemSpikeTrap s) {}
 }

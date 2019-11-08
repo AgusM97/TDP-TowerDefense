@@ -6,6 +6,13 @@ public abstract class Entity {
 	
 	protected Rectangle hitbox; //rectangulo tiene pos. actual y dimensiones
 	
+	/**
+	 * 
+	 * @param x X correspondiente a la esquina superior izquierda del hitbox
+	 * @param y Y correspondiente a la esquina superior izquierda del hitbox
+	 * @param width Ancho del hitbox
+	 * @param height Alto del hitbox
+	 */
 	public Entity(int x, int y, int width, int height) {
 		hitbox = new Rectangle(x, y, width, height);
 	}

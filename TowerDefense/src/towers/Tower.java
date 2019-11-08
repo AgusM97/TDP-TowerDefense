@@ -19,6 +19,16 @@ public abstract class Tower extends Unit {
 	protected boolean attacking;
 	protected int cost, powerUpCount, speedUpCount, shield;
 
+	/**
+	 * 
+	 * @param x X correspondiente a la esquina superior izquierda del hitbox
+	 * @param y Y correspondiente a la esquina superior izquierda del hitbox
+	 * @param damage Daño que generan los ataques de la unidad
+	 * @param range Rango de ataque
+	 * @param life Vida de la unidad
+	 * @param cost Costo de compra de la unidad
+	 * @param attackSpeedb Velocidad de ataque
+	 */
 	public Tower(int x, int y, int damage, int range, int life, int cost, int attackSpeed) {
 		super(x, y, damage, range, life, attackSpeed);
 		visitor = new TowerVisitor(this);

@@ -20,6 +20,7 @@ public class Succubus extends Enemy{
 	public Succubus(int row) {
 		super(row * 80, 20, 400, 100, 100, 2, 2, 1500);
 		graphic = new EnemyGraphic(this, "/gif/Succubus_Movement.gif", "/gif/Succubus_Attack.gif");
+		isAerial = true;
 	}
 
 	@Override

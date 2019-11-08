@@ -1,6 +1,8 @@
 package visitor;
 
 import DropItems.DropAttackPowerUp;
+import MapObjects.MapItemHole;
+import MapObjects.MapItemSpikeTrap;
 import enemies.Enemy;
 import towers.Tower;
 
@@ -12,12 +14,15 @@ public class DropAttackPowerUpVisitor extends Visitor{
 		this.item=drop;
 	}
 
-	//Dependiendo del item deberia darle algun efecto.
 	public void visit(Tower t) {
 		t.buff(item);
 	}
 	
 		
 	public void visit(Enemy t) {}
+
+	public void visit(MapItemHole h) {}
+
+	public void visit(MapItemSpikeTrap s) {}
 
 }

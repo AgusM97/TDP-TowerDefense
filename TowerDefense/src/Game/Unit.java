@@ -9,22 +9,29 @@ import visitor.Visitor;
 public abstract class Unit extends Entity {
 	
 	protected int damage, range, life, attackSpeed;
-	protected boolean opponentInRange;
+	protected boolean opponentInRange, isAerial;
 	protected AttackThread timer;
 	
-	
+	/**
+	 * 
+	 * @param x X correspondiente a la esquina superior izquierda del hitbox
+	 * @param y Y correspondiente a la esquina superior izquierda del hitbox
+	 * @param damage Daño que generan los ataques de la unidad
+	 * @param range Rango de ataque
+	 * @param life Vida de la unidad
+	 * @param attackSpeed Velocidad de ataque
+	 */
 	public Unit(int x, int y, int damage, int range, int life, int attackSpeed) {
 		super(x, y, 80, 80);
 		this.damage = damage;
 		this.range = range;
 		this.life = life;
 		this.attackSpeed = attackSpeed;
-		opponentInRange = false;
+		opponentInRange = isAerial =false;
 	}
 
 	public abstract JLabel getGraphic();
 	public abstract void accept(Visitor v);
-	public abstract void die();
 	public abstract Visitor getVisitor();
 	public abstract boolean isAttacking();
 	public abstract boolean isInRange(Unit u);
@@ -35,6 +42,10 @@ public abstract class Unit extends Entity {
 	
 	public int getLife() {
 		return life;
+	}
+	
+	public boolean isAerial() {
+		return isAerial;
 	}
 
 	public void receiveDamage(int damage) {
@@ -51,6 +62,11 @@ public abstract class Unit extends Entity {
 
 	public Proyectile attack() {
 		return generateProyectile();
+	}
+	
+
+	public void die() {
+		life = 0;
 	}
 
 	

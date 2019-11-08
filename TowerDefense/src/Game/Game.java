@@ -6,6 +6,8 @@ import javax.swing.JOptionPane;
 import DropItems.DropAttackPowerUp;
 import DropItems.DropAttackSpeedUp;
 import DropItems.DropProtection;
+import MapObjects.MapItem;
+import MapObjects.MapItemSpikeTrap;
 import Proyectile.Proyectile;
 import enemies.Enemy;
 import gui.GUI;
@@ -47,12 +49,8 @@ public class Game {
 		gui = g;
 		gui.add(map.getGrafico(), new Integer(0));
 		niveles.add(0, new Nivel(1,2,2));
-		niveles.add(1,new Nivel(2,3,4));
+		niveles.add(1, new Nivel(2,3,4));
 		nivelActual=0;
-		
-
-		
-		
 	}
 	
 	public static void startNewGame(GUI g) {
@@ -100,27 +98,34 @@ public class Game {
 	public void addEnemy(Enemy e) {
 		auxUnitList.add(e);
 		cantEnemy++;
-		gui.add(e.getGraphic(), new Integer(1));
+		gui.add(e.getGraphic(), new Integer(2));
 	}
 
 	public void addTower(Tower t) {
 		boolean posAvailable=true;
+		
 		for(Unit u:unitList) {
 			if(u.intersects(t)) {
 				posAvailable = false;
 				break;
 			}
 		}
-		if(posAvailable && t.getCost() <= coins) {
+		
+		if(posAvailable && t.getCost() <= coins && t.getY() > 79 && t.getY() < 80*8) {
 			coins -= t.getCost();
 			auxUnitList.add(t);
-			gui.add(t.getGraphic(), new Integer(1));
+			gui.add(t.getGraphic(), new Integer(2));
 		}
+	}
+	
+	public void addUnit(Unit u) {
+		auxUnitList.add(u);
+		gui.add(u.getGraphic(), new Integer(1));
 	}
 
 	public void addProyectile(Proyectile p) {
 		auxProyectileList.add(p);
-		gui.add(p.getGraphic(), new Integer(2));
+		gui.add(p.getGraphic(), new Integer(3));
 	}
 
 	public void applyPowerUp(DropAttackPowerUp powerUp) {

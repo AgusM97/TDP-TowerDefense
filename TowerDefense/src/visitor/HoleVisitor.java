@@ -2,19 +2,26 @@ package visitor;
 
 import MapObjects.MapItemHole;
 import MapObjects.MapItemSpikeTrap;
-import ShopObjects.ShopItemDestroyer;
 import enemies.Enemy;
 import towers.Tower;
 
-public class ShopItemDestroyerVisitor extends Visitor{
-	protected ShopItemDestroyer destroyer;
+public class HoleVisitor extends Visitor {
+	protected MapItemHole item;
+	
+
+	public HoleVisitor(MapItemHole item) {
+		super();
+		this.item = item;
+	}
 
 	public void visit(Tower t) {
-		t.die();
+		if(!t.isAerial())
+			t.die();
 	}
 
 	public void visit(Enemy t) {
-		t.die();
+		if(!t.isAerial())
+			t.die();
 	}
 
 	public void visit(MapItemHole h) {}

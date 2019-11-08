@@ -62,6 +62,7 @@ public abstract class Enemy extends Unit{
 	}
 	
 	public void die() {
+		life = 0;
 		attacking = false;
 		if((new Random()).nextInt(2) % 2 == 0)
 			MapPanel.getInstance().add(DropFactory.getDrop(getX(), getY()), new Integer(5));

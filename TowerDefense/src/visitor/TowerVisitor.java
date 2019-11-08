@@ -1,5 +1,7 @@
 package visitor;
 
+import MapObjects.MapItemHole;
+import MapObjects.MapItemSpikeTrap;
 import enemies.Enemy;
 import towers.Tower;
 
@@ -18,6 +20,10 @@ public class TowerVisitor extends Visitor {
 			tower.startAttacking();
 		tower.setOpponentInRange(true);
 	}
+
+	public void visit(MapItemHole h) {}
+
+	public void visit(MapItemSpikeTrap s) {}
 	
 	
 	

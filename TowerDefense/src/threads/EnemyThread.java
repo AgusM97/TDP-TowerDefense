@@ -1,19 +1,38 @@
 package threads;
 
+import java.util.LinkedList;
 import java.util.Random;
 
 import Game.Game;
+import MapObjects.MapItem;
 import factories.EnemyFactory;
+import factories.MapItemFactory;
 
 public class EnemyThread extends Thread {
 	
-	Random r = new Random();
+	protected Random r = new Random();
+	protected LinkedList<MapItem> mapItemList = new LinkedList<MapItem>();
 	
 	public void run() {
 		try {
 			
 		for(int level = 0; level < Game.getInstance().niveles().size() && !Game.getInstance().isGameOver(); level++) {
+
+			//elimina las trampas existentes
+			for(MapItem i:mapItemList)
+				i.die();
+			mapItemList.clear();
+			
+			//genera trampas
+			for(int i=0; i<3; i++) {
+				mapItemList.add(MapItemFactory.getMapItem());
+				Game.getInstance().addUnit(mapItemList.getLast());
+			}
+				
+			
+			
 			Thread.sleep(5000);
+			
 			
 			for(int wave=0; wave<Game.getInstance().niveles().get(level).Oleadas().size(); wave++) {
 				Thread.sleep(5000);

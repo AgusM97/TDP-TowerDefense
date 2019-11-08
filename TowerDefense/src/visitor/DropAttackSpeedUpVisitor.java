@@ -1,6 +1,8 @@
 package visitor;
 
 import DropItems.DropAttackSpeedUp;
+import MapObjects.MapItemHole;
+import MapObjects.MapItemSpikeTrap;
 import enemies.Enemy;
 import towers.Tower;
 
@@ -12,7 +14,6 @@ public class DropAttackSpeedUpVisitor extends Visitor{
 		this.item=drop;
 	}
 
-	//Dependiendo del item deberia darle algun efecto.
 	public void visit(Tower t) {
 		t.buff(item);
 	}
@@ -20,5 +21,8 @@ public class DropAttackSpeedUpVisitor extends Visitor{
 		
 	public void visit(Enemy t) {}
 
+	public void visit(MapItemHole h) {}
+
+	public void visit(MapItemSpikeTrap s) {}
 
 }
