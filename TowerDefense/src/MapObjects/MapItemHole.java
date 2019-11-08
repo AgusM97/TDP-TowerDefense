@@ -9,7 +9,7 @@ public class MapItemHole extends MapItem{
 	
 	public MapItemHole(int x, int y, int width, int height) {
 		super(x,y,width,height);
-		graphic = new MapItemGraphic(this, "/img/Hole.png");//Cambiar imagen por un tile agujero.
+		graphic = new MapItemGraphic(this, "/img/Hole.png");
 	}
 
 	public int getDamage() {
