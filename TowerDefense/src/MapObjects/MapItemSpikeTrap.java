@@ -4,7 +4,7 @@ import graphics.MapItemGraphic;
 
 public class MapItemSpikeTrap extends MapItem {
 	
-	protected int damage = 0; //poner daño.
+	protected int damage = 10; //poner daño.
 	
 	public MapItemSpikeTrap(int x, int y, int width, int height) {
 		super(x,y,width,height);
