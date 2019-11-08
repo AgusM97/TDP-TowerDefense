@@ -7,7 +7,7 @@ public class ShopItemHealer extends ShopItem{
 
 	public ShopItemHealer(int x, int y, int width, int height) {
 		super(x, y, width, height);
-		graphic = new ShopItemGraphic(this, "/img/Empty.png");
+		graphic = new ShopItemGraphic(this, "/img/ShopItems_Heal.png");
 		// TODO Auto-generated constructor stub
 	}
 
