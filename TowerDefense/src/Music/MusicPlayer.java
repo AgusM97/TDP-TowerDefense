@@ -17,7 +17,7 @@ public class MusicPlayer {
 	public void inputSong(String path) {
 		FileInputStream fileInputStream;
 		try {
-			fileInputStream = new FileInputStream("/MusicMp3/Obscura.mp3");
+			fileInputStream = new FileInputStream("D:\\Universidad\\TDP\\Proyecto\\GITHUB\\TDP-TowerDefense\\TowerDefense\\src\\mp3\\Obscura.mp3");
 			player=new AdvancedPlayer(fileInputStream);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
