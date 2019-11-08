@@ -1,5 +1,6 @@
 package Music;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import javazoom.jl.decoder.JavaLayerException;
@@ -15,13 +16,8 @@ public class MusicPlayer {
 	}
 	
 	public void inputSong(String path) {
-		FileInputStream fileInputStream;
 		try {
-			fileInputStream = new FileInputStream("D:\\Universidad\\TDP\\Proyecto\\GITHUB\\TDP-TowerDefense\\TowerDefense\\src\\mp3\\Obscura.mp3");
-			player=new AdvancedPlayer(fileInputStream);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			player=new AdvancedPlayer(this.getClass().getResourceAsStream(path));
 		} catch (JavaLayerException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -5,7 +5,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import Game.Game;
-import Music.MusicPlayer;
+
 
 public class GUI {
 
