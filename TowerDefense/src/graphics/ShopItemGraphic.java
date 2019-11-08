@@ -22,5 +22,9 @@ public class ShopItemGraphic {
 	public JLabel getJLabel() {
 		return graphic;
 	}
+	
+	public void changeIcon(String itemS) {
+		item = new ImageIcon (new ImageIcon(this.getClass().getResource(itemS)).getImage().getScaledInstance(m.getWidth(), m.getHeight(), Image.SCALE_DEFAULT));
+	}
 
 }
