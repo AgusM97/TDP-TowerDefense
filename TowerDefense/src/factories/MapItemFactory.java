@@ -9,6 +9,10 @@ import MapObjects.MapItemSpikeTrap;
 
 public class MapItemFactory {
 
+	/**
+	 * Genera un nuevo objeto de mapa en una casilla al azar
+	 * @return
+	 */
 	public static MapItem getMapItem() {
 		
 		Random r = new Random();

@@ -6,6 +6,13 @@ import DropItems.*;
 
 public class DropFactory {
 
+	
+	/**
+	 *  Genera un nuevo premio en la casilla correspondiente
+	 * @param x Columna
+	 * @param y Fila
+	 * @return
+	 */
 	public static Drop getDrop(int x, int y) {
 		
 		Random r = new Random();

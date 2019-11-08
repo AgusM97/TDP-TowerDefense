@@ -16,6 +16,10 @@ import towers.Pirate;
 import towers.Sorcerer;
 
 @SuppressWarnings("serial")
+/**
+ * Panel correspondiente al menu
+ *
+ */
 public class MenuPanel extends JPanel {
 
 	private static MenuPanel instance = null;

@@ -20,6 +20,17 @@ public abstract class Enemy extends Unit{
 	protected boolean attacking;
 	protected int points, coins, speed;
 	
+	/**
+	 * 
+	 * @param y Fila en la que se genera el enemigo
+	 * @param damage Daño que generan los ataques de la unidad
+	 * @param range Rango de ataque
+	 * @param life Vida de la unidad
+	 * @param points Puntos obtenidos al derroter al enemigo
+	 * @param coins Monedas conseguidas al derroter al enemigo
+	 * @param speed Velocidad de movimiento
+	 * @param attackSpeed Velocidad de ataque (ms)
+	 */
 	public Enemy(int y, int damage, int range, int life, int points, int coins, int speed, int attackSpeed) {
 		super(-100, y, damage, range, life, attackSpeed);
 		this.points = points;

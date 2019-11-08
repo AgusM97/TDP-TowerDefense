@@ -19,7 +19,7 @@ public abstract class Unit extends Entity {
 	 * @param damage Daño que generan los ataques de la unidad
 	 * @param range Rango de ataque
 	 * @param life Vida de la unidad
-	 * @param attackSpeed Velocidad de ataque
+	 * @param attackSpeed Velocidad de ataque (ms)
 	 */
 	public Unit(int x, int y, int damage, int range, int life, int attackSpeed) {
 		super(x, y, 80, 80);
@@ -44,6 +44,9 @@ public abstract class Unit extends Entity {
 		return life;
 	}
 	
+	/**
+	 * @return Retorna si la unidad es aerea
+	 */
 	public boolean isAerial() {
 		return isAerial;
 	}
@@ -52,10 +55,17 @@ public abstract class Unit extends Entity {
 		life -= damage;
 	}
 	
+	/**
+	 * @return Indica si la unidad tiene un objetivo de ataque en rango actualmente
+	 */
 	public boolean hasOpponentInRange() {
 		return opponentInRange;
 	}
 	
+	/**
+	 * Establece si la unidad tiene un objetivo de ataque en rango actualmente
+	 * @param b
+	 */
 	public void setOpponentInRange(boolean b) {
 		opponentInRange = b;
 	}
@@ -64,7 +74,9 @@ public abstract class Unit extends Entity {
 		Game.getInstance().addProyectile(generateProyectile());
 	}
 	
-
+	/**
+	 * Unidad muere
+	 */
 	public void die() {
 		life = 0;
 	}

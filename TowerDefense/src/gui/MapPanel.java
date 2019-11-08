@@ -3,6 +3,10 @@ package gui;
 import javax.swing.JLayeredPane;
 
 @SuppressWarnings("serial")
+/**
+ * Panel correspondiente al mapa de juego
+ *
+ */
 public class MapPanel extends JLayeredPane {
 
 	private static MapPanel instance = null;

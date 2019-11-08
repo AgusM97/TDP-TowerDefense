@@ -28,7 +28,7 @@ public abstract class Tower extends Unit {
 	 * @param range Rango de ataque
 	 * @param life Vida de la unidad
 	 * @param cost Costo de compra de la unidad
-	 * @param attackSpeedb Velocidad de ataque
+	 * @param attackSpeedb Velocidad de ataque (ms)
 	 */
 	public Tower(int x, int y, int damage, int range, int life, int cost, int attackSpeed) {
 		super(x, y, damage, range, life, attackSpeed);

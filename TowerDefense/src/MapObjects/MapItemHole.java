@@ -10,7 +10,11 @@ public class MapItemHole extends MapItem{
 	
 	protected HoleVisitor visitor;
 	
-	
+	/**
+	 * 
+	 * @param x Columna
+	 * @param y	Fila
+	 */
 	public MapItemHole(int x, int y) {
 		super(x, y, 0, 0, 1, 0);
 		graphic = new GenericUnitGraphic(this, "/img/Hole.png");

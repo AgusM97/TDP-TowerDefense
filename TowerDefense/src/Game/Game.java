@@ -51,6 +51,10 @@ public class Game {
 		nivelActual=0;
 	}
 	
+	/**
+	 * Renueva la instancia
+	 * @param g
+	 */
 	public static void startNewGame(GUI g) {
 		instance = new Game(g);
 		
@@ -61,6 +65,10 @@ public class Game {
 		hiloEnemigo.start();
 	}
 	
+	/**
+	 * 
+	 * @return Instancia actual del juego
+	 */
 	public static Game getInstance() {
 		return instance;
 	}
@@ -144,10 +152,14 @@ public class Game {
 				u.accept(powerUp.getVisitor());
 	}
 
+	/**
+	 * Mata a todas las unidades
+	 */
 	public void killAll() {
 		for(Unit u:unitList)
 			u.die();
 	}
+	
 	
 	public void enemyDied() {
 		cantEnemy--;
@@ -157,10 +169,17 @@ public class Game {
 		return gameOver;
 	}
 
+	/**
+	 * usado para notificar cuando no quedan mas enemigos por generar
+	 */
 	public void noMoreLevels() {
 		gameEnd = true;
 	}
 	
+	/**
+	 * Finaliza la partida actual
+	 * @param win
+	 */
 	public void finishGame(boolean win) {
 		gameOver = true;
 		if(win)
@@ -179,6 +198,9 @@ public class Game {
 
 	//UPDATERS
 	
+	/**
+	 * Metodo principal de actualizacion
+	 */
 	public void update() {
 		
 		unitList.addAll(auxUnitList);
@@ -187,7 +209,7 @@ public class Game {
 		LinkedList<Unit> toRemove = new LinkedList<>();
 		
 		for(Unit u1:unitList) {
-			if(u1.getX() > 960) { //enemigo llego a la base
+			if(u1.getX() > 960) { //enemigo llego a la base y finaliza la partida
 				Game.getInstance().finishGame(false);
 				break;
 			}
@@ -195,10 +217,10 @@ public class Game {
 			else if(u1.getLife() <= 0) { //unidad esta muerta y se debe remover
 				u1.die();
 				MapPanel.getInstance().remove(u1.getGraphic());
-				toRemove.add(u1);
+				toRemove.add(u1); //agrega a la lista de unidads a remover
 			}
 			
-			else {
+			else { //unidad aun tiene vida y debe actuar
 				for(Unit u2:unitList) {
 					if(u1.isInRange(u2)) {
 						u2.accept(u1.getVisitor());
@@ -207,9 +229,11 @@ public class Game {
 					}
 				}
 				
+				//Si la unidad no tiene enemigos en su rango y esta atacando, deja de atacar
 				if(!u1.hasOpponentInRange() && u1.isAttacking())
 					u1.stopAttacking();
-				
+
+				//Si la unidad no esta atacando, intenta moverse
 				if(!u1.isAttacking())
 					u1.move();
 
@@ -217,15 +241,21 @@ public class Game {
 			}
 		}
 		
-		
+		//remueve todas las unidades muertas
 		unitList.removeAll(toRemove);
 		toRemove.clear();
+		
+		//actualiza la GUI
 		gui.update(points, coins);
 		
+		//si no quedan mas enemigos en el mapa y se llegó al final del juego, gana
 		if(cantEnemy == 0 && gameEnd && this.nivelActual()+1==niveles.size())
 			finishGame(true);
 	}
 
+	/**
+	 * Gestiona los proyectiles en cada actualizacion
+	 */
 	public void proyectileUpdate() {
 		
 		proyectileList.addAll(auxProyectileList);
@@ -246,6 +276,7 @@ public class Game {
 					u.accept(p.getVisitor());
 			}
 			
+			//si proyectil llega a su maximo rango o ya impacto con algo, se remueve
 			if(p.isSpent() || p.maxRange()) {
 				gui.remove(p.getGraphic());
 				toRemove.add(p);

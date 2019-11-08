@@ -10,6 +10,11 @@ public class MapItemSpikeTrap extends MapItem {
 	
 	protected SpikeVisitor visitor;
 	
+	/**
+	 * 
+	 * @param x Columna
+	 * @param y Fila
+	 */
 	public MapItemSpikeTrap(int x, int y) {
 		super(x, y, 1, 0, 300, 1);
 		graphic = new GenericUnitGraphic(this, "/img/Spikes.png");

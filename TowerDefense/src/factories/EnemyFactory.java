@@ -6,6 +6,10 @@ import enemies.*;
 
 public class EnemyFactory {
 	
+	/**
+	 * Genera un nuevo enemigo en un camino al azar 
+	 * @return
+	 */
 	public static Enemy getEnemy() {
 		
 		Random tipoEnemigo = new Random();
