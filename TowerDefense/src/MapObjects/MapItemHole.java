@@ -2,7 +2,7 @@ package MapObjects;
 
 import Game.Unit;
 import Proyectile.Proyectile;
-import graphics.MapItemGraphic;
+import graphics.GenericUnitGraphic;
 import visitor.HoleVisitor;
 import visitor.Visitor;
 
@@ -13,7 +13,7 @@ public class MapItemHole extends MapItem{
 	
 	public MapItemHole(int x, int y) {
 		super(x, y, 0, 0, 1, 0);
-		graphic = new MapItemGraphic(this, "/img/Hole.png");
+		graphic = new GenericUnitGraphic(this, "/img/Hole.png");
 		visitor = new HoleVisitor(this);
 	}
 

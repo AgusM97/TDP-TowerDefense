@@ -2,7 +2,7 @@ package MapObjects;
 
 import Game.Unit;
 import Proyectile.Proyectile;
-import graphics.MapItemGraphic;
+import graphics.GenericUnitGraphic;
 import visitor.SpikeVisitor;
 import visitor.Visitor;
 
@@ -12,7 +12,7 @@ public class MapItemSpikeTrap extends MapItem {
 	
 	public MapItemSpikeTrap(int x, int y) {
 		super(x, y, 1, 0, 300, 1);
-		graphic = new MapItemGraphic(this, "/img/Spikes.png");
+		graphic = new GenericUnitGraphic(this, "/img/Spikes.png");
 		visitor = new SpikeVisitor(this);
 	}
 	

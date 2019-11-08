@@ -14,7 +14,7 @@ public class AttackThread extends Thread {
 	
 	public void run() {
 		while(u.isAttacking() && !Game.getInstance().isGameOver()) {
-			Game.getInstance().addProyectile(u.attack());
+			u.attack();
 			try {
 				Thread.sleep(speed);
 			} catch (InterruptedException e) {e.printStackTrace();	}

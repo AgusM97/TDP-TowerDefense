@@ -3,11 +3,11 @@ package MapObjects;
 import javax.swing.JLabel;
 
 import Game.Unit;
-import graphics.MapItemGraphic;
+import graphics.GenericUnitGraphic;
 
 
 public abstract class MapItem extends Unit {
-	protected MapItemGraphic graphic;
+	protected GenericUnitGraphic graphic;
 	
 	/**
 	 * 

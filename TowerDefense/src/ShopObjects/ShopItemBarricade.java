@@ -1,23 +1,49 @@
 package ShopObjects;
 
-import Proyectile.Proyectile;
-import graphics.TowerGraphic;
-import towers.Tower;
+import javax.swing.JLabel;
 
-public class ShopItemBarricade extends Tower{
-	//ver la vida de la barricada.
+import Game.Unit;
+import Proyectile.Proyectile;
+import graphics.GenericUnitGraphic;
+import visitor.Visitor;
+
+public class ShopItemBarricade extends Unit{
+	protected GenericUnitGraphic graphic;
 	
-	public ShopItemBarricade(int x, int y, int damage, int range, int life, int attackSpeed) {
-		super(x, y, 0, 0, 20, 0, 0);
-		graphic = new TowerGraphic(this, "/img/CorpsePile.pngf", "/img/CorpsePile.png");
-		// TODO Auto-generated constructor stub
+	public ShopItemBarricade(int x, int y) {
+		super(x*80, y*80, 0, 0, 20, 0);
+		graphic = new GenericUnitGraphic(this, "/img/CorpsePile.pngf");
 	}
 
-	@Override
 	public Proyectile generateProyectile() {
-		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public JLabel getGraphic() {
+		return graphic.getJLabel();
+	}
+
+	public void accept(Visitor v) {
+		v.visit(this);
+	}
+
+	public Visitor getVisitor() {
+		return null;
+	}
+
+	public boolean isAttacking() {
+		return false;
+	}
+
+	public boolean isInRange(Unit u) {
+		return false;
+	}
+
+	public void startAttacking() {}
+
+	public void stopAttacking() {}
+
+	public void move() {}
 
 	
 

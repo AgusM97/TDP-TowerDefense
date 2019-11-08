@@ -12,7 +12,7 @@ import gui.MapPanel;
 @SuppressWarnings("serial")
 public abstract class Drop extends JLabel{
 	
-	JLabel label;
+	protected JLabel label;
 	
 	public Drop(int x, int y, int width, int height, String icon) {
 		this.setBounds(x, y, width, height);

@@ -5,6 +5,7 @@ import javax.swing.JLabel;
 import DropItems.DropAttackPowerUp;
 import DropItems.DropAttackSpeedUp;
 import DropItems.DropProtection;
+import Game.Game;
 import Game.Unit;
 import Proyectile.Proyectile;
 import graphics.TowerGraphic;
@@ -90,8 +91,7 @@ public abstract class Tower extends Unit {
 		attacking = false;
 	}
 
-	public Proyectile attack() {
-		Proyectile toReturn = generateProyectile();
+	public void attack() {
 		
 		if(powerUpCount > 0) {
 			powerUpCount--;
@@ -107,7 +107,7 @@ public abstract class Tower extends Unit {
 			}
 		}
 		
-		return toReturn;
+		Game.getInstance().addProyectile(generateProyectile());
 	}
 	
 	public void move() {}

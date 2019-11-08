@@ -60,8 +60,8 @@ public abstract class Unit extends Entity {
 		opponentInRange = b;
 	}
 
-	public Proyectile attack() {
-		return generateProyectile();
+	public void attack() {
+		Game.getInstance().addProyectile(generateProyectile());
 	}
 	
 
