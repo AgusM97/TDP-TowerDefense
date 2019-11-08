@@ -1,10 +1,15 @@
 package graphics;
 
 import java.awt.Image;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import towers.Tower;
+import Game.Game;
 
 public class TowerGraphic {
 	protected JLabel graphic;
@@ -23,6 +28,27 @@ public class TowerGraphic {
 		graphic.setBounds( t.getX(),  t.getY(), t.getWidth(), t.getHeight());
 		
 		this.stopAttacking();
+		
+		graphic.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				sell();
+			}
+		});
+	}
+
+	protected void sell() {
+		int n = JOptionPane.showOptionDialog(null,
+				"Desea vender la unidad?\n Ganancia: " + t.getCost()/2, "Vender",
+				JOptionPane.YES_NO_OPTION,
+				JOptionPane.QUESTION_MESSAGE,
+				null,
+				null,
+				null);
+
+		if(n == 0 && t.getLife() > 0) {
+			Game.getInstance().addCoins(t.getCost() / 2);
+			t.die();
+		}
 	}
 
 	public JLabel getJLabel() {

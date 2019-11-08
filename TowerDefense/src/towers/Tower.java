@@ -76,6 +76,7 @@ public abstract class Tower extends Unit {
 	}
 
 	public void die() {
+		life = 0;
 		attacking = false;
 	}
 
