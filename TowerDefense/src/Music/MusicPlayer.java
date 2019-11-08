@@ -3,12 +3,12 @@ package Music;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import javazoom.jl.decoder.JavaLayerException;
-import javazoom.jl.player.Player;
 import javazoom.jl.player.advanced.AdvancedPlayer;
 
+
 public class MusicPlayer {
-	AdvancedPlayer player;
-	
+	private AdvancedPlayer player;
+	private int pausedOnFrame = 0;
 	
 	public MusicPlayer() {
 		
@@ -26,6 +26,7 @@ public class MusicPlayer {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
 	
 	public void playSong() {
@@ -35,6 +36,10 @@ public class MusicPlayer {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public void stopSong() {
+		player.stop();
 	}
 	
 	
