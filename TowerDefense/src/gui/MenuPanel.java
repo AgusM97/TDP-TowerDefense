@@ -215,9 +215,9 @@ public class MenuPanel extends JPanel {
 				if ((rdbtnArcher.isSelected()) && (Game.getInstance().getCoins() >= (new Archer(0,0).getCost()))) {
 					btnComprarTower.setEnabled(false);
 					btnComprarItem.setEnabled(false);
-					Game.getInstance().subCoins(new Archer(0,0).getCost());
 					MapPanel.getInstance().addMouseListener( new MouseAdapter() {
 					    public void mousePressed(MouseEvent e) {
+							Game.getInstance().subCoins(new Archer(0,0).getCost());
 					        Game.getInstance().addTower(new Archer(e.getX() / 80, e.getY() / 80));
 					        btnComprarTower.setEnabled(true);
 					        btnComprarItem.setEnabled(true);
@@ -234,9 +234,9 @@ public class MenuPanel extends JPanel {
 				if ((rdbDarkKnight.isSelected()) && (Game.getInstance().getCoins()>=(new DarkKnight(0,0).getCost()))) {
 					btnComprarTower.setEnabled(false);
 					btnComprarItem.setEnabled(false);
-					Game.getInstance().subCoins(new DarkKnight(0,0).getCost());
 					MapPanel.getInstance().addMouseListener( new MouseAdapter() {
 					    public void mousePressed(MouseEvent e) {
+							Game.getInstance().subCoins(new DarkKnight(0,0).getCost());
 					        Game.getInstance().addTower(new DarkKnight(e.getX() / 80, e.getY() / 80));
 					        btnComprarTower.setEnabled(true);
 					        btnComprarItem.setEnabled(true);
@@ -253,9 +253,9 @@ public class MenuPanel extends JPanel {
 				if ((rdbtnMaid.isSelected()) && (Game.getInstance().getCoins()>=(new Maid(0,0).getCost()))) {
 					btnComprarTower.setEnabled(false);
 					btnComprarItem.setEnabled(false);
-					Game.getInstance().subCoins(new Maid(0,0).getCost());
 					MapPanel.getInstance().addMouseListener( new MouseAdapter() {
 					    public void mousePressed(MouseEvent e) {
+							Game.getInstance().subCoins(new Maid(0,0).getCost());
 					        Game.getInstance().addTower(new Maid(e.getX() / 80, e.getY() / 80));
 					        btnComprarTower.setEnabled(true);
 					        btnComprarItem.setEnabled(true);
@@ -272,9 +272,9 @@ public class MenuPanel extends JPanel {
 				if ((rdbtnPirate.isSelected()) && (Game.getInstance().getCoins()>=(new Pirate(0,0).getCost()))) {
 					btnComprarTower.setEnabled(false);
 					btnComprarItem.setEnabled(false);
-					Game.getInstance().subCoins(new Pirate(0,0).getCost());
 					MapPanel.getInstance().addMouseListener( new MouseAdapter() {
 					    public void mousePressed(MouseEvent e) {
+							Game.getInstance().subCoins(new Pirate(0,0).getCost());
 					        Game.getInstance().addTower(new Pirate(e.getX() / 80, e.getY() / 80));
 					        btnComprarTower.setEnabled(true);
 					        btnComprarItem.setEnabled(true);
@@ -291,9 +291,9 @@ public class MenuPanel extends JPanel {
 				if ((rdbtnSorcerer.isSelected()) && (Game.getInstance().getCoins()>=(new Sorcerer(0,0).getCost()))) {
 					btnComprarTower.setEnabled(false);
 					btnComprarItem.setEnabled(false);
-					Game.getInstance().subCoins(new Sorcerer(0,0).getCost());
 					MapPanel.getInstance().addMouseListener( new MouseAdapter() {
 					    public void mousePressed(MouseEvent e) {
+							Game.getInstance().subCoins(new Sorcerer(0,0).getCost());
 					        Game.getInstance().addTower(new Sorcerer(e.getX() / 80, e.getY() / 80));
 					        btnComprarTower.setEnabled(true);
 					        btnComprarItem.setEnabled(true);
@@ -320,11 +320,9 @@ public class MenuPanel extends JPanel {
 				if ((rdbtnBarricade.isSelected()) && (Game.getInstance().getCoins()>=20)) {
 					btnComprarTower.setEnabled(false);
 					btnComprarItem.setEnabled(false);
-					Game.getInstance().subCoins(20);
 					MapPanel.getInstance().addMouseListener( new MouseAdapter() {
 					    public void mousePressed(MouseEvent e) {
-					    	
-					    	
+							Game.getInstance().subCoins(20);
 					        Game.getInstance().addUnit(new ShopItemBarricade(e.getX() / 80, e.getY() / 80));
 					        btnComprarTower.setEnabled(true);
 					        btnComprarItem.setEnabled(true);
@@ -350,11 +348,9 @@ public class MenuPanel extends JPanel {
 				if ((rdbtnHealer.isSelected()) && (Game.getInstance().getCoins()>=50)) {
 					btnComprarTower.setEnabled(false);
 					btnComprarItem.setEnabled(false);
-					Game.getInstance().subCoins(20);
 					MapPanel.getInstance().addMouseListener( new MouseAdapter() {
 					    public void mousePressed(MouseEvent e) {
-					    	
-					    	
+							Game.getInstance().subCoins(50);
 					        Game.getInstance().addUnit(new ShopItemHealer(e.getX() / 80, e.getY() / 80));
 					        btnComprarTower.setEnabled(true);
 					        btnComprarItem.setEnabled(true);
