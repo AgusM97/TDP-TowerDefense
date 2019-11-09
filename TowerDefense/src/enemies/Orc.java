@@ -11,7 +11,7 @@ public class Orc extends Enemy{
 	 * range = 1
 	 * life = 100
 	 * points = 100
-	 * coins = 2
+	 * coins = 20
 	 * speed = 2
 	 * attack speed = 1500ms
 	 * 

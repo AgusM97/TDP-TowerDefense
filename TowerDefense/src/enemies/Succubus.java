@@ -10,9 +10,9 @@ public class Succubus extends Enemy{
 	 * damage = 20
 	 * range = 400
 	 * life = 100
-	 * points = 100
-	 * coins = 2
-	 * speed = 2
+	 * points = 250
+	 * coins = 40
+	 * speed = 3
 	 * attack speed = 1500ms
 	 * 
 	 */

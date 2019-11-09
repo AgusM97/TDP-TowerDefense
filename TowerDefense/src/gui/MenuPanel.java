@@ -217,7 +217,6 @@ public class MenuPanel extends JPanel {
 					btnComprarItem.setEnabled(false);
 					MapPanel.getInstance().addMouseListener( new MouseAdapter() {
 					    public void mousePressed(MouseEvent e) {
-							Game.getInstance().subCoins(new Archer(0,0).getCost());
 					        Game.getInstance().addTower(new Archer(e.getX() / 80, e.getY() / 80));
 					        btnComprarTower.setEnabled(true);
 					        btnComprarItem.setEnabled(true);
@@ -236,7 +235,6 @@ public class MenuPanel extends JPanel {
 					btnComprarItem.setEnabled(false);
 					MapPanel.getInstance().addMouseListener( new MouseAdapter() {
 					    public void mousePressed(MouseEvent e) {
-							Game.getInstance().subCoins(new DarkKnight(0,0).getCost());
 					        Game.getInstance().addTower(new DarkKnight(e.getX() / 80, e.getY() / 80));
 					        btnComprarTower.setEnabled(true);
 					        btnComprarItem.setEnabled(true);
@@ -255,7 +253,6 @@ public class MenuPanel extends JPanel {
 					btnComprarItem.setEnabled(false);
 					MapPanel.getInstance().addMouseListener( new MouseAdapter() {
 					    public void mousePressed(MouseEvent e) {
-							Game.getInstance().subCoins(new Maid(0,0).getCost());
 					        Game.getInstance().addTower(new Maid(e.getX() / 80, e.getY() / 80));
 					        btnComprarTower.setEnabled(true);
 					        btnComprarItem.setEnabled(true);
@@ -274,7 +271,6 @@ public class MenuPanel extends JPanel {
 					btnComprarItem.setEnabled(false);
 					MapPanel.getInstance().addMouseListener( new MouseAdapter() {
 					    public void mousePressed(MouseEvent e) {
-							Game.getInstance().subCoins(new Pirate(0,0).getCost());
 					        Game.getInstance().addTower(new Pirate(e.getX() / 80, e.getY() / 80));
 					        btnComprarTower.setEnabled(true);
 					        btnComprarItem.setEnabled(true);
@@ -293,7 +289,6 @@ public class MenuPanel extends JPanel {
 					btnComprarItem.setEnabled(false);
 					MapPanel.getInstance().addMouseListener( new MouseAdapter() {
 					    public void mousePressed(MouseEvent e) {
-							Game.getInstance().subCoins(new Sorcerer(0,0).getCost());
 					        Game.getInstance().addTower(new Sorcerer(e.getX() / 80, e.getY() / 80));
 					        btnComprarTower.setEnabled(true);
 					        btnComprarItem.setEnabled(true);

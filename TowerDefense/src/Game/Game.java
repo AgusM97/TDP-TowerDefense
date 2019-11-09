@@ -39,7 +39,7 @@ public class Game {
 		auxProyectileList = new LinkedList<>();
 		niveles = new LinkedList<Nivel>();
 		points=0;
-		coins=1000;
+		coins=500;
 		cantEnemy=0;
 		gameOver = false;
 		gameEnd = false;
@@ -126,6 +126,7 @@ public class Game {
 		}
 		
 		if(posAvailable && t.getCost() <= coins && t.getY() > 79 && t.getY() < 80*8) {
+			coins -= t.getCost();
 			auxUnitList.add(t);
 			gui.add(t.getGraphic(), new Integer(2));
 		}

@@ -7,12 +7,12 @@ import graphics.EnemyGraphic;
 public class WingedWarrior extends Enemy{
 	
 	/*
-	 * damage = 15
+	 * damage = 20
 	 * range = 1
-	 * life = 100
-	 * points = 100
-	 * coins = 2
-	 * speed = 2
+	 * life = 150
+	 * points = 250
+	 * coins = 40
+	 * speed = 4
 	 * attack speed = 1500ms
 	 * 
 	 */

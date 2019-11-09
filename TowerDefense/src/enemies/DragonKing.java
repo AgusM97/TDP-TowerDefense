@@ -7,11 +7,11 @@ import graphics.EnemyGraphic;
 public class DragonKing extends Enemy{
 	
 	/*
-	 * damage = 30
-	 * range = 100
-	 * life = 150
-	 * points = 100
-	 * coins = 2
+	 * damage = 50
+	 * range = 80
+	 * life = 200
+	 * points = 500
+	 * coins = 60
 	 * speed = 2
 	 * attack speed = 1000ms
 	 * 

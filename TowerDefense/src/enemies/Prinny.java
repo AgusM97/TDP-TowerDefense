@@ -9,11 +9,11 @@ import graphics.EnemyGraphic;
 public class Prinny extends Enemy{
 	
 	/*
-	 * damage = 15
+	 * damage = 70
 	 * range = 1
-	 * life = 100
-	 * points = 100
-	 * coins = 2
+	 * life = 150
+	 * points = 250
+	 * coins = 40
 	 * speed = 2
 	 * attack speed = 1500ms
 	 * 

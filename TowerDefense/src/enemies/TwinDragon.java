@@ -10,13 +10,13 @@ import threads.AttackThread;
 public class TwinDragon extends Enemy{
 	
 	/*
-	 * damage = 15
+	 * damage = 40
 	 * range = 200
-	 * life = 100
-	 * points = 100
-	 * coins = 2
+	 * life = 500
+	 * points = 1000
+	 * coins = 120
 	 * speed = 2
-	 * attack speed = 1500ms
+	 * attack speed = 1600ms
 	 * 
 	 */
 	
