@@ -1,14 +1,16 @@
 package Music;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+
+
 import javazoom.jl.decoder.JavaLayerException;
+
 import javazoom.jl.player.advanced.AdvancedPlayer;
+import javazoom.jl.player.advanced.PlaybackListener;
 
 
-public class MusicPlayer {
+public class MusicPlayer extends PlaybackListener implements Runnable{
 	private AdvancedPlayer player;
+	private Thread playerThread; 
 	
 	
 	public MusicPlayer() {
@@ -21,24 +23,32 @@ public class MusicPlayer {
 		} catch (JavaLayerException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			
 		}
+		this.player.setPlayBackListener(this);
+
+        this.playerThread = new Thread(this, "AudioPlayerThread");
+	
 		
 	}
 	
-	public void playSong() {
-		try {
-			player.play();
-		} catch (JavaLayerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
+		
 	public void stopSong() {
 		player.stop();
 	}
+
 	
-	
-	
+
+	public void run() {
+		try
+        {
+            this.player.play();
+        }
+        catch (javazoom.jl.decoder.JavaLayerException ex)
+        {
+            ex.printStackTrace();
+        }
+		
+	}
 
 }

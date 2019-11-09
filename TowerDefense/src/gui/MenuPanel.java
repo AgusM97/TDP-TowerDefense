@@ -187,7 +187,17 @@ public class MenuPanel extends JPanel {
 		btnComenzar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				Game.startNewGame(Principal);
+				
+					
+						try {
+							Game.startNewGame(Principal);
+						} catch (Exception e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+					
+				
+				
 				btnComenzar.setEnabled(false);
 				btnComprarTower.setEnabled(true);
 				btnComprarItem.setEnabled(true);

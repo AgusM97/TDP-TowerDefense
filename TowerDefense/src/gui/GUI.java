@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
+import Music.MusicPlayer;
+
 
 public class GUI {
 
@@ -24,8 +26,20 @@ public class GUI {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-			}
+		}
 		});
+		
+		new Thread(){
+			public void run(){
+				  MusicPlayer music = new MusicPlayer();
+				  music.inputSong("/mp3/Obscura.mp3");
+				  music.run();
+				    //Your play code
+				  }
+				}.start();
+		
+		
+		
 	}
 
 	/**

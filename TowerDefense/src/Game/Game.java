@@ -49,13 +49,15 @@ public class Game {
 		niveles.add(0, new Nivel(1,2,2));
 		niveles.add(1, new Nivel(2,3,4));
 		nivelActual=0;
+		
 	}
 	
 	/**
 	 * Renueva la instancia
 	 * @param g
+	 * @throws Exception 
 	 */
-	public static void startNewGame(GUI g) {
+	public static void startNewGame(GUI g) throws Exception {
 		instance = new Game(g);
 		
 		Thread updater = new UpdaterThread();
@@ -63,6 +65,8 @@ public class Game {
 		
 		Thread hiloEnemigo = new EnemyThread();
 		hiloEnemigo.start();
+		
+		
 	}
 	
 	/**
