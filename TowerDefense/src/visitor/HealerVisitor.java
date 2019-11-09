@@ -7,11 +7,11 @@ import ShopObjects.ShopItemHealer;
 import enemies.Enemy;
 import towers.Tower;
 
-public class ShopItemHealerVisitor extends Visitor{
+public class HealerVisitor extends Visitor{
 	protected ShopItemHealer healer;
 
 	
-	public ShopItemHealerVisitor(ShopItemHealer healer) {
+	public HealerVisitor(ShopItemHealer healer) {
 		super();
 		this.healer = healer;
 	}
@@ -19,7 +19,7 @@ public class ShopItemHealerVisitor extends Visitor{
 
 	public void visit(Tower t) {
 		t.receiveDamage(healer.getDamage());
-		healer.receiveDamage(healer.getDamage());
+		healer.receiveDamage( -(healer.getDamage()) );
 	}
 
 	public void visit(Enemy t) {}

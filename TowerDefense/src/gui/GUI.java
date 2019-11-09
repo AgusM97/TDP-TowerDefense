@@ -4,7 +4,6 @@ import java.awt.Component;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import Game.Game;
 
 
 public class GUI {
@@ -42,7 +41,7 @@ public class GUI {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setResizable(false);
-		frame.setBounds(100, 100, 1280, 750);
+		frame.setBounds(100, 100, 1280, 740);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 		//frame.setUndecorated(true);
@@ -52,12 +51,11 @@ public class GUI {
 		mapPane = MapPanel.getInstance();
 		frame.getContentPane().add(mapPane);
 		
-		menuPane = MenuPanel.getInstance();
+		menuPane = MenuPanel.getInstance(this);
 		frame.getContentPane().add(menuPane);
 		
 		
 		
-		Game.startNewGame(this);
 	}
 	
 	public void add(Component c, Integer i) {
@@ -73,6 +71,10 @@ public class GUI {
 		menuPane.setCoins(coins);
 		mapPane.revalidate();
 		mapPane.repaint();
+	}
+
+	public void finishGame() {
+		System.exit(0);
 	}
 	
 }

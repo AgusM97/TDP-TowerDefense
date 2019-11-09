@@ -100,6 +100,14 @@ public class Game {
 	public void addCoins(int c) {
 		coins += c;
 	}
+
+	public void subCoins(int cost) {
+		coins -= cost;
+	}
+	
+	public int getCoins() {
+		return coins;
+	}
 	
 	public void addEnemy(Enemy e) {
 		auxUnitList.add(e);
@@ -118,7 +126,6 @@ public class Game {
 		}
 		
 		if(posAvailable && t.getCost() <= coins && t.getY() > 79 && t.getY() < 80*8) {
-			coins -= t.getCost();
 			auxUnitList.add(t);
 			gui.add(t.getGraphic(), new Integer(2));
 		}
@@ -264,7 +271,7 @@ public class Game {
 		LinkedList<Proyectile> toRemove = new LinkedList<>();
 		
 		for(Proyectile p:proyectileList) {
-			if(p == null) { //no se xq puede pasar
+			if(p == null) {
 				toRemove.add(p);
 				continue;
 			}
@@ -286,6 +293,5 @@ public class Game {
 		proyectileList.removeAll(toRemove);
 		toRemove.clear();
 	}
-
 
 }

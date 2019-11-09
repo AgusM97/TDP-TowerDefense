@@ -12,7 +12,7 @@ public class ShopItemBarricade extends Unit{
 	
 	public ShopItemBarricade(int x, int y) {
 		super(x*80, y*80, 0, 0, 20, 0);
-		graphic = new GenericUnitGraphic(this, "/img/CorpsePile.pngf");
+		graphic = new GenericUnitGraphic(this, "/img/CorpsePile.png");
 	}
 
 	public Proyectile generateProyectile() {

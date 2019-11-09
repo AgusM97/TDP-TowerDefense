@@ -4,14 +4,16 @@ import Game.Game;
 
 public class ShopItemProfit{
 
-	public static void profitOrNot() {
+	public static boolean profitOrNot() {
 		double x = Math.random();
 		Game juego = Game.getInstance();
 		if((x%2)==0) {
-			juego.addCoins(1000);
+			juego.addCoins(100);
+			return true;
 		}
 		else {
-			juego.addCoins(-1000);
+			juego.subCoins(100);
+			return false;
 		}
 	}
 	

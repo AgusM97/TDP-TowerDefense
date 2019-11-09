@@ -5,17 +5,17 @@ import javax.swing.JLabel;
 import Game.Unit;
 import Proyectile.Proyectile;
 import graphics.GenericUnitGraphic;
-import visitor.ShopItemHealerVisitor;
+import visitor.HealerVisitor;
 import visitor.Visitor;
 
 public class ShopItemHealer extends Unit{
-	protected ShopItemHealerVisitor visitor;
+	protected HealerVisitor visitor;
 	GenericUnitGraphic graphic;
 
 	public ShopItemHealer(int x, int y) {
 		super(x*80, y*80, -2, 0, 400, 1500);
 		graphic = new GenericUnitGraphic(this, "/img/ShopItems_Heal.png");
-		visitor = new ShopItemHealerVisitor(this);
+		visitor = new HealerVisitor(this);
 	}
 
 	public int getDamage() {
