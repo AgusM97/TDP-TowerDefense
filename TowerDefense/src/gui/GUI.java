@@ -13,6 +13,7 @@ public class GUI {
 	private JFrame frame;
 	private MapPanel mapPane;
 	private MenuPanel menuPane;
+	private static GUI instance;
 
 	/**
 	 * Launch the application.
@@ -45,14 +46,14 @@ public class GUI {
 	/**
 	 * Create the application.
 	 */
-	public GUI() {
-		initialize();
+	protected GUI() {
+		instance = initialize();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private GUI initialize() {
 		frame = new JFrame();
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 1280, 740);
@@ -68,8 +69,12 @@ public class GUI {
 		menuPane = MenuPanel.getInstance(this);
 		frame.getContentPane().add(menuPane);
 		
+		return this;
 		
-		
+	}
+	
+	public static GUI getInstance() {
+		return instance;
 	}
 	
 	public void add(Component c, Integer i) {

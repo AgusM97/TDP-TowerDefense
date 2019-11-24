@@ -24,7 +24,6 @@ public class Game {
 	protected LinkedList<Unit> auxUnitList;
 	protected LinkedList<Proyectile> proyectileList;
 	protected LinkedList<Proyectile> auxProyectileList;
-	protected GUI gui;
 	protected LinkedList<Nivel> niveles;
 	protected int nivelActual;
 
@@ -32,7 +31,7 @@ public class Game {
 	
 	
 	//SINGLETON
-	private Game(GUI g) {
+	private Game() {
 		unitList = new LinkedList<>();
 		proyectileList = new LinkedList<>();
 		auxUnitList = new LinkedList<>();
@@ -44,28 +43,10 @@ public class Game {
 		gameOver = false;
 		gameEnd = false;
 		map = new Map();
-		gui = g;
-		gui.add(map.getGrafico(), new Integer(0));
+		GUI.getInstance().add(map.getGrafico(), new Integer(0));
 		niveles.add(0, new Nivel(1,2,2));
 		niveles.add(1, new Nivel(2,3,4));
 		nivelActual=0;
-		
-	}
-	
-	/**
-	 * Renueva la instancia
-	 * @param g
-	 * @throws Exception 
-	 */
-	public static void startNewGame(GUI g) throws Exception {
-		instance = new Game(g);
-		
-		Thread updater = new UpdaterThread();
-		updater.start();
-		
-		Thread hiloEnemigo = new EnemyThread();
-		hiloEnemigo.start();
-		
 		
 	}
 	
@@ -74,6 +55,18 @@ public class Game {
 	 * @return Instancia actual del juego
 	 */
 	public static Game getInstance() {
+		if(instance == null) {
+			instance = new Game();
+			
+			Thread updater = new UpdaterThread();
+			updater.start();
+			
+			Thread hiloEnemigo = new EnemyThread();
+			hiloEnemigo.start();
+			
+			
+		}
+		
 		return instance;
 	}
 	
@@ -116,7 +109,7 @@ public class Game {
 	public void addEnemy(Enemy e) {
 		auxUnitList.add(e);
 		cantEnemy++;
-		gui.add(e.getGraphic(), new Integer(2));
+		GUI.getInstance().add(e.getGraphic(), new Integer(2));
 	}
 
 	public void addTower(Tower t) {
@@ -132,18 +125,18 @@ public class Game {
 		if(posAvailable && t.getCost() <= coins && t.getY() > 79 && t.getY() < 80*8) {
 			coins -= t.getCost();
 			auxUnitList.add(t);
-			gui.add(t.getGraphic(), new Integer(2));
+			GUI.getInstance().add(t.getGraphic(), new Integer(2));
 		}
 	}
 	
 	public void addUnit(Unit u) {
 		auxUnitList.add(u);
-		gui.add(u.getGraphic(), new Integer(1));
+		GUI.getInstance().add(u.getGraphic(), new Integer(1));
 	}
 
 	public void addProyectile(Proyectile p) {
 		auxProyectileList.add(p);
-		gui.add(p.getGraphic(), new Integer(3));
+		GUI.getInstance().add(p.getGraphic(), new Integer(3));
 	}
 
 	public void applyPowerUp(DropAttackPowerUp powerUp) {
@@ -258,7 +251,7 @@ public class Game {
 		toRemove.clear();
 		
 		//actualiza la GUI
-		gui.update(points, coins);
+		GUI.getInstance().update(points, coins);
 		
 		//si no quedan mas enemigos en el mapa y se llegó al final del juego, gana
 		if(cantEnemy == 0 && gameEnd && this.nivelActual()+1==niveles.size())
@@ -290,7 +283,7 @@ public class Game {
 			
 			//si proyectil llega a su maximo rango o ya impacto con algo, se remueve
 			if(p.isSpent() || p.maxRange()) {
-				gui.remove(p.getGraphic());
+				GUI.getInstance().remove(p.getGraphic());
 				toRemove.add(p);
 			}
 		}

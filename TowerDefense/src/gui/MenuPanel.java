@@ -32,7 +32,6 @@ import javax.swing.ImageIcon;
 @SuppressWarnings("serial")
 public class MenuPanel extends JPanel {
 	
-	private GUI Principal;
 	private static MenuPanel instance = null;
 	private JTextField pointsText, coinsText;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
@@ -47,7 +46,6 @@ public class MenuPanel extends JPanel {
 		
 		
 		
-		Principal=g;
 		this.setVisible(true);
 		this.setBounds(961, 0, 320, 720);
 		this.setLayout(null);
@@ -190,7 +188,7 @@ public class MenuPanel extends JPanel {
 				
 					
 						try {
-							Game.startNewGame(Principal);
+							Game.getInstance();
 						} catch (Exception e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
