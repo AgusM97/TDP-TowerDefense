@@ -5,6 +5,7 @@ import MapObjects.MapItemSpikeTrap;
 import ShopObjects.ShopItemBarricade;
 import ShopObjects.ShopItemHealer;
 import enemies.Enemy;
+import enemies.EnemyAerial;
 import towers.Tower;
 
 public class EnemyVisitor extends Visitor {
@@ -34,5 +35,7 @@ public class EnemyVisitor extends Visitor {
 	}
 
 	public void visit(ShopItemHealer h) {}
+
+	public void visit(EnemyAerial t) {}
 
 }

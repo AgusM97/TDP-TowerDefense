@@ -6,6 +6,7 @@ import MapObjects.MapItemSpikeTrap;
 import ShopObjects.ShopItemBarricade;
 import ShopObjects.ShopItemHealer;
 import enemies.Enemy;
+import enemies.EnemyAerial;
 import towers.Tower;
 
 public class DropAttackSpeedUpVisitor extends Visitor{
@@ -30,5 +31,7 @@ public class DropAttackSpeedUpVisitor extends Visitor{
 	public void visit(ShopItemBarricade b) {}
 
 	public void visit(ShopItemHealer h) {}
+
+	public void visit(EnemyAerial t) {}
 
 }

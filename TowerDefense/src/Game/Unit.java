@@ -9,7 +9,7 @@ import visitor.Visitor;
 public abstract class Unit extends Entity {
 	
 	protected int damage, range, life, attackSpeed;
-	protected boolean opponentInRange, isAerial;
+	protected boolean opponentInRange;
 	protected AttackThread timer;
 	
 	/**
@@ -27,7 +27,7 @@ public abstract class Unit extends Entity {
 		this.range = range;
 		this.life = life;
 		this.attackSpeed = attackSpeed;
-		opponentInRange = isAerial =false;
+		opponentInRange = false;
 	}
 
 	public abstract JLabel getGraphic();
@@ -42,13 +42,6 @@ public abstract class Unit extends Entity {
 	
 	public int getLife() {
 		return life;
-	}
-	
-	/**
-	 * @return Retorna si la unidad es aerea
-	 */
-	public boolean isAerial() {
-		return isAerial;
 	}
 
 	public void receiveDamage(int damage) {

@@ -5,11 +5,13 @@ import MapObjects.MapItemSpikeTrap;
 import ShopObjects.ShopItemBarricade;
 import ShopObjects.ShopItemHealer;
 import enemies.Enemy;
+import enemies.EnemyAerial;
 import towers.Tower;
 
 public abstract class Visitor {
 
 	public abstract void visit(Tower t);
+	public abstract void visit(EnemyAerial t);
 	public abstract void visit(Enemy t);
 	public abstract void visit(MapItemHole h);
 	public abstract void visit(MapItemSpikeTrap s);

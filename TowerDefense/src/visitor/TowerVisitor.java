@@ -5,6 +5,7 @@ import MapObjects.MapItemSpikeTrap;
 import ShopObjects.ShopItemBarricade;
 import ShopObjects.ShopItemHealer;
 import enemies.Enemy;
+import enemies.EnemyAerial;
 import towers.Tower;
 
 public class TowerVisitor extends Visitor {
@@ -18,6 +19,12 @@ public class TowerVisitor extends Visitor {
 	public void visit(Tower t) {}
 
 	public void visit(Enemy e) {
+		if(!tower.isAttacking())
+			tower.startAttacking();
+		tower.setOpponentInRange(true);
+	}
+
+	public void visit(EnemyAerial e) {
 		if(!tower.isAttacking())
 			tower.startAttacking();
 		tower.setOpponentInRange(true);

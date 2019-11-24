@@ -6,6 +6,7 @@ import Proyectile.EnemyProyectile;
 import ShopObjects.ShopItemBarricade;
 import ShopObjects.ShopItemHealer;
 import enemies.Enemy;
+import enemies.EnemyAerial;
 import towers.Tower;
 
 public class EnemyProyectileVisitor extends Visitor{
@@ -32,4 +33,6 @@ public class EnemyProyectileVisitor extends Visitor{
 	}
 
 	public void visit(ShopItemHealer h) {}
+
+	public void visit(EnemyAerial t) {}
 }

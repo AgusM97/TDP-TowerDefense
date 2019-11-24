@@ -5,6 +5,7 @@ import MapObjects.MapItemSpikeTrap;
 import ShopObjects.ShopItemBarricade;
 import ShopObjects.ShopItemHealer;
 import enemies.Enemy;
+import enemies.EnemyAerial;
 import towers.Tower;
 
 public class HoleVisitor extends Visitor {
@@ -17,13 +18,13 @@ public class HoleVisitor extends Visitor {
 	}
 
 	public void visit(Tower t) {
-		if(!t.isAerial())
-			t.receiveDamage(10000);
+		t.receiveDamage(10000);
 	}
 
+	public void visit(EnemyAerial t) {}
+
 	public void visit(Enemy t) {
-		if(!t.isAerial())
-			t.receiveDamage(10000);
+		t.receiveDamage(10000);
 	}
 
 	public void visit(MapItemHole h) {}

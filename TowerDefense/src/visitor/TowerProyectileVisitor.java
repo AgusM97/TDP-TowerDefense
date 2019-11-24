@@ -6,6 +6,7 @@ import Proyectile.TowerProyectile;
 import ShopObjects.ShopItemBarricade;
 import ShopObjects.ShopItemHealer;
 import enemies.Enemy;
+import enemies.EnemyAerial;
 import towers.Tower;
 
 public class TowerProyectileVisitor extends Visitor {
@@ -22,6 +23,11 @@ public class TowerProyectileVisitor extends Visitor {
 		p.setSpent();
 	}
 
+	public void visit(EnemyAerial t) {
+		t.receiveDamage(p.getDamage());
+		p.setSpent();
+	}
+
 	public void visit(MapItemHole h) {}
 
 	public void visit(MapItemSpikeTrap s) {}
@@ -29,5 +35,6 @@ public class TowerProyectileVisitor extends Visitor {
 	public void visit(ShopItemBarricade b) {}
 
 	public void visit(ShopItemHealer h) {}
+
 
 }
