@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.LinkedList;
+
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -34,8 +36,7 @@ public class MenuPanel extends JPanel {
 	
 	private static MenuPanel instance = null;
 	private JTextField pointsText, coinsText;
-	private final ButtonGroup buttonGroup = new ButtonGroup();
-	private final ButtonGroup buttonGroup2 = new ButtonGroup();
+	protected LinkedList<JButton> botones;
 	
 	
 	/* Panel  donde se agregan los botones y los oyentes de cada boton para realizar las tarea de compras para el
@@ -66,51 +67,20 @@ public class MenuPanel extends JPanel {
 		coinsText.setColumns(20);
 		this.add(coinsText);
 		
+		botones = new LinkedList<>();
+		
 		JPanel panelCompras = new JPanel();
 		panelCompras.setToolTipText("");
 		panelCompras.setBorder(null);
-		panelCompras.setBounds(10, 102, 293, 166);
+		panelCompras.setBounds(0, 147, 320, 221);
 		add(panelCompras);
 		panelCompras.setLayout(null);
 		
 		JLabel lblTowersSale = new JLabel("Towers Sale");
 		lblTowersSale.setForeground(Color.RED);
 		lblTowersSale.setFont(new Font("Times New Roman", Font.ITALIC, 16));
-		lblTowersSale.setBounds(81, 11, 98, 26);
+		lblTowersSale.setBounds(124, 0, 98, 26);
 		panelCompras.add(lblTowersSale);
-		
-		JRadioButton rdbtnArcher = new JRadioButton("Archer");
-		buttonGroup.add(rdbtnArcher);
-		rdbtnArcher.setBounds(36, 44, 77, 23);
-		panelCompras.add(rdbtnArcher);
-		
-		JRadioButton rdbDarkKnight = new JRadioButton("DarkKnight");
-		buttonGroup.add(rdbDarkKnight);
-		rdbDarkKnight.setBounds(172, 44, 98, 23);
-		panelCompras.add(rdbDarkKnight);
-		
-		JRadioButton rdbtnMaid = new JRadioButton("Maid");
-		buttonGroup.add(rdbtnMaid);
-		rdbtnMaid.setBounds(36, 82, 77, 23);
-		panelCompras.add(rdbtnMaid);
-		
-		JRadioButton rdbtnSorcerer = new JRadioButton("Sorcerer");
-		buttonGroup.add(rdbtnSorcerer);
-		rdbtnSorcerer.setBounds(92, 127, 92, 23);
-		panelCompras.add(rdbtnSorcerer);
-		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(52, 86, 46, 14);
-		panelCompras.add(lblNewLabel);
-		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setBounds(52, 48, 46, 14);
-		panelCompras.add(lblNewLabel_1);
-		
-		JRadioButton rdbtnPirate = new JRadioButton("Pirate");
-		rdbtnPirate.setBounds(178, 82, 92, 23);
-		panelCompras.add(rdbtnPirate);
-		buttonGroup.add(rdbtnPirate);
 		
 		JLabel labelArcher = new JLabel("");
 		labelArcher.setBounds(0, 40, 30, 27);
@@ -118,66 +88,180 @@ public class MenuPanel extends JPanel {
 		panelCompras.add(labelArcher);
 		
 		JLabel labelMaid = new JLabel("");
-		labelMaid.setBounds(0, 78, 37, 30);
+		labelMaid.setBounds(0, 89, 37, 30);
 		labelMaid.setIcon(new ImageIcon (new ImageIcon(this.getClass().getResource("/img/MaidIcon.png")).getImage().getScaledInstance(30,30, Image.SCALE_DEFAULT)));
 		panelCompras.add(labelMaid);
 		
 		JLabel labelDarkKnight = new JLabel("");
-		labelDarkKnight.setBounds(139, 40, 37, 27);
+		labelDarkKnight.setBounds(161, 40, 37, 27);
 		labelDarkKnight.setIcon(new ImageIcon (new ImageIcon(this.getClass().getResource("/img/DarkKnightIcon.png")).getImage().getScaledInstance(30,30, Image.SCALE_DEFAULT)));
 		panelCompras.add(labelDarkKnight);
 		
 		JLabel labelPirate = new JLabel("");
-		labelPirate.setBounds(139, 65, 37, 46);
+		labelPirate.setBounds(161, 77, 30, 54);
 		labelPirate.setIcon(new ImageIcon (new ImageIcon(this.getClass().getResource("/img/PirateIcon.png")).getImage().getScaledInstance(30,30, Image.SCALE_DEFAULT)));
 		panelCompras.add(labelPirate);
 		
 		JLabel lblSorcerer = new JLabel("");
-		lblSorcerer.setBounds(62, 126, 30, 24);
+		lblSorcerer.setBounds(95, 155, 30, 24);
 		lblSorcerer.setIcon(new ImageIcon (new ImageIcon(this.getClass().getResource("/img/SorcererIcon.png")).getImage().getScaledInstance(30,30, Image.SCALE_DEFAULT)));
 		panelCompras.add(lblSorcerer);
 		
-		JButton btnComprarTower = new JButton("Buy Tower Selected");
-		btnComprarTower.setEnabled(false);
-		btnComprarTower.setBounds(84, 279, 144, 31);
-		add(btnComprarTower);
-		
 		JPanel panelObjets = new JPanel();
 		panelObjets.setBorder(null);
-		panelObjets.setBounds(10, 325, 300, 153);
+		panelObjets.setBounds(0, 397, 320, 210);
 		add(panelObjets);
 		panelObjets.setLayout(null);
 		
 		JLabel lblObjetsSale = new JLabel("Objets Sale");
 		lblObjetsSale.setForeground(Color.RED);
 		lblObjetsSale.setFont(new Font("Times New Roman", Font.ITALIC, 16));
-		lblObjetsSale.setBounds(105, 11, 98, 29);
+		lblObjetsSale.setBounds(136, 11, 98, 29);
 		panelObjets.add(lblObjetsSale);
 		
-		JRadioButton rdbtnBarricade = new JRadioButton("Barricade");
-		buttonGroup2.add(rdbtnBarricade);
-		rdbtnBarricade.setBounds(36, 47, 93, 23);
-		panelObjets.add(rdbtnBarricade);
+		JButton BotonArcher = new JButton("Buy Archer");
+		BotonArcher.setEnabled(false);
+		botones.add(BotonArcher);
 		
-		JRadioButton rdbtnHealer = new JRadioButton("Healer");
-		buttonGroup2.add(rdbtnHealer);
-		rdbtnHealer.setBounds(158, 47, 80, 23);
-		panelObjets.add(rdbtnHealer);
+		JButton BotonDarkknight = new JButton("Buy DarkKnight");
+		BotonDarkknight.setEnabled(false);
+		botones.add(BotonDarkknight);
 		
-		JRadioButton rdbtnProfit = new JRadioButton("Profit");
-		buttonGroup2.add(rdbtnProfit);
-		rdbtnProfit.setBounds(36, 93, 80, 23);
-		panelObjets.add(rdbtnProfit);
+		JButton BotonMaid = new JButton("Buy Maid");
+		BotonMaid.setEnabled(false);
+		botones.add(BotonMaid);
 		
-		JRadioButton rdbtnDestroy = new JRadioButton("Destroyer");
-		buttonGroup2.add(rdbtnDestroy);
-		rdbtnDestroy.setBounds(158, 93, 80, 23);
-		panelObjets.add(rdbtnDestroy);
+		JButton BotonPirate = new JButton("Buy Pirate");
+		BotonPirate.setEnabled(false);
+		botones.add(BotonPirate);
 		
-		JButton btnComprarItem = new JButton("Buy Object Selected");
-		btnComprarItem.setEnabled(false);
-		btnComprarItem.setBounds(84, 489, 165, 40);
-		add(btnComprarItem);
+		JButton BotonSorcerer = new JButton("Buy Sorcerer");
+		BotonSorcerer.setEnabled(false);
+		botones.add(BotonSorcerer);
+		
+		JButton BotonBarricade = new JButton("Buy Barricade");
+		BotonBarricade.setEnabled(false);
+		botones.add(BotonBarricade);
+		
+		JButton BotonHealer = new JButton("Buy Healer");
+		BotonHealer.setEnabled(false);
+		botones.add(BotonHealer);
+		
+		JButton BotonProfit = new JButton("Buy Profit");
+		BotonProfit.setEnabled(false);
+		botones.add(BotonProfit);
+		
+		JButton BotonDestroyer = new JButton("Buy Destroyer");
+		BotonDestroyer.setEnabled(false);
+		botones.add(BotonDestroyer);
+		
+		
+		BotonBarricade.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				if (Game.getInstance().getCoins()>=20) {
+					deshabilitarBotones();
+					
+					MapPanel.getInstance().addMouseListener( new MouseAdapter() {
+					    public void mousePressed(MouseEvent e) {
+							Game.getInstance().subCoins(20);
+					        Game.getInstance().addUnit(new ShopItemBarricade(e.getX() / 80, e.getY() / 80));
+					        
+							MapPanel.getInstance().removeMouseListener(this);
+							habilitarBotones();
+					    }
+					});
+				}
+				if (Game.getInstance().getCoins()<20) {
+					
+					JOptionPane.showMessageDialog(null, "No hay suficiente dinero");					
+				}
+			}
+		});
+		BotonBarricade.setBounds(125, 43, 121, 23);
+		panelObjets.add(BotonBarricade);
+		
+		//JButton BotonHealer = new JButton("Buy Healer");
+		//BotonHealer.setEnabled(false);
+		BotonHealer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				if (Game.getInstance().getCoins()>=50) {
+					deshabilitarBotones();
+					
+					MapPanel.getInstance().addMouseListener( new MouseAdapter() {
+					    public void mousePressed(MouseEvent e) {
+							Game.getInstance().subCoins(50);
+					        Game.getInstance().addUnit(new ShopItemHealer(e.getX() / 80, e.getY() / 80));
+					        
+							MapPanel.getInstance().removeMouseListener(this);
+							habilitarBotones();
+					    }
+					});
+				}
+				if (Game.getInstance().getCoins()<50) {
+					
+					JOptionPane.showMessageDialog(null, "No hay suficiente dinero");					
+				}
+			}
+		});
+		BotonHealer.setBounds(125, 77, 121, 23);
+		panelObjets.add(BotonHealer);
+		
+		//JButton BotonProfit = new JButton("Buy Profit");
+		//BotonProfit.setEnabled(false);
+		BotonProfit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				if (Game.getInstance().getCoins() >= 100) {
+					ShopItemProfit.profitOrNot();
+				}
+				if (Game.getInstance().getCoins() < 100) {
+					
+					JOptionPane.showMessageDialog(null, "No hay suficiente dinero");					
+				}
+			}
+		});
+		BotonProfit.setBounds(127, 111, 119, 23);
+		panelObjets.add(BotonProfit);
+		
+		//JButton BotonDestroyer = new JButton("Buy Destroyer");
+		//BotonDestroyer.setEnabled(false);
+		BotonDestroyer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				if (Game.getInstance().getCoins() >= 200) {
+					Game.getInstance().subCoins(200);
+					ShopItemDestroyer.destroy();
+				}
+				if (Game.getInstance().getCoins() < 200) {
+					
+					JOptionPane.showMessageDialog(null, "No hay suficiente dinero");					
+				}
+			}
+		});
+		BotonDestroyer.setBounds(125, 145, 121, 23);
+		panelObjets.add(BotonDestroyer);
+		
+		JLabel labelBarricade = new JLabel("");
+		labelBarricade.setIcon(new ImageIcon (new ImageIcon(this.getClass().getResource("/img/CorpsePile.png")).getImage().getScaledInstance(30,30, Image.SCALE_DEFAULT)));
+		labelBarricade.setBounds(75, 30, 30, 44);
+		panelObjets.add(labelBarricade);
+		
+		JLabel labelHealer = new JLabel("");
+		labelHealer.setIcon(new ImageIcon (new ImageIcon(this.getClass().getResource("/img/ShopItems_Heal.png")).getImage().getScaledInstance(30,30, Image.SCALE_DEFAULT)));
+		labelHealer.setBounds(75, 71, 30, 29);
+		panelObjets.add(labelHealer);
+		
+		JLabel labelProfit = new JLabel("");
+		labelProfit.setIcon(new ImageIcon (new ImageIcon(this.getClass().getResource("/img/ShopItem_Profit.png")).getImage().getScaledInstance(30,30, Image.SCALE_DEFAULT)));
+		labelProfit.setBounds(75, 105, 46, 29);
+		panelObjets.add(labelProfit);
+		
+		JLabel labelDestroyer = new JLabel("");
+		labelDestroyer.setIcon(new ImageIcon (new ImageIcon(this.getClass().getResource("/img/ShopItem_Destroyer.png")).getImage().getScaledInstance(30,30, Image.SCALE_DEFAULT)));
+		labelDestroyer.setBounds(75, 139, 46, 29);
+		panelObjets.add(labelDestroyer);
 		
 		JButton btnComenzar = new JButton("Start Game");
 		btnComenzar.setForeground(Color.RED);
@@ -197,8 +281,17 @@ public class MenuPanel extends JPanel {
 				
 				
 				btnComenzar.setEnabled(false);
-				btnComprarTower.setEnabled(true);
-				btnComprarItem.setEnabled(true);
+				BotonArcher.setEnabled(true);
+				BotonDarkknight.setEnabled(true);
+				BotonMaid.setEnabled(true);
+				BotonPirate.setEnabled(true);
+				BotonSorcerer.setEnabled(true);
+				BotonBarricade.setEnabled(true);
+				BotonHealer.setEnabled(true);
+				BotonProfit.setEnabled(true);
+				BotonDestroyer.setEnabled(true);
+				
+				
 			}
 		});
 		btnComenzar.setBounds(24, 22, 133, 23);
@@ -214,172 +307,132 @@ public class MenuPanel extends JPanel {
 		btnTerminar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnTerminar.setBounds(165, 22, 131, 23);
 		add(btnTerminar);
-		
-		btnComprarTower.addActionListener(new ActionListener() {
+		//JButton BotonArcher = new JButton("Buy Archer");
+		BotonArcher.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				
-				//Archer
-				if ((rdbtnArcher.isSelected()) && (Game.getInstance().getCoins() >= (new Archer(0,0).getCost()))) {
-					btnComprarTower.setEnabled(false);
-					btnComprarItem.setEnabled(false);
+				if (Game.getInstance().getCoins() >= (new Archer(0,0).getCost())) {
+					deshabilitarBotones();
+					
 					MapPanel.getInstance().addMouseListener( new MouseAdapter() {
 					    public void mousePressed(MouseEvent e) {
 					        Game.getInstance().addTower(new Archer(e.getX() / 80, e.getY() / 80));
-					        btnComprarTower.setEnabled(true);
-					        btnComprarItem.setEnabled(true);
-							MapPanel.getInstance().removeMouseListener(this);
+					        MapPanel.getInstance().removeMouseListener(this);
+					        habilitarBotones();
 					    }
 					});
 				}
-				if ((rdbtnArcher.isSelected()) && (Game.getInstance().getCoins()<(new Archer(0,0).getCost()))) {
+				if (Game.getInstance().getCoins()<(new Archer(0,0).getCost())) {
 					
 					JOptionPane.showMessageDialog(null, "No hay suficiente dinero");					
 				}
+			}
+		});
+		BotonArcher.setBounds(40, 40, 98, 23);
+		panelCompras.add(BotonArcher);
+		
+		//JButton BotonDarkknight = new JButton("Buy DarkKnight");
+		BotonDarkknight.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				
-				//Dark Knight
-				if ((rdbDarkKnight.isSelected()) && (Game.getInstance().getCoins()>=(new DarkKnight(0,0).getCost()))) {
-					btnComprarTower.setEnabled(false);
-					btnComprarItem.setEnabled(false);
+				if (Game.getInstance().getCoins()>=(new DarkKnight(0,0).getCost())) {
+					deshabilitarBotones();
 					MapPanel.getInstance().addMouseListener( new MouseAdapter() {
 					    public void mousePressed(MouseEvent e) {
 					        Game.getInstance().addTower(new DarkKnight(e.getX() / 80, e.getY() / 80));
-					        btnComprarTower.setEnabled(true);
-					        btnComprarItem.setEnabled(true);
-							MapPanel.getInstance().removeMouseListener(this);
+					       	MapPanel.getInstance().removeMouseListener(this);
+					       	habilitarBotones();
 					    }
 					});
 				}
-				if ((rdbDarkKnight.isSelected()) && (Game.getInstance().getCoins()<(new DarkKnight(0,0).getCost()))) {
+				if (Game.getInstance().getCoins()<(new DarkKnight(0,0).getCost())) {
 					
 					JOptionPane.showMessageDialog(null, "No hay suficiente dinero");					
 				}
+			}
+		});
+		BotonDarkknight.setBounds(198, 40, 122, 23);
+		panelCompras.add(BotonDarkknight);
+		
+		//JButton BotonMaid = new JButton("Buy Maid");
+		BotonMaid.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				
-				//Maid
-				if ((rdbtnMaid.isSelected()) && (Game.getInstance().getCoins()>=(new Maid(0,0).getCost()))) {
-					btnComprarTower.setEnabled(false);
-					btnComprarItem.setEnabled(false);
+				if (Game.getInstance().getCoins()>=(new Maid(0,0).getCost())) {
+					deshabilitarBotones();
+					
 					MapPanel.getInstance().addMouseListener( new MouseAdapter() {
 					    public void mousePressed(MouseEvent e) {
 					        Game.getInstance().addTower(new Maid(e.getX() / 80, e.getY() / 80));
-					        btnComprarTower.setEnabled(true);
-					        btnComprarItem.setEnabled(true);
+					        
 							MapPanel.getInstance().removeMouseListener(this);
+							habilitarBotones();
 					    }
 					});
 				}
-				if ((rdbtnMaid.isSelected()) && (Game.getInstance().getCoins()<(new Maid(0,0).getCost()))) {
+				if (Game.getInstance().getCoins()<(new Maid(0,0).getCost())) {
 					
 					JOptionPane.showMessageDialog(null, "No hay suficiente dinero");					
 				}
+			}
+		});
+		BotonMaid.setBounds(49, 96, 87, 23);
+		panelCompras.add(BotonMaid);
+		
+		//JButton BotonPirate = new JButton("Buy Pirate");
+		BotonPirate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				if (Game.getInstance().getCoins()>=(new Pirate(0,0).getCost())) {
+					deshabilitarBotones();
 					
-				//Pirate
-				if ((rdbtnPirate.isSelected()) && (Game.getInstance().getCoins()>=(new Pirate(0,0).getCost()))) {
-					btnComprarTower.setEnabled(false);
-					btnComprarItem.setEnabled(false);
 					MapPanel.getInstance().addMouseListener( new MouseAdapter() {
 					    public void mousePressed(MouseEvent e) {
 					        Game.getInstance().addTower(new Pirate(e.getX() / 80, e.getY() / 80));
-					        btnComprarTower.setEnabled(true);
-					        btnComprarItem.setEnabled(true);
+					        
 							MapPanel.getInstance().removeMouseListener(this);
+							habilitarBotones();
 					    }
 					});
 				}
-				if ((rdbtnPirate.isSelected()) && (Game.getInstance().getCoins()<(new Pirate(0,0).getCost()))) {
+				if (Game.getInstance().getCoins()<(new Pirate(0,0).getCost())) {
 					
 					JOptionPane.showMessageDialog(null, "No hay suficiente dinero");					
 				}
+			}
+		});
+		BotonPirate.setBounds(214, 96, 96, 23);
+		panelCompras.add(BotonPirate);
+		
+		//JButton BotonSorcerer = new JButton("Buy Sorcerer");
+		BotonSorcerer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				
-				//Sorcerer
-				if ((rdbtnSorcerer.isSelected()) && (Game.getInstance().getCoins()>=(new Sorcerer(0,0).getCost()))) {
-					btnComprarTower.setEnabled(false);
-					btnComprarItem.setEnabled(false);
+				if (Game.getInstance().getCoins()>=(new Sorcerer(0,0).getCost())) {
+					deshabilitarBotones();
+					
 					MapPanel.getInstance().addMouseListener( new MouseAdapter() {
 					    public void mousePressed(MouseEvent e) {
 					        Game.getInstance().addTower(new Sorcerer(e.getX() / 80, e.getY() / 80));
-					        btnComprarTower.setEnabled(true);
-					        btnComprarItem.setEnabled(true);
+					        
 							MapPanel.getInstance().removeMouseListener(this);
+							habilitarBotones();
 					    }
 					});
 				}
-				if ((rdbtnSorcerer.isSelected()) && (Game.getInstance().getCoins()<(new Sorcerer(0,0).getCost()))) {
-					
-					JOptionPane.showMessageDialog(null, "No hay suficiente dinero");					
-				}
-								
-								
-				
-			
-				
-			}
-		});
-		
-		btnComprarItem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				//Barricade
-				if ((rdbtnBarricade.isSelected()) && (Game.getInstance().getCoins()>=20)) {
-					btnComprarTower.setEnabled(false);
-					btnComprarItem.setEnabled(false);
-					MapPanel.getInstance().addMouseListener( new MouseAdapter() {
-					    public void mousePressed(MouseEvent e) {
-							Game.getInstance().subCoins(20);
-					        Game.getInstance().addUnit(new ShopItemBarricade(e.getX() / 80, e.getY() / 80));
-					        btnComprarTower.setEnabled(true);
-					        btnComprarItem.setEnabled(true);
-							MapPanel.getInstance().removeMouseListener(this);
-					    }
-					});
-				}
-				if ((rdbtnBarricade.isSelected()) && (Game.getInstance().getCoins()<20)) {
-					
-					JOptionPane.showMessageDialog(null, "No hay suficiente dinero");					
-				}
-					
-				//Profit
-				if ((rdbtnProfit.isSelected())  && (Game.getInstance().getCoins() >= 100)) {
-					ShopItemProfit.profitOrNot();
-				}
-				if ((rdbtnProfit.isSelected()) && (Game.getInstance().getCoins() < 100)) {
-					
-					JOptionPane.showMessageDialog(null, "No hay suficiente dinero");					
-				}
-					
-				//Healer
-				if ((rdbtnHealer.isSelected()) && (Game.getInstance().getCoins()>=50)) {
-					btnComprarTower.setEnabled(false);
-					btnComprarItem.setEnabled(false);
-					MapPanel.getInstance().addMouseListener( new MouseAdapter() {
-					    public void mousePressed(MouseEvent e) {
-							Game.getInstance().subCoins(50);
-					        Game.getInstance().addUnit(new ShopItemHealer(e.getX() / 80, e.getY() / 80));
-					        btnComprarTower.setEnabled(true);
-					        btnComprarItem.setEnabled(true);
-							MapPanel.getInstance().removeMouseListener(this);
-					    }
-					});
-				}
-				if ((rdbtnHealer.isSelected()) && (Game.getInstance().getCoins()<50)) {
-					
-					JOptionPane.showMessageDialog(null, "No hay suficiente dinero");					
-				}
-				
-				//Destroyer
-				if ((rdbtnDestroy.isSelected())  && (Game.getInstance().getCoins() >= 200)) {
-					Game.getInstance().subCoins(200);
-					ShopItemDestroyer.destroy();
-				}
-				if ((rdbtnDestroy.isSelected()) && (Game.getInstance().getCoins() < 200)) {
+				if (Game.getInstance().getCoins()<(new Sorcerer(0,0).getCost())) {
 					
 					JOptionPane.showMessageDialog(null, "No hay suficiente dinero");					
 				}
 			}
 		});
+		BotonSorcerer.setBounds(131, 155, 111, 23);
+		panelCompras.add(BotonSorcerer);
 		
 		
 			}
+	
+	
 
 	public static MenuPanel getInstance(GUI g) {
 		if(instance == null)
@@ -395,5 +448,19 @@ public class MenuPanel extends JPanel {
 	public void setCoins(int coins) {
 		coinsText.setText("Coins: "+ coins);
 		
+	}
+	
+	protected void deshabilitarBotones() {
+		
+		for (JButton boton:botones) {
+			boton.setEnabled(false);
+		}
+	}
+	
+	protected void habilitarBotones() {
+		
+		for(JButton boton:botones) {
+			boton.setEnabled(true);
+		}
 	}
 }
