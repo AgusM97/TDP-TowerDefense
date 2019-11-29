@@ -20,14 +20,12 @@ import towers.DarkKnight;
 import towers.Maid;
 import towers.Pirate;
 import towers.Sorcerer;
-import javax.swing.JRadioButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
 import java.awt.Image;
 
-import javax.swing.ButtonGroup;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 
@@ -172,7 +170,7 @@ public class MenuPanel extends JPanel {
 					    }
 					});
 				}
-				if (Game.getInstance().getCoins()<20) {
+				else if (Game.getInstance().getCoins()<20) {
 					
 					JOptionPane.showMessageDialog(null, "No hay suficiente dinero");					
 				}
@@ -199,7 +197,7 @@ public class MenuPanel extends JPanel {
 					    }
 					});
 				}
-				if (Game.getInstance().getCoins()<50) {
+				else if (Game.getInstance().getCoins()<50) {
 					
 					JOptionPane.showMessageDialog(null, "No hay suficiente dinero");					
 				}
@@ -216,7 +214,7 @@ public class MenuPanel extends JPanel {
 				if (Game.getInstance().getCoins() >= 100) {
 					ShopItemProfit.profitOrNot();
 				}
-				if (Game.getInstance().getCoins() < 100) {
+				else if (Game.getInstance().getCoins() < 100) {
 					
 					JOptionPane.showMessageDialog(null, "No hay suficiente dinero");					
 				}
@@ -234,7 +232,7 @@ public class MenuPanel extends JPanel {
 					Game.getInstance().subCoins(200);
 					ShopItemDestroyer.destroy();
 				}
-				if (Game.getInstance().getCoins() < 200) {
+				else if (Game.getInstance().getCoins() < 200) {
 					
 					JOptionPane.showMessageDialog(null, "No hay suficiente dinero");					
 				}
@@ -322,7 +320,7 @@ public class MenuPanel extends JPanel {
 					    }
 					});
 				}
-				if (Game.getInstance().getCoins()<(new Archer(0,0).getCost())) {
+				else if (Game.getInstance().getCoins()<(new Archer(0,0).getCost())) {
 					
 					JOptionPane.showMessageDialog(null, "No hay suficiente dinero");					
 				}
@@ -345,7 +343,7 @@ public class MenuPanel extends JPanel {
 					    }
 					});
 				}
-				if (Game.getInstance().getCoins()<(new DarkKnight(0,0).getCost())) {
+				else if (Game.getInstance().getCoins()<(new DarkKnight(0,0).getCost())) {
 					
 					JOptionPane.showMessageDialog(null, "No hay suficiente dinero");					
 				}
@@ -370,7 +368,7 @@ public class MenuPanel extends JPanel {
 					    }
 					});
 				}
-				if (Game.getInstance().getCoins()<(new Maid(0,0).getCost())) {
+				else if (Game.getInstance().getCoins()<(new Maid(0,0).getCost())) {
 					
 					JOptionPane.showMessageDialog(null, "No hay suficiente dinero");					
 				}
@@ -395,7 +393,7 @@ public class MenuPanel extends JPanel {
 					    }
 					});
 				}
-				if (Game.getInstance().getCoins()<(new Pirate(0,0).getCost())) {
+				else if (Game.getInstance().getCoins()<(new Pirate(0,0).getCost())) {
 					
 					JOptionPane.showMessageDialog(null, "No hay suficiente dinero");					
 				}
@@ -420,7 +418,7 @@ public class MenuPanel extends JPanel {
 					    }
 					});
 				}
-				if (Game.getInstance().getCoins()<(new Sorcerer(0,0).getCost())) {
+				else if (Game.getInstance().getCoins()<(new Sorcerer(0,0).getCost())) {
 					
 					JOptionPane.showMessageDialog(null, "No hay suficiente dinero");					
 				}
